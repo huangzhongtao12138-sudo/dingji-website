@@ -1,0 +1,15 @@
+.DS_Store
+*.zip
+work/
+node_modules/
+.vercel/
+outputs/*.html
+outputs/*.svg
+outputs/*.md
+!outputs/index.html
+!outputs/dingji-homepage-preview.html
+!outputs/dingji-about.html
+!outputs/dingji-cases.html
+!outputs/dingji-service.html
+!outputs/dingji-careers.html
+!outputs/dingji-honors.html

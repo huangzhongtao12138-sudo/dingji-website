@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>关于鼎基装饰｜工厂体系与空间工程能力</title>
+  <meta name="description" content="了解南京鼎基装饰工程有限公司的发展历程、现代化生产基地、工厂体系、荣誉资质与连锁商业空间一体化交付能力。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.djzhuangshi.com/dingji-about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="鼎基装饰">
+  <meta property="og:title" content="关于鼎基装饰｜工厂体系与空间工程能力">
+  <meta property="og:description" content="鼎基装饰始建于1998年，长期服务连锁商业空间与品牌门店建设。">
+  <meta property="og:url" content="https://www.djzhuangshi.com/dingji-about.html">
+  <meta name="theme-color" content="#f30700">
+  <style>
+    :root {
+      --red: #f30700;
+      --red-deep: #b80000;
+      --ink: #171815;
+      --muted: rgba(23,24,21,.58);
+      --paper: #f4f3ea;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 12%, rgba(243,7,0,.08), transparent 30%),
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,.92), transparent 34%),
+        linear-gradient(135deg, #eeede4 0%, #fbfaf4 48%, #e6e3d6 100%);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        radial-gradient(circle, rgba(23,24,21,.28) 0 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,.8) 0 1px, transparent 1px);
+      background-size: 6px 6px, 13px 13px;
+      mix-blend-mode: multiply;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .nav {
+      position: fixed;
+      z-index: 50;
+      left: clamp(18px, 3vw, 54px);
+      right: clamp(18px, 3vw, 54px);
+      top: clamp(16px, 3vh, 34px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: clamp(16px, 2vw, 34px);
+      pointer-events: none;
+    }
+    .brand,
+    .nav-links,
+    .nav-pill {
+      pointer-events: auto;
+      backdrop-filter: blur(22px) saturate(1.2);
+      -webkit-backdrop-filter: blur(22px) saturate(1.2);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 64px;
+      padding: 7px 22px 7px 8px;
+      border: 1px solid rgba(255,255,255,.82);
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(255,255,255,.42));
+      box-shadow: 0 20px 60px rgba(32,33,29,.12), inset 0 1px 0 rgba(255,255,255,.92);
+    }
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      overflow: hidden;
+    }
+    .brand-mark img { width: 92%; height: 92%; object-fit: contain; }
+    .brand-name strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 880;
+      letter-spacing: -.04em;
+    }
+    .brand-name span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(23,24,21,.55);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      position: relative;
+      justify-self: center;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 7px;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(255,255,255,.74), rgba(255,255,255,.36));
+      box-shadow: 0 22px 64px rgba(32,33,29,.11), inset 0 1px 0 rgba(255,255,255,.9);
+      overflow: hidden;
+    }
+    .liquid-thumb,
+    .liquid-trail {
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      transform: translate3d(var(--x, 7px), var(--y, 7px), 0);
+    }
+    .liquid-thumb {
+      width: var(--w, 84px);
+      height: var(--h, 42px);
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255,255,255,.98), transparent 35%),
+        linear-gradient(145deg, rgba(255,255,255,.94), rgba(255,255,255,.4));
+      box-shadow: 0 12px 32px rgba(32,33,29,.11), inset 0 0 0 1px rgba(255,255,255,.8);
+      transition: transform .52s var(--ease), width .52s var(--ease), height .52s var(--ease);
+    }
+    .liquid-trail {
+      width: calc(var(--w, 84px) * 1.18);
+      height: calc(var(--h, 42px) * 1.08);
+      opacity: .44;
+      background: rgba(255,255,255,.4);
+      filter: blur(12px);
+      transition: transform .68s var(--ease), width .68s var(--ease), height .68s var(--ease);
+    }
+    .nav-links a {
+      position: relative;
+      z-index: 1;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 clamp(14px, 1.45vw, 28px);
+      border-radius: 999px;
+      color: rgba(23,24,21,.62);
+      font-size: clamp(13px, .92vw, 16px);
+      font-weight: 800;
+      white-space: nowrap;
+      transition: color .28s var(--ease), transform .28s var(--ease);
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--red-deep);
+      transform: translateY(-1px);
+    }
+    .nav-pill {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid rgba(255,255,255,.74);
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(255,255,255,.74), rgba(255,255,255,.36));
+      color: rgba(23,24,21,.62);
+      font-size: 14px;
+      font-weight: 760;
+      white-space: nowrap;
+      box-shadow: 0 18px 48px rgba(32,33,29,.1), inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .nav-pill i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 18px rgba(243,7,0,.5);
+    }
+    main {
+      position: relative;
+      isolation: isolate;
+    }
+    .shape {
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,.72);
+      background: linear-gradient(145deg, rgba(255,255,255,.5), rgba(255,255,255,.12));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transform:
+        translate3d(calc(var(--mx, 0) * var(--dx, 40px)), calc(var(--my, 0) * var(--dy, 30px)), 0)
+        rotate(var(--r, -10deg));
+      transition: transform .16s linear;
+    }
+    .shape.one {
+      width: clamp(220px, 20vw, 390px);
+      height: clamp(104px, 9vw, 176px);
+      right: 8%;
+      top: 15%;
+      border-radius: 999px;
+      --dx: -70px;
+      --dy: 32px;
+      --r: -11deg;
+    }
+    .shape.two {
+      width: clamp(130px, 12vw, 230px);
+      height: clamp(130px, 12vw, 230px);
+      left: 7%;
+      bottom: 10%;
+      border-radius: 36px;
+      --dx: 46px;
+      --dy: -46px;
+      --r: 16deg;
+    }
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(500px, .92fr) minmax(520px, 1.08fr);
+      align-items: end;
+      gap: clamp(34px, 6vw, 118px);
+      padding: clamp(138px, 18vh, 190px) clamp(24px, 5vw, 82px) clamp(54px, 8vh, 86px);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: clamp(14px, 1.7vw, 28px);
+      color: rgba(23,24,21,.58);
+      font-size: clamp(14px, 1vw, 17px);
+      font-weight: 860;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    .eyebrow::before {
+      content: "";
+      width: clamp(48px, 5vw, 96px);
+      height: 4px;
+      border-radius: 999px;
+      background: var(--red);
+    }
+    h1 {
+      margin: clamp(20px, 2.6vh, 34px) 0 0;
+      color: rgba(19,20,17,.96);
+      font-size: clamp(4.2rem, 7.8vw, 10.4rem);
+      line-height: .86;
+      letter-spacing: -.055em;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.15px rgba(23,24,21,.24);
+      text-stroke: 1.15px rgba(23,24,21,.24);
+      white-space: nowrap;
+    }
+    .hero-text {
+      max-width: 780px;
+      color: rgba(23,24,21,.68);
+      font-size: clamp(1rem, 1.16vw, 1.42rem);
+      line-height: 1.68;
+      font-weight: 680;
+    }
+    .hero-text strong {
+      display: block;
+      margin-bottom: 18px;
+      color: rgba(23,24,21,.94);
+      font-size: clamp(1.2rem, 1.55vw, 2rem);
+      line-height: 1.3;
+      letter-spacing: -.025em;
+    }
+    .hero-text span {
+      display: block;
+      white-space: nowrap;
+    }
+    .hero-text span + span {
+      margin-top: .22em;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(23,24,21,.1);
+      background: rgba(255,255,255,.72);
+      color: rgba(23,24,21,.86);
+      font-size: 15px;
+      font-weight: 860;
+      white-space: nowrap;
+      box-shadow: 0 18px 48px rgba(32,33,29,.08), inset 0 1px 0 rgba(255,255,255,.86);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: transform .28s var(--ease), color .28s var(--ease), background .28s var(--ease);
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      color: var(--red-deep);
+      background: rgba(255,255,255,.9);
+    }
+    .btn.primary {
+      color: #fff;
+      border-color: rgba(243,7,0,.2);
+      background: linear-gradient(135deg, var(--red), var(--red-deep));
+      box-shadow: 0 24px 58px rgba(243,7,0,.2);
+    }
+    .btn.primary:hover { color: #fff; }
+    .overview-card {
+      position: relative;
+      padding: clamp(24px, 2.7vw, 46px);
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: clamp(36px, 3.5vw, 66px);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.68), rgba(255,255,255,.3)),
+        radial-gradient(circle at var(--card-x, 54%) var(--card-y, 36%), rgba(255,255,255,.82), transparent 32%),
+        radial-gradient(circle at 88% 100%, rgba(243,7,0,.08), transparent 36%);
+      box-shadow:
+        0 44px 130px rgba(32,33,29,.13),
+        inset 0 1px 0 rgba(255,255,255,.92),
+        inset 0 -42px 84px rgba(32,33,29,.055);
+      backdrop-filter: blur(30px) saturate(1.22);
+      -webkit-backdrop-filter: blur(30px) saturate(1.22);
+      transform:
+        perspective(1200px)
+        rotateX(calc(var(--my, 0) * -2.4deg))
+        rotateY(calc(var(--mx, 0) * 3deg));
+      transition: transform .16s linear;
+    }
+    .overview-card h2 {
+      margin: 0;
+      color: rgba(23,24,21,.92);
+      font-size: clamp(1.4rem, 1.8vw, 2.3rem);
+      letter-spacing: -.035em;
+    }
+    .metric-grid {
+      display: grid;
+      gap: clamp(12px, 1vw, 18px);
+      margin-top: clamp(18px, 2vw, 28px);
+    }
+    .metric {
+      min-height: clamp(74px, 5.8vw, 104px);
+      display: grid;
+      grid-template-columns: minmax(140px, .42fr) 1fr;
+      align-items: center;
+      gap: clamp(16px, 2vw, 28px);
+      padding: clamp(14px, 1.5vw, 22px) clamp(18px, 1.8vw, 28px);
+      border-radius: clamp(22px, 2vw, 34px);
+      border: 1px solid rgba(23,24,21,.08);
+      background: rgba(255,255,255,.54);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.84);
+    }
+    .metric b {
+      color: rgba(23,24,21,.9);
+      font-size: clamp(2.2rem, 3.5vw, 4.5rem);
+      line-height: .9;
+      letter-spacing: -.055em;
+      white-space: nowrap;
+    }
+    .metric span {
+      color: rgba(23,24,21,.62);
+      font-size: clamp(.9rem, 1vw, 1.12rem);
+      line-height: 1.55;
+      font-weight: 720;
+    }
+    .section {
+      width: min(1680px, 100%);
+      margin: 0 auto;
+      padding: clamp(68px, 10vh, 120px) clamp(24px, 5vw, 82px);
+    }
+    .section-title {
+      display: grid;
+      grid-template-columns: minmax(360px, .66fr) minmax(420px, 1fr);
+      gap: clamp(26px, 5vw, 90px);
+      align-items: end;
+      margin-bottom: clamp(30px, 5vh, 60px);
+    }
+    .section-title h2 {
+      margin: 0;
+      color: rgba(23,24,21,.95);
+      font-size: clamp(3.2rem, 6vw, 8rem);
+      line-height: .86;
+      letter-spacing: -.06em;
+      white-space: nowrap;
+    }
+    .section-title h2 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.05px rgba(23,24,21,.24);
+      text-stroke: 1.05px rgba(23,24,21,.24);
+    }
+    .section-title p {
+      margin: 0;
+      color: rgba(23,24,21,.62);
+      font-size: clamp(1rem, 1.18vw, 1.42rem);
+      line-height: 1.7;
+      font-weight: 680;
+    }
+    .section-title p span {
+      display: block;
+      white-space: nowrap;
+    }
+    .factory-board,
+    .honor-board {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.76);
+      border-radius: clamp(34px, 3vw, 58px);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.34)),
+        radial-gradient(circle at 85% 100%, rgba(243,7,0,.08), transparent 38%);
+      box-shadow: 0 38px 110px rgba(32,33,29,.11), inset 0 1px 0 rgba(255,255,255,.92);
+      overflow: hidden;
+    }
+    .factory-board {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: clamp(20px, 2.4vw, 40px);
+      padding: clamp(22px, 2.5vw, 42px);
+    }
+    .factory-visual {
+      min-height: clamp(340px, 32vw, 560px);
+      position: relative;
+      border-radius: clamp(26px, 2.4vw, 44px);
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, #dac18d, #f4e6b9 42%, #6a4630 43% 48%, #f2dc9a 49% 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -34px 80px rgba(23,24,21,.18);
+    }
+    .factory-visual::before {
+      content: "";
+      position: absolute;
+      inset: 12% 8%;
+      background:
+        repeating-linear-gradient(90deg, rgba(23,24,21,.22) 0 10px, transparent 10px 48px),
+        repeating-linear-gradient(0deg, transparent 0 56px, rgba(255,255,255,.48) 56px 60px);
+      border: 1px solid rgba(255,255,255,.62);
+      border-radius: 24px;
+    }
+    .factory-visual::after {
+      content: "FACTORY SYSTEM";
+      position: absolute;
+      left: clamp(20px, 2vw, 34px);
+      bottom: clamp(20px, 2vw, 34px);
+      color: rgba(255,255,255,.92);
+      font-size: clamp(1.35rem, 2.5vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      text-shadow: 0 18px 44px rgba(0,0,0,.28);
+    }
+    .factory-copy {
+      align-self: center;
+      display: grid;
+      gap: clamp(14px, 1.2vw, 20px);
+    }
+    .capability {
+      min-height: 92px;
+      padding: clamp(18px, 1.7vw, 26px);
+      border-radius: clamp(22px, 2vw, 34px);
+      border: 1px solid rgba(23,24,21,.08);
+      background: rgba(255,255,255,.52);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.82);
+    }
+    .capability b {
+      display: block;
+      color: rgba(23,24,21,.92);
+      font-size: clamp(1.05rem, 1.25vw, 1.45rem);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+    }
+    .capability span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(23,24,21,.58);
+      font-size: clamp(.88rem, .98vw, 1.04rem);
+      line-height: 1.55;
+      font-weight: 680;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: clamp(14px, 1.3vw, 22px);
+    }
+    .service-card {
+      min-height: clamp(170px, 14vw, 240px);
+      padding: clamp(18px, 1.7vw, 26px);
+      border-radius: clamp(24px, 2vw, 36px);
+      border: 1px solid rgba(255,255,255,.72);
+      background: linear-gradient(145deg, rgba(255,255,255,.7), rgba(255,255,255,.34));
+      box-shadow: 0 26px 70px rgba(32,33,29,.09), inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .service-card b {
+      color: var(--red);
+      font-size: 13px;
+      letter-spacing: .12em;
+    }
+    .service-card h3 {
+      margin: clamp(28px, 3vw, 50px) 0 0;
+      color: rgba(23,24,21,.92);
+      font-size: clamp(1.2rem, 1.55vw, 2rem);
+      line-height: 1.1;
+      letter-spacing: -.045em;
+      white-space: nowrap;
+    }
+    .service-card p {
+      margin: 12px 0 0;
+      color: rgba(23,24,21,.56);
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 660;
+    }
+    .honor-board {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 28px;
+      padding: clamp(32px, 4vw, 68px);
+    }
+    .honor-board h2 {
+      margin: 0;
+      color: rgba(23,24,21,.96);
+      font-size: clamp(3.2rem, 6.5vw, 9rem);
+      line-height: .86;
+      letter-spacing: -.06em;
+      white-space: nowrap;
+    }
+    .honor-board h2 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.1px rgba(23,24,21,.24);
+      text-stroke: 1.1px rgba(23,24,21,.24);
+    }
+    .honor-board p {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: rgba(23,24,21,.62);
+      font-size: clamp(1rem, 1.15vw, 1.36rem);
+      line-height: 1.7;
+      font-weight: 680;
+    }
+    footer {
+      padding: 38px clamp(24px, 5vw, 80px) 54px;
+      color: rgba(23,24,21,.48);
+      font-size: 13px;
+      font-weight: 680;
+      text-align: center;
+    }
+    @media (max-width: 1180px) {
+      .nav { grid-template-columns: auto 1fr; }
+      .nav-pill { display: none; }
+      .hero,
+      .section-title,
+      .factory-board,
+      .honor-board {
+        grid-template-columns: 1fr;
+      }
+      .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 760px) {
+      .nav {
+        left: 14px;
+        right: 14px;
+        top: 12px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .brand { min-height: 54px; padding-right: 14px; }
+      .brand-mark { width: 44px; height: 44px; }
+      .brand-name strong { font-size: 15px; }
+      .brand-name span { font-size: 9px; }
+      .nav-links {
+        max-width: 54vw;
+        overflow-x: auto;
+      }
+      .nav-links a {
+        min-height: 36px;
+        padding-inline: 12px;
+        font-size: 12px;
+      }
+      .hero {
+        padding: 96px 16px 38px;
+        gap: 24px;
+      }
+      h1 {
+        font-size: clamp(3.2rem, 13.5vw, 5.6rem);
+      }
+      .hero-text span,
+      .section-title p span {
+        white-space: normal;
+      }
+      .section {
+        padding: 54px 16px;
+      }
+      .section-title h2,
+      .honor-board h2 {
+        white-space: normal;
+      }
+      .metric {
+        grid-template-columns: 1fr;
+      }
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/#home" aria-label="鼎基装饰官网首页">
+      <span class="brand-mark"><img src="site-assets/dingji-logo-final-06.svg" alt=""></span>
+      <span class="brand-name"><strong>鼎基装饰</strong><span>Top Decoration</span></span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <span class="liquid-trail" aria-hidden="true"></span>
+      <span class="liquid-thumb" aria-hidden="true"></span>
+      <a href="/#home">首页</a>
+      <a class="active" href="dingji-about.html">关于我们</a>
+      <a href="dingji-cases.html">业务案例</a>
+      <a href="dingji-service.html">客户服务</a>
+      <a href="dingji-careers.html">加入我们</a>
+      <a href="/#contact">联系我们</a>
+    </nav>
+    <span class="nav-pill"><i></i> 连锁商业空间一体化交付</span>
+  </header>
+
+  <main>
+    <span class="shape one" aria-hidden="true"></span>
+    <span class="shape two" aria-hidden="true"></span>
+
+    <section class="hero" aria-label="关于鼎基">
+      <div>
+        <p class="eyebrow">About Dingji</p>
+        <h1>关于鼎基<span>工厂体系</span></h1>
+      </div>
+      <div class="hero-text">
+        <strong><span>把复杂工程做成稳定、可复制、可持续的交付系统</span></strong>
+        <span>南京鼎基装饰工程有限公司始建于 1998 年</span>
+        <span>长期服务连锁餐饮、商业零售、办公、酒店与医疗空间</span>
+        <span>以设计深化、装饰施工、机电消防和成品制造支撑项目落地</span>
+        <div class="hero-actions">
+          <a class="btn primary" href="#factory">查看工厂体系</a>
+          <a class="btn" href="dingji-honors.html">荣誉资质入口</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="公司概览">
+      <div class="overview-card">
+        <h2>Dingji Capability</h2>
+        <div class="metric-grid">
+          <div class="metric"><b>1998</b><span>公司始建，持续深耕商业空间装饰工程服务</span></div>
+          <div class="metric"><b>26000㎡</b><span>现代化生产基地，支持成品制造与标准化交付</span></div>
+          <div class="metric"><b>3000+</b><span>精品工程落地，覆盖餐饮、办公、酒店、医疗等场景</span></div>
+          <div class="metric"><b>80+</b><span>服务城市与合作伙伴，形成跨区域项目协同能力</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="factory" aria-label="工厂体系">
+      <div class="section-title">
+        <h2>工厂实力<span>工程底盘</span></h2>
+        <p>
+          <span>鼎基以生产基地承接项目后端制造能力</span>
+          <span>把现场施工、成品配套和标准化构件纳入同一套交付逻辑</span>
+        </p>
+      </div>
+      <div class="factory-board">
+        <div class="factory-visual" aria-hidden="true"></div>
+        <div class="factory-copy">
+          <div class="capability"><b>设计深化</b><span>承接品牌标准、空间图纸与现场条件，把设计意图转化为可执行工程方案。</span></div>
+          <div class="capability"><b>装饰施工</b><span>围绕工期、工艺、材料和现场管理，保障连锁门店批量落地的一致性。</span></div>
+          <div class="capability"><b>机电消防</b><span>统筹餐饮、零售、办公医疗空间的核心系统施工，减少后期运营风险。</span></div>
+          <div class="capability"><b>成品制造</b><span>以现代化生产基地支撑成品配套、标准构件和项目复制交付。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="服务体系">
+      <div class="section-title">
+        <h2>服务体系<span>一体化交付</span></h2>
+        <p>
+          <span>从首店标准到多城复制</span>
+          <span>鼎基把每个节点拆成可管理、可复盘、可持续优化的工程流程</span>
+        </p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><b>01</b><h3>品牌标准导入</h3><p>梳理品牌视觉、空间规范和施工节点。</p></article>
+        <article class="service-card"><b>02</b><h3>图纸深化</h3><p>把方案转为现场可执行的工程语言。</p></article>
+        <article class="service-card"><b>03</b><h3>施工统筹</h3><p>管理材料、工艺、进度与多专业协作。</p></article>
+        <article class="service-card"><b>04</b><h3>成品配套</h3><p>工厂端完成标准构件与空间配套。</p></article>
+        <article class="service-card"><b>05</b><h3>交付复盘</h3><p>沉淀样板、清单和复制经验。</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="荣誉资质">
+      <div class="honor-board">
+        <div>
+          <h2>荣誉资质<span>影像档案</span></h2>
+          <p>原官网荣誉资质以图片展示为主。这里先保留独立入口，后续你把资质证书、荣誉奖项、授权文件等图片给我，我会统一整理成可筛选、可放大的图片展示页。</p>
+        </div>
+        <a class="btn primary" href="dingji-honors.html">进入荣誉资质</a>
+      </div>
+    </section>
+  </main>
+  <footer>南京鼎基装饰工程有限公司 · TOP DECORATION</footer>
+
+  <script>
+    const root = document.documentElement;
+    const nav = document.querySelector('.nav-links');
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const thumb = document.querySelector('.liquid-thumb');
+    const trail = document.querySelector('.liquid-trail');
+    const overview = document.querySelector('.overview-card');
+    function setLiquidTarget(target, immediate = false) {
+      if (!target || !nav || !thumb || !trail) return;
+      const navRect = nav.getBoundingClientRect();
+      const rect = target.getBoundingClientRect();
+      const x = rect.left - navRect.left;
+      const y = rect.top - navRect.top;
+      [thumb, trail].forEach((el) => {
+        el.style.setProperty('--x', `${x}px`);
+        el.style.setProperty('--y', `${y}px`);
+        el.style.setProperty('--w', `${rect.width}px`);
+        el.style.setProperty('--h', `${rect.height}px`);
+        if (immediate) {
+          el.style.transitionDuration = '0ms';
+          requestAnimationFrame(() => { el.style.transitionDuration = ''; });
+        }
+      });
+    }
+    function updatePointer(event) {
+      const mx = (event.clientX / innerWidth - .5) * 2;
+      const my = (event.clientY / innerHeight - .5) * 2;
+      root.style.setProperty('--mx', mx.toFixed(3));
+      root.style.setProperty('--my', my.toFixed(3));
+      if (overview) {
+        const rect = overview.getBoundingClientRect();
+        overview.style.setProperty('--card-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
+        overview.style.setProperty('--card-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
+      }
+    }
+    links.forEach((link) => {
+      link.addEventListener('pointerenter', () => setLiquidTarget(link));
+      link.addEventListener('focus', () => setLiquidTarget(link));
+    });
+    nav?.addEventListener('pointerleave', () => setLiquidTarget(document.querySelector('.nav-links a.active')));
+    window.addEventListener('resize', () => setLiquidTarget(document.querySelector('.nav-links a.active'), true));
+    window.addEventListener('pointermove', updatePointer, { passive: true });
+    setLiquidTarget(document.querySelector('.nav-links a.active'), true);
+  </script>
+</body>
+</html>

@@ -53,13 +53,13 @@
     .nav {
       position: fixed;
       z-index: 50;
-      left: clamp(18px, 3vw, 54px);
-      right: clamp(18px, 3vw, 54px);
-      top: clamp(16px, 3vh, 34px);
+      top: 24px;
+      left: clamp(16px, 3vw, 44px);
+      right: clamp(16px, 3vw, 44px);
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
       align-items: center;
-      gap: clamp(16px, 2vw, 34px);
+      gap: 20px;
       pointer-events: none;
     }
     .brand,
@@ -70,50 +70,54 @@
       -webkit-backdrop-filter: blur(22px) saturate(1.2);
     }
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 12px;
-      min-height: 64px;
-      padding: 7px 22px 7px 8px;
+      width: fit-content;
+      min-width: 0;
+      padding: 6px 14px 6px 6px;
       border: 1px solid rgba(255,255,255,.82);
       border-radius: 999px;
       background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(255,255,255,.42));
       box-shadow: 0 20px 60px rgba(32,33,29,.12), inset 0 1px 0 rgba(255,255,255,.92);
     }
     .brand-mark {
-      width: 54px;
-      height: 54px;
+      width: 58px;
+      height: 46px;
       display: grid;
       place-items: center;
-      border-radius: 50%;
-      background: rgba(255,255,255,.9);
-      overflow: hidden;
+      border-radius: 999px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.42));
+      border: 1px solid rgba(255,255,255,.74);
     }
-    .brand-mark img { width: 92%; height: 92%; object-fit: contain; }
+    .brand-mark img {
+      width: 64px;
+      transform: translateX(-1px);
+    }
     .brand-name strong {
       display: block;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1;
-      font-weight: 880;
-      letter-spacing: -.04em;
+      font-weight: 860;
+      letter-spacing: -.035em;
     }
     .brand-name span {
       display: block;
-      margin-top: 6px;
-      color: rgba(23,24,21,.55);
+      margin-top: 3px;
+      color: rgba(23,24,21,.56);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .18em;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
     .nav-links {
       position: relative;
       justify-self: center;
-      min-height: 56px;
       display: flex;
       align-items: center;
-      gap: 3px;
-      padding: 7px;
+      gap: 5px;
+      padding: 10px;
       border: 1px solid rgba(255,255,255,.72);
       border-radius: 999px;
       background: linear-gradient(145deg, rgba(255,255,255,.74), rgba(255,255,255,.36));
@@ -154,11 +158,11 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 clamp(14px, 1.45vw, 28px);
+      padding: 0 17px;
       border-radius: 999px;
-      color: rgba(23,24,21,.62);
-      font-size: clamp(13px, .92vw, 16px);
-      font-weight: 800;
+      color: rgba(20,22,18,.72);
+      font-size: 14px;
+      font-weight: 650;
       white-space: nowrap;
       transition: color .28s var(--ease), transform .28s var(--ease);
     }
@@ -719,7 +723,7 @@
       <div class="honor-board">
         <div>
           <h2>荣誉资质<span>影像档案</span></h2>
-          <p>原官网荣誉资质以图片展示为主。这里先保留独立入口，后续你把资质证书、荣誉奖项、授权文件等图片给我，我会统一整理成可筛选、可放大的图片展示页。</p>
+          <p>以合规资质承接工程，以标准体系保障交付。这里集中展示营业执照、建筑业企业资质证书、安全生产许可证等企业能力资料。</p>
         </div>
         <a class="btn primary" href="dingji-honors.html">进入荣誉资质</a>
       </div>

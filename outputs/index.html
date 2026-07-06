@@ -2578,6 +2578,93 @@
         margin-top: 8px;
       }
     }
+  
+    /* Mobile layout polish 2026-07-06 */
+    @media (max-width: 780px) {
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+      .nav { top: max(8px, env(safe-area-inset-top)) !important; left: 10px !important; right: 10px !important; display: grid !important; grid-template-columns: auto minmax(0, 1fr) !important; align-items: start !important; gap: 8px !important; z-index: 90 !important; }
+      .brand { display: flex !important; min-height: 38px !important; max-width: 43vw !important; padding: 4px 8px 4px 4px !important; gap: 6px !important; border-radius: 999px !important; overflow: hidden !important; backdrop-filter: blur(16px) saturate(1.15) !important; -webkit-backdrop-filter: blur(16px) saturate(1.15) !important; }
+      .brand-mark { width: 34px !important; height: 30px !important; min-width: 34px !important; }
+      .brand-mark img { width: 40px !important; height: auto !important; }
+      .brand-name { min-width: 0 !important; }
+      .brand-name strong { display: block !important; font-size: 12px !important; line-height: 1 !important; white-space: nowrap !important; }
+      .brand-name span { display: block !important; margin-top: 3px !important; font-size: 7px !important; line-height: 1 !important; letter-spacing: .08em !important; white-space: nowrap !important; }
+      .nav-links { display: flex !important; justify-self: end !important; max-width: 54vw !important; min-width: 0 !important; min-height: 38px !important; padding: 5px !important; gap: 2px !important; overflow-x: auto !important; overflow-y: hidden !important; border-radius: 999px !important; scrollbar-width: none !important; backdrop-filter: blur(18px) saturate(1.18) !important; -webkit-backdrop-filter: blur(18px) saturate(1.18) !important; }
+      .nav-links::-webkit-scrollbar { display: none !important; }
+      .nav-links a { flex: 0 0 auto !important; min-height: 28px !important; padding: 0 10px !important; font-size: 11px !important; line-height: 28px !important; white-space: nowrap !important; }
+      .nav-pill { display: none !important; }
+      .liquid-cursor, .cursor-dot { display: none !important; }
+      .hero-actions, .about-actions, .contact-actions, .actions { display: flex !important; gap: 10px !important; flex-wrap: wrap !important; }
+      .hero-btn, .about-btn, .contact-actions a, .btn, .pill-btn { min-height: 46px !important; padding: 0 15px !important; font-size: 13px !important; white-space: nowrap !important; }
+      h1, h2, h3, p, a, button, span, strong, b { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+    }
+    @media (max-width: 430px) {
+      .brand { max-width: 39vw !important; padding-right: 7px !important; }
+      .brand-mark { width: 30px !important; height: 27px !important; min-width: 30px !important; }
+      .brand-mark img { width: 36px !important; }
+      .brand-name strong { font-size: 11px !important; }
+      .brand-name span { font-size: 6.5px !important; }
+      .nav-links { max-width: 57vw !important; padding: 4px !important; }
+      .nav-links a { min-height: 27px !important; line-height: 27px !important; padding: 0 9px !important; font-size: 10.5px !important; }
+    }
+    /* End mobile layout polish */
+
+    /* Homepage mobile composition 2026-07-06 */
+    @media (max-width: 780px) {
+      body { overflow: auto !important; }
+      .stage, .about-hero, .partners-hero, .contact-hero { height: auto !important; min-height: 100svh !important; overflow: hidden !important; }
+      .stage { padding: clamp(88px, 17svh, 116px) 16px 28px !important; display: flex !important; flex-direction: column !important; justify-content: flex-end !important; gap: 18px !important; }
+      .copy { position: relative !important; inset: auto !important; width: 100% !important; max-width: none !important; transform: none !important; z-index: 8 !important; padding-top: 29svh !important; }
+      .copy .eyebrow { font-size: clamp(13px, 3.8vw, 16px) !important; white-space: nowrap !important; }
+      .copy h1 { max-width: 94vw !important; font-size: clamp(3.05rem, 15.5vw, 4.85rem) !important; line-height: .92 !important; letter-spacing: 0 !important; }
+      .copy h1 span { -webkit-text-stroke: .8px rgba(26,27,24,.32) !important; }
+      .hero-copy { max-width: 92vw !important; font-size: clamp(.9rem, 3.65vw, 1.04rem) !important; line-height: 1.65 !important; }
+      .hero-copy span { display: inline !important; white-space: normal !important; }
+      .hero-actions { flex-wrap: nowrap !important; }
+      .hero-btn { flex: 1 1 0 !important; min-width: 0 !important; border-radius: 999px !important; }
+      .hero-btn .arrow-bubble { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; }
+      .signal-card { display: block !important; position: relative !important; inset: auto !important; width: 100% !important; max-width: none !important; margin-top: 10px !important; padding: 15px !important; border-radius: 26px !important; transform: none !important; }
+      .signal-card h2 { font-size: 12px !important; }
+      .signal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px !important; }
+      .signal-stat { min-height: 62px !important; padding: 10px !important; border-radius: 18px !important; }
+      .signal-stat b { font-size: clamp(1.65rem, 9vw, 2.25rem) !important; }
+      .signal-stat span { font-size: 12px !important; }
+      .wide-stat { grid-column: auto !important; }
+      #particleCanvas { opacity: .78 !important; }
+      .about-hero { padding: 88px 16px 32px !important; display: flex !important; align-items: flex-end !important; }
+      .about-shell { padding: 0 !important; width: 100% !important; align-items: flex-end !important; }
+      .about-copy { width: 100% !important; max-width: 92vw !important; }
+      .about-kicker { gap: 12px !important; margin-bottom: 18px !important; font-size: clamp(12px, 3.4vw, 15px) !important; white-space: nowrap !important; }
+      .about-kicker::before { width: 34px !important; }
+      .about-copy h2 { font-size: clamp(3rem, 14.5vw, 5rem) !important; line-height: .9 !important; letter-spacing: 0 !important; }
+      .about-intro { margin-top: 22px !important; max-width: 92vw !important; font-size: clamp(1rem, 4vw, 1.18rem) !important; line-height: 1.56 !important; }
+      .about-intro span { display: block !important; white-space: normal !important; }
+      .partners-hero { padding: 88px 14px 28px !important; }
+      .partners-shell { min-height: 100svh !important; padding: 0 !important; justify-content: center !important; }
+      .partners-header, .partners-board, .case-showcase .case-board { width: 100% !important; }
+      .partners-title { font-size: clamp(3rem, 15vw, 5rem) !important; line-height: .9 !important; }
+      .partners-board, .case-board { padding: 14px !important; border-radius: 28px !important; }
+      .partners-board-head { gap: 8px !important; align-items: flex-start !important; flex-direction: column !important; }
+      .partner-grid, .partner-track { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+      .partner-card, .partner-logo { min-height: 58px !important; }
+      .case-showcase .case-gallery { height: clamp(220px, 40svh, 300px) !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+      .case-showcase .case-card, .case-showcase .case-card.featured-case { flex-basis: min(78vw, 300px) !important; }
+      .contact-hero { padding: 88px 16px 30px !important; }
+      .contact-shell { grid-template-columns: 1fr !important; gap: 18px !important; padding: 0 !important; }
+      .contact-copy h2 { font-size: clamp(3rem, 14vw, 5rem) !important; line-height: .9 !important; }
+      .contact-copy p { max-width: 92vw !important; font-size: .95rem !important; }
+      .contact-panel { width: 100% !important; padding: 16px !important; border-radius: 26px !important; }
+      .contact-list { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 430px) {
+      .copy { padding-top: 25svh !important; }
+      .copy h1 { font-size: clamp(2.75rem, 15vw, 4.15rem) !important; }
+      .hero-actions { gap: 8px !important; }
+      .hero-btn { padding: 0 10px 0 13px !important; font-size: 12px !important; }
+      .about-copy h2, .partners-title, .contact-copy h2 { font-size: clamp(2.65rem, 14.5vw, 4.1rem) !important; }
+    }
+    /* End homepage mobile composition */
+
   </style>
 </head>
 <body>
@@ -2622,8 +2709,8 @@
         <span>餐饮、办公、酒店、医疗及连锁品牌提供标准化、可复制、可落地的空间工程交付。</span>
       </p>
       <div class="hero-actions">
-        <a class="hero-btn primary" href="dingji-about.html#factory">
-          <span>查看工厂实力</span>
+        <a class="hero-btn primary" href="dingji-honors.html">
+          <span>查看荣誉资质</span>
           <span class="arrow-bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
         </a>
         <a class="hero-btn" href="#contact">

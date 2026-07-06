@@ -504,6 +504,58 @@
       .career-copy span { white-space: normal; }
       .career-form, .career-directions { grid-template-columns: 1fr; }
     }
+  
+    /* Mobile layout polish 2026-07-06 */
+    @media (max-width: 780px) {
+      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+      .nav { top: max(8px, env(safe-area-inset-top)) !important; left: 10px !important; right: 10px !important; display: grid !important; grid-template-columns: auto minmax(0, 1fr) !important; align-items: start !important; gap: 8px !important; z-index: 90 !important; }
+      .brand { display: flex !important; min-height: 38px !important; max-width: 43vw !important; padding: 4px 8px 4px 4px !important; gap: 6px !important; border-radius: 999px !important; overflow: hidden !important; backdrop-filter: blur(16px) saturate(1.15) !important; -webkit-backdrop-filter: blur(16px) saturate(1.15) !important; }
+      .brand-mark { width: 34px !important; height: 30px !important; min-width: 34px !important; }
+      .brand-mark img { width: 40px !important; height: auto !important; }
+      .brand-name { min-width: 0 !important; }
+      .brand-name strong { display: block !important; font-size: 12px !important; line-height: 1 !important; white-space: nowrap !important; }
+      .brand-name span { display: block !important; margin-top: 3px !important; font-size: 7px !important; line-height: 1 !important; letter-spacing: .08em !important; white-space: nowrap !important; }
+      .nav-links { display: flex !important; justify-self: end !important; max-width: 54vw !important; min-width: 0 !important; min-height: 38px !important; padding: 5px !important; gap: 2px !important; overflow-x: auto !important; overflow-y: hidden !important; border-radius: 999px !important; scrollbar-width: none !important; backdrop-filter: blur(18px) saturate(1.18) !important; -webkit-backdrop-filter: blur(18px) saturate(1.18) !important; }
+      .nav-links::-webkit-scrollbar { display: none !important; }
+      .nav-links a { flex: 0 0 auto !important; min-height: 28px !important; padding: 0 10px !important; font-size: 11px !important; line-height: 28px !important; white-space: nowrap !important; }
+      .nav-pill { display: none !important; }
+      .liquid-cursor, .cursor-dot { display: none !important; }
+      .hero-actions, .about-actions, .contact-actions, .actions { display: flex !important; gap: 10px !important; flex-wrap: wrap !important; }
+      .hero-btn, .about-btn, .contact-actions a, .btn, .pill-btn { min-height: 46px !important; padding: 0 15px !important; font-size: 13px !important; white-space: nowrap !important; }
+      h1, h2, h3, p, a, button, span, strong, b { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+    }
+    @media (max-width: 430px) {
+      .brand { max-width: 39vw !important; padding-right: 7px !important; }
+      .brand-mark { width: 30px !important; height: 27px !important; min-width: 30px !important; }
+      .brand-mark img { width: 36px !important; }
+      .brand-name strong { font-size: 11px !important; }
+      .brand-name span { font-size: 6.5px !important; }
+      .nav-links { max-width: 57vw !important; padding: 4px !important; }
+      .nav-links a { min-height: 27px !important; line-height: 27px !important; padding: 0 9px !important; font-size: 10.5px !important; }
+    }
+    /* End mobile layout polish */
+
+    /* Subpage mobile composition 2026-07-06 */
+    @media (max-width: 780px) {
+      main, .page, .site-main { padding-top: 88px !important; padding-left: 16px !important; padding-right: 16px !important; }
+      .hero, .hero-copy, .case-hero, .service-hero, .career-hero, .honors-hero, .section-title, .factory-board, .honor-board, .archive-shell, .contact-shell { grid-template-columns: 1fr !important; gap: 22px !important; }
+      h1, .hero h1, .case-title, .service-title, .career-title, .honors-title { font-size: clamp(3rem, 14.5vw, 5rem) !important; line-height: .9 !important; letter-spacing: 0 !important; white-space: normal !important; }
+      .section-title h2, .split-title, .panel-title { font-size: clamp(2.25rem, 11vw, 4.2rem) !important; line-height: .95 !important; white-space: normal !important; }
+      .hero-text span, .hero-copy span, .section-title p span, .lede span, .summary span { display: inline !important; white-space: normal !important; }
+      .hero, .section, .content-section, .archive-section { padding-top: 40px !important; padding-bottom: 44px !important; }
+      .service-grid, .scope-grid, .case-grid, .brand-rail, .case-detail-grid, .system-panel, .honor-grid, .credential-grid, .contact-grid { grid-template-columns: 1fr !important; }
+      .brand-rail, .logo-strip, .project-strip { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+      .glass-panel, .board, .archive, .form-panel, .contact-panel, .honor-card, .credential-card { border-radius: 26px !important; padding: 16px !important; }
+      .doc-image, .credential-card img, .honor-card img { max-height: 70svh !important; width: 100% !important; object-fit: contain !important; }
+      footer { padding-left: 16px !important; padding-right: 16px !important; }
+    }
+    @media (max-width: 430px) {
+      main, .page, .site-main { padding-left: 12px !important; padding-right: 12px !important; }
+      h1, .hero h1, .case-title, .service-title, .career-title, .honors-title { font-size: clamp(2.55rem, 14vw, 4.2rem) !important; }
+      .section-title h2, .split-title, .panel-title { font-size: clamp(2rem, 10.5vw, 3.4rem) !important; }
+    }
+    /* End subpage mobile composition */
+
   </style>
 </head>
 <body>

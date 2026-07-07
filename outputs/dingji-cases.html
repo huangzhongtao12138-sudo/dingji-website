@@ -752,7 +752,7 @@
     .case-detail-card.bixiangju-entry {
       min-height: auto;
       aspect-ratio: 1;
-      padding: 0;
+      padding: clamp(18px, 2vw, 28px);
       background: rgba(255,255,255,.48);
     }
     .case-detail-link {
@@ -786,6 +786,21 @@
       inset: 0;
       border-radius: inherit;
       background: rgba(255,255,255,.64);
+    }
+    .bixiangju-entry .case-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      display: block;
+      border: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 42%, rgba(0,0,0,.24));
+    }
+    .bixiangju-entry .case-detail-copy {
+      width: min(100%, 360px);
+      margin: 0 auto;
+      border-radius: clamp(24px, 2vw, 36px);
+      background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(235,231,224,.72));
     }
     .case-photo::before {
       content: "PROJECT IMAGE";
@@ -1330,8 +1345,9 @@
         </article>
         <a class="case-detail-card case-detail-link bixiangju-entry" id="bixiangju" href="/cases/bixiangju" style="--brand:#9b1b14;--reveal-index:3" data-reveal aria-label="查看必香居餐饮空间案例详情">
           <div class="case-photo has-image">
-            <img src="/public/assets/cases/bixiangju-card-cover.png" alt="必香居餐饮空间入口封面">
+            <img src="/public/assets/cases/bixiangju-xingcheng-storefront-cover.png" alt="兴城路必香居店门头封面">
           </div>
+          <div class="case-detail-copy"><small>Dining Case</small><h3>兴城路必香居店</h3><p>餐饮门店空间案例，点击查看项目详情与现场图片。</p></div>
         </a>
         <article class="case-detail-card" id="laoxiangji" style="--brand:#07843f" data-reveal>
           <div class="case-photo"></div>

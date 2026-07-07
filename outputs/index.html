@@ -2881,7 +2881,8 @@
     const partnerArrows = [...document.querySelectorAll('.partner-arrow')];
     const contactHero = document.querySelector('.contact-hero');
 
-    const mouse = { x: innerWidth / 2, y: innerHeight / 2, tx: innerWidth / 2, ty: innerHeight / 2, active: false, down: false };
+    const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999, active: false, down: false };
     const liquid = { x: 6, y: 6, w: 72, h: 42, tx: 6, ty: 6, tw: 72, th: 42, vx: 0, vy: 0, active: false };
     let width = 0;
     let height = 0;
@@ -3692,8 +3693,11 @@
 
     function tick(now) {
       frame++;
-      mouse.x += (mouse.tx - mouse.x) * .18;
-      mouse.y += (mouse.ty - mouse.y) * .18;
+      const pointerInfluence = mouse.active || mouse.down;
+      if (pointerInfluence) {
+        mouse.x += (mouse.tx - mouse.x) * .18;
+        mouse.y += (mouse.ty - mouse.y) * .18;
+      }
 
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'source-over';
@@ -3709,10 +3713,10 @@
         let ay = (p.ty + floatY - p.y) * .018;
         let az = (p.tz + floatZ - p.z) * .018;
 
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const distSq = dx * dx + dy * dy;
-        if (distSq < radiusSq) {
+        const dx = pointerInfluence ? p.x - mouse.x : 0;
+        const dy = pointerInfluence ? p.y - mouse.y : 0;
+        const distSq = pointerInfluence ? dx * dx + dy * dy : Infinity;
+        if (pointerInfluence && distSq < radiusSq) {
           const dist = Math.sqrt(distSq) || 1;
           const force = (1 - dist / radius) * (mouse.down ? 5.8 : 3.2);
           ax += (dx / dist) * force;
@@ -3812,6 +3816,7 @@
 
     window.addEventListener('resize', resize);
     window.addEventListener('pointermove', (event) => {
+      if (!finePointerQuery.matches || event.pointerType === 'touch') return;
       mouse.tx = event.clientX;
       mouse.ty = event.clientY;
       mouse.active = true;
@@ -3834,6 +3839,7 @@
       }
     });
     window.addEventListener('pointerdown', (event) => {
+      if (!finePointerQuery.matches || event.pointerType === 'touch') return;
       mouse.down = true;
       if (!event.target.closest('button, a, .signal-card')) nextShape(1);
     });

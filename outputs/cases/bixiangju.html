@@ -12,7 +12,7 @@
   <meta property="og:title" content="必香居案例详情｜鼎基装饰">
   <meta property="og:description" content="必香居餐饮空间案例详情与现场图片展示。">
   <meta property="og:url" content="https://www.djzhuangshi.com/cases/bixiangju">
-  <meta property="og:image" content="https://www.djzhuangshi.com/public/assets/cases/bixiangju-cover.jpg">
+  <meta property="og:image" content="https://www.djzhuangshi.com/public/assets/cases/bixiangju-01.jpg">
   <meta name="theme-color" content="#f30700">
   <style>
     :root {
@@ -118,54 +118,41 @@
       background: rgba(255,255,255,.62);
     }
     .hero {
-      min-height: auto;
-      position: relative;
+      min-height: 100svh;
       display: grid;
-      gap: clamp(24px, 4vw, 48px);
-      align-items: start;
-      padding: clamp(112px, 13vh, 154px) clamp(18px, 4vw, 64px) clamp(56px, 7vw, 92px);
-      background:
-        radial-gradient(circle at 70% 0%, rgba(243,7,0,.08), transparent 34%),
-        linear-gradient(135deg, #ebe6da 0%, #fffdf6 50%, #ded8cb 100%);
+      align-items: end;
+      padding: clamp(110px, 14vh, 160px) clamp(18px, 4vw, 64px) clamp(24px, 4vw, 56px);
     }
     .hero-media {
-      position: relative;
-      width: min(1540px, 100%);
-      height: clamp(460px, 66svh, 760px);
-      margin: 0 auto;
+      position: absolute;
+      inset: 0;
+      min-height: 100svh;
+      z-index: -1;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.72);
-      border-radius: 8px;
       background: #211a16;
-      box-shadow: 0 34px 96px rgba(32,33,29,.16);
     }
     .hero-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
       filter: saturate(.96) contrast(1.02);
     }
     .hero-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      pointer-events: none;
-      background: linear-gradient(180deg, transparent 52%, rgba(0,0,0,.12));
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.12) 38%, rgba(0,0,0,.72)),
+        linear-gradient(90deg, rgba(0,0,0,.52), transparent 54%);
     }
     .hero-copy {
-      width: min(1320px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(280px, .72fr) minmax(320px, 1fr);
-      gap: clamp(26px, 5vw, 76px);
-      align-items: end;
-      color: var(--ink);
-      text-shadow: none;
+      width: min(980px, 100%);
+      color: #fff;
+      text-shadow: 0 14px 42px rgba(0,0,0,.36);
     }
     .eyebrow {
       margin: 0 0 18px;
-      color: var(--red-deep);
+      color: rgba(255,255,255,.76);
       font-size: 13px;
       font-weight: 820;
       letter-spacing: .16em;
@@ -173,15 +160,15 @@
     }
     h1 {
       margin: 0;
-      font-size: clamp(3.4rem, 9vw, 8.2rem);
+      font-size: clamp(3.6rem, 10vw, 10rem);
       line-height: .9;
       font-weight: 920;
       letter-spacing: 0;
     }
     .hero-copy p:last-child {
-      width: min(760px, 100%);
-      margin: 0;
-      color: rgba(23,24,21,.64);
+      width: min(720px, 100%);
+      margin: 22px 0 0;
+      color: rgba(255,255,255,.84);
       font-size: clamp(1rem, 1.45vw, 1.45rem);
       line-height: 1.75;
       font-weight: 650;
@@ -332,15 +319,7 @@
         justify-content: flex-start;
       }
       .nav-links a { min-height: 36px; padding: 0 12px; font-size: 13px; }
-      .hero { padding: 106px 16px 42px; }
-      .hero-media {
-        height: auto;
-        aspect-ratio: 16 / 10.8;
-      }
-      .hero-copy {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
+      .hero { padding: 112px 16px 28px; }
       .intro,
       .story {
         grid-template-columns: 1fr;
@@ -380,13 +359,11 @@
   <main>
     <section class="hero" aria-label="必香居案例顶部">
       <div class="hero-media" aria-hidden="true">
-        <img src="/public/assets/cases/bixiangju-cover.jpg" alt="">
+        <img src="/public/assets/cases/bixiangju-01.jpg" alt="">
       </div>
       <div class="hero-copy">
-        <div>
-          <p class="eyebrow">Dining Case</p>
-          <h1>必香居</h1>
-        </div>
+        <p class="eyebrow">Dining Case</p>
+        <h1>必香居</h1>
         <p>以市井早茶与淮扬风味为线索，必香居门店通过醒目的招牌、温润的材质和层次化灯光，呈现兼具烟火气与品质感的餐饮空间形象。</p>
       </div>
     </section>

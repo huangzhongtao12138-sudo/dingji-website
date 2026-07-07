@@ -749,6 +749,12 @@
       transform: translateY(calc(var(--lift, 0px) - 8px));
       box-shadow: 0 42px 110px rgba(32,33,29,.14), inset 0 1px 0 rgba(255,255,255,.92);
     }
+    .case-detail-card.bixiangju-entry {
+      min-height: auto;
+      aspect-ratio: 1;
+      padding: 0;
+      background: rgba(255,255,255,.48);
+    }
     .case-detail-link {
       color: inherit;
       text-decoration: none;
@@ -775,6 +781,11 @@
     }
     .case-photo.has-image {
       background: rgba(255,255,255,.62);
+    }
+    .bixiangju-entry .case-photo {
+      inset: 0;
+      border-radius: inherit;
+      background: rgba(255,255,255,.64);
     }
     .case-photo::before {
       content: "PROJECT IMAGE";
@@ -1317,11 +1328,10 @@
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>Watsons</small><h3>屈臣氏零售空间</h3><p>商业零售空间的形象更新与细节落地。</p></div>
         </article>
-        <a class="case-detail-card case-detail-link" id="bixiangju" href="/cases/bixiangju" style="--brand:#9b1b14;--reveal-index:3" data-reveal>
+        <a class="case-detail-card case-detail-link bixiangju-entry" id="bixiangju" href="/cases/bixiangju" style="--brand:#9b1b14;--reveal-index:3" data-reveal aria-label="查看必香居餐饮空间案例详情">
           <div class="case-photo has-image">
-            <img src="/public/assets/cases/bixiangju-01.jpg" alt="必香居餐厅空间案例照片">
+            <img src="/public/assets/cases/bixiangju-card-cover.png" alt="必香居餐饮空间入口封面">
           </div>
-          <div class="case-detail-copy"><small>Dining Case</small><h3>必香居餐饮空间</h3><p>餐饮门店空间案例，点击查看项目详情与现场图片。</p></div>
         </a>
         <article class="case-detail-card" id="laoxiangji" style="--brand:#07843f" data-reveal>
           <div class="case-photo"></div>

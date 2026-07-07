@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>必香居案例详情｜鼎基装饰</title>
+  <meta name="description" content="鼎基装饰必香居餐饮空间案例详情，展示餐厅门店照片、空间说明与项目介绍。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.djzhuangshi.com/cases/bixiangju">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="鼎基装饰">
+  <meta property="og:title" content="必香居案例详情｜鼎基装饰">
+  <meta property="og:description" content="必香居餐饮空间案例详情与现场图片展示。">
+  <meta property="og:url" content="https://www.djzhuangshi.com/cases/bixiangju">
+  <meta property="og:image" content="https://www.djzhuangshi.com/public/assets/cases/bixiangju-01.jpg">
+  <meta name="theme-color" content="#f30700">
+  <style>
+    :root {
+      --red: #f30700;
+      --red-deep: #a91410;
+      --ink: #171815;
+      --muted: rgba(23,24,21,.62);
+      --line: rgba(23,24,21,.12);
+      --paper: #f3f0e7;
+      --paper-strong: #fffdf6;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, #ece7da 0%, #fffdf6 48%, #e3ded1 100%);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .nav {
+      position: fixed;
+      z-index: 30;
+      top: 22px;
+      left: clamp(16px, 3vw, 44px);
+      right: clamp(16px, 3vw, 44px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      pointer-events: none;
+    }
+    .brand,
+    .nav-links {
+      pointer-events: auto;
+      border: 1px solid rgba(255,255,255,.72);
+      background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.48));
+      box-shadow: 0 18px 52px rgba(32,33,29,.12), inset 0 1px 0 rgba(255,255,255,.88);
+      backdrop-filter: blur(20px) saturate(1.15);
+      -webkit-backdrop-filter: blur(20px) saturate(1.15);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 14px 6px 6px;
+      border-radius: 999px;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 56px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.72);
+    }
+    .brand-mark img { width: 62px; transform: translateX(-1px); }
+    .brand strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 860;
+    }
+    .brand span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(23,24,21,.56);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px;
+      border-radius: 999px;
+    }
+    .nav-links a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border-radius: 999px;
+      color: rgba(20,22,18,.72);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--red-deep);
+      background: rgba(255,255,255,.62);
+    }
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: clamp(110px, 14vh, 160px) clamp(18px, 4vw, 64px) clamp(24px, 4vw, 56px);
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      min-height: 100svh;
+      z-index: -1;
+      overflow: hidden;
+      background: #211a16;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.96) contrast(1.02);
+    }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.12) 38%, rgba(0,0,0,.72)),
+        linear-gradient(90deg, rgba(0,0,0,.52), transparent 54%);
+    }
+    .hero-copy {
+      width: min(980px, 100%);
+      color: #fff;
+      text-shadow: 0 14px 42px rgba(0,0,0,.36);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.76);
+      font-size: 13px;
+      font-weight: 820;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(3.6rem, 10vw, 10rem);
+      line-height: .9;
+      font-weight: 920;
+      letter-spacing: 0;
+    }
+    .hero-copy p:last-child {
+      width: min(720px, 100%);
+      margin: 22px 0 0;
+      color: rgba(255,255,255,.84);
+      font-size: clamp(1rem, 1.45vw, 1.45rem);
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .page {
+      padding: clamp(56px, 8vw, 110px) clamp(18px, 4vw, 64px) clamp(72px, 8vw, 120px);
+    }
+    .section {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(280px, .72fr) minmax(320px, 1fr);
+      gap: clamp(26px, 5vw, 76px);
+      align-items: start;
+      margin-bottom: clamp(46px, 7vw, 90px);
+    }
+    .intro h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6.2vw, 7.2rem);
+      line-height: .92;
+      font-weight: 900;
+    }
+    .intro-copy {
+      display: grid;
+      gap: 18px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.25vw, 1.22rem);
+      line-height: 1.82;
+      font-weight: 650;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .meta {
+      min-height: 102px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid rgba(23,24,21,.1);
+      border-radius: 8px;
+      background: rgba(255,255,255,.58);
+    }
+    .meta small {
+      color: rgba(23,24,21,.48);
+      font-size: 12px;
+      font-weight: 820;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .meta b {
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: clamp(12px, 1.4vw, 22px);
+      margin-bottom: clamp(46px, 7vw, 90px);
+    }
+    .gallery figure {
+      position: relative;
+      min-height: 260px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.78);
+      background: rgba(255,255,255,.5);
+      box-shadow: 0 26px 70px rgba(32,33,29,.1);
+    }
+    .gallery figure:nth-child(1),
+    .gallery figure:nth-child(4) {
+      grid-column: span 3;
+      min-height: clamp(330px, 38vw, 520px);
+    }
+    .gallery figure:nth-child(2),
+    .gallery figure:nth-child(3),
+    .gallery figure:nth-child(5),
+    .gallery figure:nth-child(6) {
+      grid-column: span 3;
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+    .gallery figure:hover img { transform: scale(1.035); }
+    .story {
+      display: grid;
+      grid-template-columns: minmax(260px, .56fr) minmax(320px, 1fr);
+      gap: clamp(26px, 5vw, 76px);
+      align-items: start;
+      padding-top: clamp(28px, 5vw, 60px);
+      border-top: 1px solid var(--line);
+    }
+    .story h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4.6vw, 5.8rem);
+      line-height: .95;
+      font-weight: 900;
+    }
+    .story-copy {
+      display: grid;
+      gap: 18px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.18vw, 1.16rem);
+      line-height: 1.86;
+      font-weight: 650;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 46px;
+      margin-top: 14px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--red);
+      font-size: 14px;
+      font-weight: 820;
+      box-shadow: 0 18px 44px rgba(243,7,0,.22);
+    }
+    @media (max-width: 860px) {
+      .nav {
+        top: 14px;
+        left: 12px;
+        right: 12px;
+        align-items: flex-start;
+      }
+      .brand { padding-right: 10px; }
+      .brand span { display: none; }
+      .nav-links {
+        max-width: calc(100vw - 150px);
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+      .nav-links a { min-height: 36px; padding: 0 12px; font-size: 13px; }
+      .hero { padding: 112px 16px 28px; }
+      .intro,
+      .story {
+        grid-template-columns: 1fr;
+      }
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .gallery figure,
+      .gallery figure:nth-child(1),
+      .gallery figure:nth-child(2),
+      .gallery figure:nth-child(3),
+      .gallery figure:nth-child(4),
+      .gallery figure:nth-child(5),
+      .gallery figure:nth-child(6) {
+        grid-column: auto;
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" aria-label="主导航">
+    <a class="brand" href="/">
+      <span class="brand-mark"><img src="/site-assets/dingji-logo-final-06.svg" alt="鼎基装饰"></span>
+      <span><strong>鼎基装饰</strong><span>Top Decoration</span></span>
+    </a>
+    <nav class="nav-links" aria-label="页面导航">
+      <a href="/">首页</a>
+      <a class="active" href="/dingji-cases.html">业务案例</a>
+      <a href="/#contact">联系我们</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="必香居案例顶部">
+      <div class="hero-media" aria-hidden="true">
+        <img src="/public/assets/cases/bixiangju-01.jpg" alt="">
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Dining Case</p>
+        <h1>必香居</h1>
+        <p>这里先放一段必香居餐饮空间案例的简短介绍，用于说明项目业态、空间气质、施工范围与最终呈现效果，后续可替换为正式店铺信息。</p>
+      </div>
+    </section>
+
+    <div class="page">
+      <section class="section intro" aria-label="案例简介">
+        <h2>餐饮空间案例</h2>
+        <div class="intro-copy">
+          <p>占位文字：本项目围绕餐饮门店的日常运营、顾客动线、门头识别、就餐体验与后场配套进行整体落地，强调空间形象与工程实施之间的平衡。</p>
+          <p>占位文字：页面当前使用现场照片展示项目状态，具体地址、面积、施工范围、合作时间与正式描述可在后续统一替换。</p>
+          <div class="meta-grid" aria-label="项目信息">
+            <div class="meta"><small>Project</small><b>必香居餐饮空间</b></div>
+            <div class="meta"><small>Category</small><b>餐饮装修</b></div>
+            <div class="meta"><small>Status</small><b>案例信息待补充</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery" aria-label="必香居案例图片展示">
+        <figure><img src="/public/assets/cases/bixiangju-01.jpg" alt="必香居餐厅案例照片一"></figure>
+        <figure><img src="/public/assets/cases/bixiangju-02.jpg" alt="必香居餐厅案例照片二"></figure>
+        <figure><img src="/public/assets/cases/bixiangju-03.jpg" alt="必香居餐厅案例照片三"></figure>
+        <figure><img src="/public/assets/cases/bixiangju-04.jpg" alt="必香居餐厅案例照片四"></figure>
+        <figure><img src="/public/assets/cases/bixiangju-05.jpg" alt="必香居餐厅案例照片五"></figure>
+        <figure><img src="/public/assets/cases/bixiangju-06.jpg" alt="必香居餐厅案例照片六"></figure>
+      </section>
+
+      <section class="section story" aria-label="案例文字说明">
+        <h2>项目说明</h2>
+        <div class="story-copy">
+          <p>占位文字：这里可以补充必香居门店的项目背景，例如品牌定位、门店所在区域、空间面积、设计目标、施工周期与主要工程范围。</p>
+          <p>占位文字：这里可以补充施工与交付说明，例如门头、前厅、包间、后厨、水电、消防、材料收口、现场协调与最终验收情况。</p>
+          <p>占位文字：这里可以补充项目结果，例如空间识别度、就餐氛围、运营效率、后期维护便利性，以及与客户长期合作的延展信息。</p>
+          <a class="back-link" href="/dingji-cases.html#bixiangju">返回业务案例</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

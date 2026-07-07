@@ -12,7 +12,7 @@
   <meta property="og:title" content="必香居案例详情｜鼎基装饰">
   <meta property="og:description" content="必香居餐饮空间案例详情与现场图片展示。">
   <meta property="og:url" content="https://www.djzhuangshi.com/cases/bixiangju">
-  <meta property="og:image" content="https://www.djzhuangshi.com/public/assets/cases/bixiangju-01.jpg">
+  <meta property="og:image" content="https://www.djzhuangshi.com/public/assets/cases/bixiangju-cover.jpg">
   <meta name="theme-color" content="#f30700">
   <style>
     :root {
@@ -118,41 +118,54 @@
       background: rgba(255,255,255,.62);
     }
     .hero {
-      min-height: 100svh;
+      min-height: auto;
+      position: relative;
       display: grid;
-      align-items: end;
-      padding: clamp(110px, 14vh, 160px) clamp(18px, 4vw, 64px) clamp(24px, 4vw, 56px);
+      gap: clamp(24px, 4vw, 48px);
+      align-items: start;
+      padding: clamp(112px, 13vh, 154px) clamp(18px, 4vw, 64px) clamp(56px, 7vw, 92px);
+      background:
+        radial-gradient(circle at 70% 0%, rgba(243,7,0,.08), transparent 34%),
+        linear-gradient(135deg, #ebe6da 0%, #fffdf6 50%, #ded8cb 100%);
     }
     .hero-media {
-      position: absolute;
-      inset: 0;
-      min-height: 100svh;
-      z-index: -1;
+      position: relative;
+      width: min(1540px, 100%);
+      height: clamp(460px, 66svh, 760px);
+      margin: 0 auto;
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 8px;
       background: #211a16;
+      box-shadow: 0 34px 96px rgba(32,33,29,.16);
     }
     .hero-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
       filter: saturate(.96) contrast(1.02);
     }
     .hero-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.12) 38%, rgba(0,0,0,.72)),
-        linear-gradient(90deg, rgba(0,0,0,.52), transparent 54%);
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent 52%, rgba(0,0,0,.12));
     }
     .hero-copy {
-      width: min(980px, 100%);
-      color: #fff;
-      text-shadow: 0 14px 42px rgba(0,0,0,.36);
+      width: min(1320px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(280px, .72fr) minmax(320px, 1fr);
+      gap: clamp(26px, 5vw, 76px);
+      align-items: end;
+      color: var(--ink);
+      text-shadow: none;
     }
     .eyebrow {
       margin: 0 0 18px;
-      color: rgba(255,255,255,.76);
+      color: var(--red-deep);
       font-size: 13px;
       font-weight: 820;
       letter-spacing: .16em;
@@ -160,15 +173,15 @@
     }
     h1 {
       margin: 0;
-      font-size: clamp(3.6rem, 10vw, 10rem);
+      font-size: clamp(3.4rem, 9vw, 8.2rem);
       line-height: .9;
       font-weight: 920;
       letter-spacing: 0;
     }
     .hero-copy p:last-child {
-      width: min(720px, 100%);
-      margin: 22px 0 0;
-      color: rgba(255,255,255,.84);
+      width: min(760px, 100%);
+      margin: 0;
+      color: rgba(23,24,21,.64);
       font-size: clamp(1rem, 1.45vw, 1.45rem);
       line-height: 1.75;
       font-weight: 650;
@@ -200,6 +213,10 @@
       font-size: clamp(1rem, 1.25vw, 1.22rem);
       line-height: 1.82;
       font-weight: 650;
+    }
+    .intro-copy p,
+    .story-copy p {
+      margin: 0;
     }
     .meta-grid {
       display: grid;
@@ -278,11 +295,12 @@
     }
     .story-copy {
       display: grid;
-      gap: 18px;
+      gap: clamp(22px, 3vw, 36px);
       color: var(--muted);
       font-size: clamp(1rem, 1.18vw, 1.16rem);
       line-height: 1.86;
       font-weight: 650;
+      max-width: 920px;
     }
     .back-link {
       display: inline-flex;
@@ -314,7 +332,15 @@
         justify-content: flex-start;
       }
       .nav-links a { min-height: 36px; padding: 0 12px; font-size: 13px; }
-      .hero { padding: 112px 16px 28px; }
+      .hero { padding: 106px 16px 42px; }
+      .hero-media {
+        height: auto;
+        aspect-ratio: 16 / 10.8;
+      }
+      .hero-copy {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
       .intro,
       .story {
         grid-template-columns: 1fr;
@@ -354,12 +380,14 @@
   <main>
     <section class="hero" aria-label="必香居案例顶部">
       <div class="hero-media" aria-hidden="true">
-        <img src="/public/assets/cases/bixiangju-01.jpg" alt="">
+        <img src="/public/assets/cases/bixiangju-cover.jpg" alt="">
       </div>
       <div class="hero-copy">
-        <p class="eyebrow">Dining Case</p>
-        <h1>必香居</h1>
-        <p>这里先放一段必香居餐饮空间案例的简短介绍，用于说明项目业态、空间气质、施工范围与最终呈现效果，后续可替换为正式店铺信息。</p>
+        <div>
+          <p class="eyebrow">Dining Case</p>
+          <h1>必香居</h1>
+        </div>
+        <p>以市井早茶与淮扬风味为线索，必香居门店通过醒目的招牌、温润的材质和层次化灯光，呈现兼具烟火气与品质感的餐饮空间形象。</p>
       </div>
     </section>
 
@@ -367,8 +395,8 @@
       <section class="section intro" aria-label="案例简介">
         <h2>餐饮空间案例</h2>
         <div class="intro-copy">
-          <p>占位文字：本项目围绕餐饮门店的日常运营、顾客动线、门头识别、就餐体验与后场配套进行整体落地，强调空间形象与工程实施之间的平衡。</p>
-          <p>占位文字：页面当前使用现场照片展示项目状态，具体地址、面积、施工范围、合作时间与正式描述可在后续统一替换。</p>
+          <p>本项目围绕餐饮门店的日常运营、顾客动线、门头识别、就餐体验与后场配套进行整体落地，强调空间形象与工程实施之间的平衡。</p>
+          <p>页面当前以项目照片展示门店正立面与室内外氛围，后续可继续补充具体地址、面积、施工范围与合作时间等信息。</p>
           <div class="meta-grid" aria-label="项目信息">
             <div class="meta"><small>Project</small><b>必香居餐饮空间</b></div>
             <div class="meta"><small>Category</small><b>餐饮装修</b></div>
@@ -389,9 +417,9 @@
       <section class="section story" aria-label="案例文字说明">
         <h2>项目说明</h2>
         <div class="story-copy">
-          <p>占位文字：这里可以补充必香居门店的项目背景，例如品牌定位、门店所在区域、空间面积、设计目标、施工周期与主要工程范围。</p>
-          <p>占位文字：这里可以补充施工与交付说明，例如门头、前厅、包间、后厨、水电、消防、材料收口、现场协调与最终验收情况。</p>
-          <p>占位文字：这里可以补充项目结果，例如空间识别度、就餐氛围、运营效率、后期维护便利性，以及与客户长期合作的延展信息。</p>
+          <p>必香居以市井早茶与淮扬风味为主要空间线索，门店形象强调传统餐饮的烟火气与现代商业空间的秩序感。整体设计通过醒目的门头招牌、温润木色与暖光界面建立第一视觉记忆，让顾客在进入门店前就能感受到清晰的品牌氛围。</p>
+          <p>设计与施工落地围绕门头识别、前厅动线、就餐区尺度和后场衔接展开。通过招牌比例、灯光层次、材料收口与绿植景观的协调处理，保证门店正立面完整统一，同时兼顾日常运营、客流组织和后期维护的便利性。</p>
+          <p>完工后的空间呈现出稳重温暖、干净有序的餐饮气质。通透的立面、细节化的场景营造与更具识别度的品牌表达，共同提升了顾客的到店体验，也为门店长期运营形成更稳定、更有质感的空间基础。</p>
           <a class="back-link" href="/dingji-cases.html#bixiangju">返回业务案例</a>
         </div>
       </section>

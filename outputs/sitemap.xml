@@ -25,6 +25,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.djzhuangshi.com/cases/shidingxiang</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.djzhuangshi.com/cases/xiangyuan</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.djzhuangshi.com/dingji-service.html</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>

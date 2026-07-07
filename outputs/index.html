@@ -53,16 +53,12 @@
     * { box-sizing: border-box; }
     html, body {
       min-height: 100%;
-      scroll-behavior: auto;
-    }
-    html {
-      overscroll-behavior-y: none;
+      scroll-behavior: smooth;
     }
     body {
       margin: 0;
       overflow-x: hidden;
       overflow-y: auto;
-      overscroll-behavior-y: none;
       color: var(--ink);
       background: var(--paper);
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
@@ -78,23 +74,19 @@
     .about-hero,
     .partners-hero,
     .contact-hero {
-      height: 100vh;
       min-height: 100vh;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
+      scroll-margin-top: 0;
     }
     @supports (height: 100dvh) {
       .stage,
       .about-hero,
       .partners-hero,
       .contact-hero {
-        height: 100dvh;
         min-height: 100dvh;
       }
     }
 
     .stage {
-      min-height: 100%;
       position: relative;
       overflow: hidden;
       isolation: isolate;
@@ -1794,40 +1786,9 @@
         transform: translateY(0);
       }
     }
-    @keyframes pageJellyIn {
-      0% {
-        opacity: .42;
-        transform: translate3d(0, 24px, 0) scale(.988, .97);
-      }
-      58% {
-        opacity: 1;
-        transform: translate3d(0, -6px, 0) scale(1.006, 1.012);
-      }
-      78% {
-        transform: translate3d(0, 2px, 0) scale(.998, .996);
-      }
-      100% {
-        opacity: 1;
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-    }
-    body.is-page-transitioning .stage.is-section-active .copy,
-    body.is-page-transitioning .about-hero.is-section-active .about-copy,
-    body.is-page-transitioning .partners-hero.is-section-active .partners-header,
-    body.is-page-transitioning .partners-hero.is-section-active .partners-board-head,
-    body.is-page-transitioning .partners-hero.is-section-active .partner-track,
-    body.is-page-transitioning .partners-hero.is-section-active .partners-cta,
-    body.is-page-transitioning .contact-hero.is-section-active .contact-copy,
-    body.is-page-transitioning .contact-hero.is-section-active .contact-list,
-    body.is-page-transitioning .contact-hero.is-section-active .contact-actions {
-      animation: pageJellyIn .58s cubic-bezier(.16, 1, .3, 1) both;
-      transform-origin: 50% 70%;
-      will-change: transform, opacity;
-    }
-
     @media (max-width: 980px) {
       body { overflow: auto; }
-      .stage { min-height: 100%; overflow: hidden; }
+      .stage { overflow: hidden; }
       .nav {
         left: 14px;
         right: 14px;
@@ -3903,15 +3864,6 @@
       .filter(Boolean);
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let activeSectionIndex = Math.max(0, pageSections.findIndex((section) => `#${section.id}` === activeNavHref));
-    let isPageScrolling = false;
-    let pageScrollTimer = 0;
-    let pageJellyTimer = 0;
-    let wheelIntent = 0;
-    let lastWheelAt = 0;
-    let ignoreWheelUntil = 0;
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchTracking = false;
 
     function clampSectionIndex(index) {
       return Math.max(0, Math.min(pageSections.length - 1, index));
@@ -3941,39 +3893,20 @@
       activateNavByHref(navHrefForSection(section), immediate);
     }
 
-    function goToSection(index, options = {}) {
+    function scrollToSection(index, options = {}) {
       if (!pageSections.length) return;
       const nextIndex = clampSectionIndex(index);
       const section = pageSections[nextIndex];
-      if (!section || (isPageScrolling && !options.force)) return;
-
-      const distance = Math.abs(window.scrollY - section.offsetTop);
+      if (!section) return;
       setActiveSection(nextIndex, options.immediate);
-      if (distance < 3 && !options.force) return;
-
-      isPageScrolling = true;
-      ignoreWheelUntil = performance.now() + (options.immediate ? 120 : 1200);
-      document.body.classList.toggle('is-page-transitioning', !options.immediate && !reducedMotionQuery.matches);
-      window.clearTimeout(pageScrollTimer);
-      window.clearTimeout(pageJellyTimer);
       const visibleHash = navHrefForSection(section);
       if (visibleHash) {
         history.replaceState(null, '', visibleHash);
       }
-      window.scrollTo({
-        top: section.offsetTop,
+      section.scrollIntoView({
+        block: 'start',
         behavior: options.immediate || reducedMotionQuery.matches ? 'auto' : 'smooth'
       });
-      pageScrollTimer = window.setTimeout(() => {
-        window.scrollTo({ top: section.offsetTop, behavior: 'auto' });
-        isPageScrolling = false;
-        wheelIntent = 0;
-        ignoreWheelUntil = performance.now() + 420;
-        setActiveSection(closestSectionIndex());
-      }, options.immediate || reducedMotionQuery.matches ? 90 : 880);
-      pageJellyTimer = window.setTimeout(() => {
-        document.body.classList.remove('is-page-transitioning');
-      }, options.immediate || reducedMotionQuery.matches ? 120 : 980);
     }
 
     function sectionIndexFromHref(href) {
@@ -3989,7 +3922,7 @@
         event.preventDefault();
         const sectionIndex = sectionIndexFromHref(href);
         if (sectionIndex >= 0) {
-          goToSection(sectionIndex, { force: true });
+          scrollToSection(sectionIndex);
         } else {
           setLiquidTarget(link);
         }
@@ -4088,86 +4021,12 @@
       });
     });
 
-    window.addEventListener('wheel', (event) => {
-      if (event.ctrlKey || !pageSections.length) return;
-      if (Math.abs(event.deltaX) > Math.abs(event.deltaY) * 1.15) return;
-      if (Math.abs(event.deltaY) < 4) return;
-
-      event.preventDefault();
-      const now = performance.now();
-      if (isPageScrolling || now < ignoreWheelUntil) {
-        ignoreWheelUntil = now + 320;
-        return;
-      }
-
-      if (now - lastWheelAt > 360) {
-        wheelIntent = 0;
-      }
-      lastWheelAt = now;
-      wheelIntent += event.deltaY;
-      const threshold = event.deltaMode === 1 ? 3 : 42;
-      if (Math.abs(wheelIntent) < threshold) return;
-
-      const direction = wheelIntent > 0 ? 1 : -1;
-      wheelIntent = 0;
-      ignoreWheelUntil = now + 1200;
-      goToSection(closestSectionIndex() + direction);
-    }, { passive: false });
-
-    window.addEventListener('touchstart', (event) => {
-      if (event.touches.length !== 1) return;
-      touchTracking = true;
-      touchStartX = event.touches[0].clientX;
-      touchStartY = event.touches[0].clientY;
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (event) => {
-      if (!touchTracking || isPageScrolling || event.touches.length !== 1) return;
-      const touch = event.touches[0];
-      const deltaX = touchStartX - touch.clientX;
-      const deltaY = touchStartY - touch.clientY;
-      if (Math.abs(deltaY) < 48 || Math.abs(deltaY) < Math.abs(deltaX) * 1.2) return;
-
-      event.preventDefault();
-      touchTracking = false;
-      goToSection(closestSectionIndex() + (deltaY > 0 ? 1 : -1));
-    }, { passive: false });
-
-    window.addEventListener('touchend', () => {
-      touchTracking = false;
-    }, { passive: true });
-
-    window.addEventListener('keydown', (event) => {
-      const tagName = document.activeElement?.tagName;
-      if (tagName === 'INPUT' || tagName === 'TEXTAREA' || document.activeElement?.isContentEditable) return;
-
-      if (event.key === 'ArrowDown' || event.key === 'PageDown' || event.key === ' ') {
-        event.preventDefault();
-        goToSection(closestSectionIndex() + 1);
-      }
-      if (event.key === 'ArrowUp' || event.key === 'PageUp') {
-        event.preventDefault();
-        goToSection(closestSectionIndex() - 1);
-      }
-      if (event.key === 'Home') {
-        event.preventDefault();
-        goToSection(0);
-      }
-      if (event.key === 'End') {
-        event.preventDefault();
-        goToSection(pageSections.length - 1);
-      }
-    });
-
     window.addEventListener('scroll', () => {
       setActiveSection(closestSectionIndex());
     }, { passive: true });
 
     window.addEventListener('resize', () => {
-      window.clearTimeout(pageScrollTimer);
-      pageScrollTimer = window.setTimeout(() => {
-        goToSection(closestSectionIndex(), { immediate: true, force: true });
-      }, 120);
+      setActiveSection(closestSectionIndex(), true);
     });
 
     resize();
@@ -4175,7 +4034,11 @@
     setActiveSection(activeSectionIndex, true);
     requestAnimationFrame(() => {
       const hashIndex = sectionIndexFromHref(window.location.hash);
-      goToSection(hashIndex >= 0 ? hashIndex : closestSectionIndex(), { immediate: true, force: true });
+      if (hashIndex >= 0) {
+        scrollToSection(hashIndex, { immediate: true });
+      } else {
+        setActiveSection(closestSectionIndex(), true);
+      }
     });
     requestAnimationFrame(animateLiquid);
     requestAnimationFrame(tick);

@@ -1,0 +1,18 @@
+{
+  "name": "南京鼎基装饰工程有限公司",
+  "short_name": "鼎基装饰",
+  "description": "南京商业空间、餐饮门店、办公室、酒店、医疗及连锁品牌装修设计施工一体化服务。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fffdf7",
+  "theme_color": "#f30700",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

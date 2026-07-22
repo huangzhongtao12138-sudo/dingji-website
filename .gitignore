@@ -13,3 +13,7 @@ outputs/*.md
 !outputs/dingji-service.html
 !outputs/dingji-careers.html
 !outputs/dingji-honors.html
+!outputs/dingji-contact.html
+!outputs/dingji-consulting.html
+!outputs/dingji-chain-store.html
+!outputs/dingji-faq.html

@@ -35,7 +35,14 @@
           "inLanguage": "zh-CN",
           "publisher": {
             "@id": "https://www.djzhuangshi.com/#organization"
-          }
+          },
+          "hasPart": [
+            { "@id": "https://www.djzhuangshi.com/dingji-contact.html#webpage" },
+            { "@id": "https://www.djzhuangshi.com/dingji-consulting.html#service" },
+            { "@id": "https://www.djzhuangshi.com/dingji-chain-store.html#service" },
+            { "@id": "https://www.djzhuangshi.com/dingji-service.html#service" },
+            { "@id": "https://www.djzhuangshi.com/dingji-faq.html#webpage" }
+          ]
         },
         {
           "@type": "Organization",
@@ -2689,6 +2696,44 @@
     }
     /* End homepage mobile composition */
 
+    .search-portals {
+      min-height: 78vh;
+      display: grid;
+      align-content: center;
+      padding: clamp(100px, 12vh, 150px) clamp(18px, 5vw, 88px);
+      background:
+        radial-gradient(circle at 82% 18%, rgba(243,7,0,.09), transparent 28%),
+        linear-gradient(135deg, #ecebe1, #f7f6ee 48%, #dedbcc);
+    }
+    .search-portals-shell { width: min(100%, 1500px); margin: 0 auto; }
+    .search-portals-head { display: grid; grid-template-columns: minmax(260px, .7fr) 1fr; gap: 30px; align-items: end; margin-bottom: clamp(28px, 5vh, 54px); }
+    .search-portals-head p { margin: 0; color: var(--red); font-size: 14px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .search-portals-head h2 { margin: 0; font-size: clamp(52px, 7vw, 122px); line-height: .92; letter-spacing: -.07em; }
+    .search-portals-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .search-portal {
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.68), rgba(255,255,255,.28));
+      box-shadow: 0 28px 76px rgba(32,33,29,.08), inset 0 1px 0 rgba(255,255,255,.92);
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    }
+    .search-portal:hover { transform: translateY(-7px); box-shadow: 0 36px 86px rgba(32,33,29,.13), inset 0 1px 0 rgba(255,255,255,.95); }
+    .search-portal small { color: var(--red); font-weight: 900; letter-spacing: .12em; }
+    .search-portal h3 { margin: 38px 0 12px; font-size: clamp(29px, 2.5vw, 46px); line-height: 1; letter-spacing: -.055em; }
+    .search-portal span { color: rgba(32,33,29,.58); font-size: 15px; line-height: 1.7; font-weight: 700; }
+    @media (max-width: 980px) { .search-portals-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 780px) {
+      .search-portals { min-height: auto; padding: 96px 14px 54px; }
+      .search-portals-head, .search-portals-grid { grid-template-columns: 1fr; }
+      .search-portals-head h2 { font-size: clamp(46px, 14vw, 72px); }
+      .search-portal { min-height: 190px; border-radius: 26px; }
+    }
+
   </style>
 </head>
 <body>
@@ -2706,9 +2751,9 @@
         <a class="active" href="#home">首页</a>
         <a href="dingji-about.html">关于我们</a>
         <a href="dingji-cases.html">业务案例</a>
+        <a href="dingji-chain-store.html">连锁店装修</a>
         <a href="dingji-service.html">客户服务</a>
-        <a href="dingji-careers.html">加入我们</a>
-        <a href="#contact">联系我们</a>
+        <a href="dingji-contact.html">联系我们</a>
       </nav>
       <span class="nav-pill"><i></i> 连锁商业空间一体化交付</span>
     </header>
@@ -2879,6 +2924,21 @@
           <span>首店标准 · 批量复制 · 工程交付</span>
           <a href="dingji-cases.html">查看业务案例</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="search-portals" aria-labelledby="search-portals-title">
+    <div class="search-portals-shell">
+      <div class="search-portals-head">
+        <p>Website Quick Links</p>
+        <h2 id="search-portals-title">快速找到<br>所需服务</h2>
+      </div>
+      <div class="search-portals-grid">
+        <a class="search-portal" href="dingji-contact.html"><small>01 / CONTACT</small><div><h3>联系我们</h3><span>项目电话、公司邮箱与办公地址</span></div></a>
+        <a class="search-portal" href="dingji-consulting.html"><small>02 / CONSULTING</small><div><h3>咨询服务</h3><span>项目对接流程与前期资料清单</span></div></a>
+        <a class="search-portal" href="dingji-chain-store.html"><small>03 / CHAIN STORE</small><div><h3>连锁店装修</h3><span>餐饮及连锁品牌标准化工程交付</span></div></a>
+        <a class="search-portal" href="dingji-faq.html"><small>04 / FAQ</small><div><h3>常见问题</h3><span>服务范围、工期、资料与售后说明</span></div></a>
       </div>
     </div>
   </section>

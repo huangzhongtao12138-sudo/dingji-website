@@ -3,34 +3,42 @@
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const desktop = window.matchMedia("(min-width: 961px)");
-  const finePointer = window.matchMedia("(pointer: fine)");
-
-  const header = document.querySelector("[data-header]");
-  const updateHeader = () => {
-    header?.classList.toggle("is-scrolled", window.scrollY > 24);
-  };
-  updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
 
   const nav = document.querySelector(".nav-links");
-  const navPill = nav?.querySelector(".nav-pill");
+  const navThumb = nav?.querySelector(".liquid-thumb");
+  const navTrail = nav?.querySelector(".liquid-trail");
   const navLinks = nav ? [...nav.querySelectorAll("a")] : [];
-  const currentNav = navLinks.find((link) => link.getAttribute("aria-current") === "page");
+  const currentNav = navLinks.find((link) => link.classList.contains("active"));
 
-  const positionNavPill = (link) => {
-    if (!nav || !navPill || !link || !desktop.matches) return;
-    navPill.style.width = `${link.offsetWidth}px`;
-    navPill.style.transform = `translateX(${link.offsetLeft - 4}px)`;
+  const positionNavLiquid = (link, immediate = false) => {
+    if (!nav || !navThumb || !navTrail || !link || !desktop.matches) return;
+    const navRect = nav.getBoundingClientRect();
+    const rect = link.getBoundingClientRect();
+    const x = rect.left - navRect.left;
+    const y = rect.top - navRect.top;
+
+    [navThumb, navTrail].forEach((element) => {
+      element.style.setProperty("--x", `${x}px`);
+      element.style.setProperty("--y", `${y}px`);
+      element.style.setProperty("--w", `${rect.width}px`);
+      element.style.setProperty("--h", `${rect.height}px`);
+      if (immediate) {
+        element.style.transitionDuration = "0ms";
+        requestAnimationFrame(() => {
+          element.style.transitionDuration = "";
+        });
+      }
+    });
   };
 
-  const resetNavPill = () => positionNavPill(currentNav);
+  const resetNavLiquid = (immediate = false) => positionNavLiquid(currentNav, immediate);
   navLinks.forEach((link) => {
-    link.addEventListener("mouseenter", () => positionNavPill(link));
-    link.addEventListener("focus", () => positionNavPill(link));
+    link.addEventListener("pointerenter", () => positionNavLiquid(link));
+    link.addEventListener("focus", () => positionNavLiquid(link));
   });
-  nav?.addEventListener("mouseleave", resetNavPill);
-  window.addEventListener("resize", resetNavPill, { passive: true });
-  requestAnimationFrame(resetNavPill);
+  nav?.addEventListener("pointerleave", () => resetNavLiquid());
+  window.addEventListener("resize", () => resetNavLiquid(true), { passive: true });
+  requestAnimationFrame(() => resetNavLiquid(true));
 
   const revealItems = document.querySelectorAll("[data-reveal]");
   if (reducedMotion.matches || !("IntersectionObserver" in window)) {
@@ -144,17 +152,4 @@
     }
   }
 
-  if (sceneShell && finePointer.matches && !reducedMotion.matches) {
-    sceneShell.addEventListener("pointermove", (event) => {
-      const rect = sceneShell.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      sceneShell.style.setProperty("--scene-x", `${x * 3.2}deg`);
-      sceneShell.style.setProperty("--scene-y", `${y * -3.2}deg`);
-    });
-    sceneShell.addEventListener("pointerleave", () => {
-      sceneShell.style.setProperty("--scene-x", "0deg");
-      sceneShell.style.setProperty("--scene-y", "0deg");
-    });
-  }
 })();

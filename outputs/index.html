@@ -2699,13 +2699,13 @@
     }
     /* End homepage mobile composition */
 
-    /* Project orbit redesign 2026-07-23 */
+    /* Lightweight partner orbit redesign 2026-07-23 */
     .case-showcase {
       --orbit-red: #f30700;
       min-height: 100svh;
       color: #f4f1e9;
       background:
-        radial-gradient(circle at calc(50% + var(--mx) * 7%) 32%, rgba(255,255,255,.94), transparent 34%),
+        radial-gradient(circle at 50% 32%, rgba(255,255,255,.94), transparent 34%),
         radial-gradient(circle at 88% 78%, rgba(243,7,0,.08), transparent 25%),
         linear-gradient(142deg, #e8e6dc 0%, #f7f5ee 50%, #dfddd3 100%);
       isolation: isolate;
@@ -2819,7 +2819,7 @@
       border-radius: clamp(28px, 2.6vw, 44px);
       color: #f5f2e9;
       background:
-        radial-gradient(circle at var(--partners-x, 52%) var(--partners-y, 45%), rgba(243,7,0,.12), transparent 27%),
+        radial-gradient(circle at 52% 45%, rgba(243,7,0,.12), transparent 27%),
         radial-gradient(circle at 50% 116%, rgba(243,7,0,.16), transparent 35%),
         linear-gradient(145deg, #171815, #0a0b09 62%, #141511);
       box-shadow:
@@ -2887,6 +2887,7 @@
       cursor: grab;
       touch-action: pan-y;
       user-select: none;
+      contain: layout paint;
       background:
         radial-gradient(ellipse at 50% 72%, rgba(243,7,0,.16), transparent 30%),
         radial-gradient(ellipse at 50% 47%, rgba(255,255,255,.045), transparent 48%);
@@ -2928,8 +2929,8 @@
       left: 50%;
       top: 50%;
       z-index: var(--orbit-z, 1);
-      width: clamp(280px, 27vw, 440px);
-      height: clamp(190px, 29vh, 320px);
+      width: clamp(230px, 20vw, 330px);
+      height: clamp(150px, 20vh, 205px);
       display: block;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.16);
@@ -2944,14 +2945,11 @@
         rotate(var(--orbit-tilt, 0deg))
         scale(var(--orbit-scale, .46));
       transform-origin: center;
-      filter: saturate(var(--orbit-saturation, .65)) brightness(var(--orbit-brightness, .74));
       transition:
-        transform 880ms cubic-bezier(.18,.84,.18,1),
-        opacity 620ms ease,
-        filter 620ms ease,
+        transform 760ms cubic-bezier(.18,.84,.18,1),
+        opacity 480ms ease,
         border-color 420ms ease,
-        box-shadow 620ms ease;
-      will-change: transform, opacity;
+        box-shadow 520ms ease;
     }
     .orbit-card:nth-child(1) {
       --orbit-y: 40px;
@@ -2964,6 +2962,7 @@
     .orbit-card:nth-child(4) { --orbit-y: -135px; --orbit-scale: .44; --orbit-opacity: .15; --orbit-z: 2; }
     .orbit-card:nth-child(5) { --orbit-x: -46vw; --orbit-y: -95px; --orbit-scale: .5; --orbit-opacity: .24; --orbit-z: 4; }
     .orbit-card:nth-child(6) { --orbit-x: -37vw; --orbit-y: 0px; --orbit-scale: .74; --orbit-opacity: .62; --orbit-z: 10; }
+    .orbit-card:nth-child(n+7) { --orbit-opacity: 0; }
     .orbit-card:hover {
       border-color: rgba(255,255,255,.34);
     }
@@ -2972,7 +2971,93 @@
       box-shadow:
         0 34px 82px rgba(0,0,0,.5),
         0 0 0 1px rgba(243,7,0,.18);
-      filter: saturate(1) brightness(1);
+    }
+    .partner-orbit-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(20px, 2vw, 30px);
+      color: #171815;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.96), rgba(226,224,216,.94));
+      border-color: rgba(255,255,255,.5);
+      box-shadow: 0 24px 54px rgba(0,0,0,.28);
+      text-decoration: none;
+    }
+    .partner-orbit-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--partner-color, var(--orbit-red));
+    }
+    .partner-orbit-card::after {
+      content: attr(data-partner-index);
+      position: absolute;
+      right: 14px;
+      bottom: -19px;
+      color: rgba(23,24,21,.055);
+      font: 900 clamp(4.8rem, 7vw, 7.6rem)/1 Arial, sans-serif;
+      letter-spacing: -.08em;
+      pointer-events: none;
+    }
+    .partner-card-top,
+    .partner-card-bottom {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .partner-sequence {
+      color: rgba(23,24,21,.48);
+      font: 750 10px/1 Arial, sans-serif;
+      letter-spacing: .15em;
+    }
+    .partner-signal {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--partner-color, var(--orbit-red));
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--partner-color, var(--orbit-red)) 14%, transparent);
+    }
+    .partner-wordmark {
+      position: relative;
+      z-index: 2;
+      margin: auto 0;
+      color: #171815;
+      font-size: clamp(1.55rem, 2.1vw, 2.45rem);
+      font-weight: 880;
+      line-height: 1;
+      letter-spacing: -.045em;
+      text-wrap: balance;
+    }
+    .partner-wordmark em {
+      display: block;
+      margin-top: .38em;
+      color: rgba(23,24,21,.46);
+      font: 700 11px/1.2 Arial, sans-serif;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .partner-category {
+      color: rgba(23,24,21,.56);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+    .partner-arrow-mark {
+      color: var(--partner-color, var(--orbit-red));
+      font-size: 17px;
+      font-weight: 800;
+    }
+    .partner-orbit-card.is-active {
+      border-color: rgba(255,255,255,.78);
+      box-shadow:
+        0 32px 76px rgba(0,0,0,.4),
+        0 0 0 1px color-mix(in srgb, var(--partner-color, var(--orbit-red)) 18%, transparent);
     }
     .orbit-card .case-image-slot {
       position: absolute;
@@ -3088,10 +3173,8 @@
       border: 1px solid rgba(255,255,255,.17);
       border-radius: 50%;
       color: rgba(255,255,255,.8);
-      background: rgba(10,11,9,.54);
+      background: rgba(10,11,9,.86);
       box-shadow: 0 16px 34px rgba(0,0,0,.22);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       transform: translateY(-50%);
     }
     .case-showcase .orbit-stage .partner-arrow[data-dir="-1"] {
@@ -3261,19 +3344,17 @@
         position: relative;
         left: auto;
         top: auto;
-        flex: 0 0 74vw;
-        width: 74vw;
+        flex: 0 0 68vw;
+        width: 68vw;
         max-width: 330px;
-        height: 292px;
+        height: 210px;
         opacity: 1;
         transform: none !important;
-        filter: none;
         scroll-snap-align: center;
         transition: border-color .3s ease, box-shadow .3s ease;
       }
       .orbit-card:not(.is-active) {
-        opacity: .58;
-        filter: saturate(.7) brightness(.76);
+        opacity: .64;
       }
       .orbit-card .case-card-foot {
         padding: 20px;
@@ -3327,9 +3408,9 @@
       }
       .orbit-card,
       .orbit-card:nth-child(n) {
-        flex-basis: 78vw;
-        width: 78vw;
-        height: 286px;
+        flex-basis: 76vw;
+        width: 76vw;
+        height: 202px;
       }
       .case-showcase .partner-note > span {
         display: none;
@@ -3363,8 +3444,8 @@
         min-height: clamp(244px, 37vh, 292px);
       }
       .orbit-card {
-        width: clamp(260px, 24vw, 360px);
-        height: clamp(176px, 27vh, 224px);
+        width: clamp(220px, 19vw, 300px);
+        height: clamp(142px, 19vh, 182px);
       }
       .orbit-card .case-card-foot {
         padding: 18px;
@@ -3511,111 +3592,129 @@
     </div>
   </section>
 
-  <section class="partners-hero case-showcase" id="partners" data-nav="#home" aria-label="业务案例">
+  <section class="partners-hero case-showcase" id="partners" data-nav="#home" aria-label="合作伙伴">
     <div class="partners-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
     <div class="partners-field" aria-hidden="true"><span class="glass-shard"></span><span class="glass-shard"></span><span class="glass-shard"></span></div>
     <div class="partners-shell">
       <div class="partners-header">
         <div>
-          <p class="partners-kicker">SELECTED PROJECTS · 精选项目</p>
-          <h2 class="partners-title">让每一次落地，<span>成为下一次复制的标准。</span></h2>
+          <p class="partners-kicker">COOPERATION NETWORK · 合作伙伴</p>
+          <h2 class="partners-title">与值得信赖的品牌，<span>长期并肩。</span></h2>
         </div>
-        <p class="orbit-intro">从餐饮门店到商业空间，真实现场沿着同一套工程标准持续运转。拖动轨道，查看鼎基已经完成的空间实践。</p>
+        <p class="orbit-intro">从连锁餐饮到商业零售与综合工程，稳定协同来自长期理解、标准共识与持续交付。拖动轨道，认识与鼎基并肩前行的合作伙伴。</p>
       </div>
 
-      <div class="partners-board case-board orbit-board" aria-label="可拖动的项目案例轨道">
+      <div class="partners-board case-board orbit-board" aria-label="可拖动的合作伙伴轨道">
         <div class="partners-board-head">
-          <b>PROJECT ORBIT</b>
+          <b>PARTNER ORBIT</b>
           <span>拖动 · 滑动 · 方向键切换</span>
-          <span class="orbit-counter"><strong data-orbit-current>01</strong> / 06</span>
+          <span class="orbit-counter"><strong data-orbit-current>01</strong> / <span data-orbit-total>15</span></span>
         </div>
-        <div class="partners-stage orbit-stage" data-orbit-stage tabindex="0" aria-label="精选项目轮播，可使用左右方向键切换">
-          <button class="partner-arrow" type="button" data-dir="-1" aria-label="上一组案例">
+        <div class="partners-stage orbit-stage" data-orbit-stage tabindex="0" aria-label="合作伙伴轮播，可使用左右方向键切换">
+          <button class="partner-arrow" type="button" data-dir="-1" aria-label="上一个合作伙伴">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <div class="orbit-track" data-orbit-track>
-            <a class="orbit-card is-active" data-orbit-card href="/cases/bixiangju" aria-current="true">
-              <figure class="case-image-slot">
-                <img src="/public/assets/cases/bixiangju-xingcheng-storefront-cover.png" alt="必香居兴城路店门头" loading="lazy">
-              </figure>
-              <div class="case-card-foot">
-                <span class="case-brand">DINING CASE 01</span>
-                <h3>必香居 · 兴城路店</h3>
-                <p>餐饮空间 · 门店形象 · 工程落地</p>
-              </div>
-              <span class="orbit-open" aria-hidden="true">↗</span>
+            <a class="orbit-card partner-orbit-card is-active" data-orbit-card data-partner-index="01" href="dingji-cases.html#partners" aria-current="true" style="--partner-color:#00754a">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 01</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">Starbucks<em>星巴克</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card" data-orbit-card href="/cases/shidingxiang">
-              <figure class="case-image-slot">
-                <img src="/public/assets/cases/shidingxiang-06.jpg" alt="何园石鼎香店门头" loading="lazy">
-              </figure>
-              <div class="case-card-foot">
-                <span class="case-brand">DINING CASE 02</span>
-                <h3>石鼎香 · 何园店</h3>
-                <p>非遗淮扬火锅 · 餐饮空间 · 细节落地</p>
-              </div>
-              <span class="orbit-open" aria-hidden="true">↗</span>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="02" href="dingji-cases.html#partners" style="--partner-color:#00a79d">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 02</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">Watsons<em>屈臣氏</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">商业零售</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card" data-orbit-card href="/cases/xiangyuan">
-              <figure class="case-image-slot">
-                <img src="/public/assets/cases/xiangyuan-05.jpg" alt="邗江大润发香园店门头" loading="lazy">
-              </figure>
-              <div class="case-card-foot">
-                <span class="case-brand">DINING CASE 03</span>
-                <h3>香园 · 邗江店</h3>
-                <p>扬州早茶 · 淮扬菜 · 商业餐饮</p>
-              </div>
-              <span class="orbit-open" aria-hidden="true">↗</span>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="03" href="dingji-cases.html#partners" style="--partner-color:#e4002b">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 03</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">KFC<em>肯德基</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card" data-orbit-card href="/cases/bixiangju">
-              <figure class="case-image-slot">
-                <img src="/public/assets/cases/bixiangju-03.jpg" alt="必香居餐饮空间室内场景" loading="lazy">
-              </figure>
-              <div class="case-card-foot">
-                <span class="case-brand">SPACE DETAIL 04</span>
-                <h3>必香居 · 空间细节</h3>
-                <p>材料表达 · 就餐体验 · 品牌氛围</p>
-              </div>
-              <span class="orbit-open" aria-hidden="true">↗</span>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="04" href="dingji-cases.html#partners" style="--partner-color:#d40b1e">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 04</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">Pizza Hut<em>必胜客</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card" data-orbit-card href="/cases/shidingxiang">
-              <figure class="case-image-slot">
-                <img src="/public/assets/cases/shidingxiang-03.jpg" alt="石鼎香火锅空间室内场景" loading="lazy">
-              </figure>
-              <div class="case-card-foot">
-                <span class="case-brand">SPACE DETAIL 05</span>
-                <h3>石鼎香 · 空间细节</h3>
-                <p>空间层次 · 材料工艺 · 现场实现</p>
-              </div>
-              <span class="orbit-open" aria-hidden="true">↗</span>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="05" href="dingji-cases.html#partners" style="--partner-color:#ec1c24">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 05</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">Burger King<em>汉堡王</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card" data-orbit-card href="/cases/xiangyuan">
-              <figure class="case-image-slot">
-                <img src="/public/assets/cases/xiangyuan-02.jpg" alt="香园餐饮空间室内场景" loading="lazy">
-              </figure>
-              <div class="case-card-foot">
-                <span class="case-brand">SPACE DETAIL 06</span>
-                <h3>香园 · 空间细节</h3>
-                <p>空间动线 · 场景营造 · 工程交付</p>
-              </div>
-              <span class="orbit-open" aria-hidden="true">↗</span>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="06" href="dingji-cases.html#partners" style="--partner-color:#111111">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 06</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">LEXUS<em>雷克萨斯</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">商业空间</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="07" href="dingji-cases.html#partners" style="--partner-color:#005baa">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 07</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">CRCC<em>中国铁建</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">综合工程</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="08" href="dingji-cases.html#partners" style="--partner-color:#009b77">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 08</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">盒马鲜生<em>FRESHIPPO</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">商业零售</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="09" href="dingji-cases.html#partners" style="--partner-color:#f6a800">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 09</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">老乡鸡<em>HOME ORIGINAL CHICKEN</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="10" href="dingji-cases.html#partners" style="--partner-color:#c60012">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 10</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">回味<em>鸭血粉丝汤</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="11" href="dingji-cases.html#partners" style="--partner-color:#e43b24">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 11</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">必香居<em>BIXIANGJU</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="12" href="dingji-cases.html#partners" style="--partner-color:#b4262a">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 12</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">石鼎香<em>SHIDINGXIANG</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="13" href="dingji-cases.html#partners" style="--partner-color:#a65a36">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 13</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">香园<em>XIANGYUAN</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="14" href="dingji-cases.html#partners" style="--partner-color:#ff6138">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 14</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">HUNJUICE<em>混果汁</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
+            </a>
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="15" href="dingji-cases.html#partners" style="--partner-color:#f28c28">
+              <span class="partner-card-top"><span class="partner-sequence">PARTNER 15</span><i class="partner-signal"></i></span>
+              <strong class="partner-wordmark">新橙源味<em>FRESH ORANGE</em></strong>
+              <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
           </div>
-          <button class="partner-arrow" type="button" data-dir="1" aria-label="下一组案例">
+          <button class="partner-arrow" type="button" data-dir="1" aria-label="下一个合作伙伴">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
           </button>
         </div>
         <div class="partner-note">
-          <div class="orbit-pagination" aria-label="选择项目">
-            <button class="is-active" type="button" data-orbit-dot="0" aria-label="查看第1个项目"></button>
-            <button type="button" data-orbit-dot="1" aria-label="查看第2个项目"></button>
-            <button type="button" data-orbit-dot="2" aria-label="查看第3个项目"></button>
-            <button type="button" data-orbit-dot="3" aria-label="查看第4个项目"></button>
-            <button type="button" data-orbit-dot="4" aria-label="查看第5个项目"></button>
-            <button type="button" data-orbit-dot="5" aria-label="查看第6个项目"></button>
+          <div class="orbit-pagination" aria-label="选择合作伙伴">
+            <button class="is-active" type="button" data-orbit-dot="0" aria-label="查看第1个合作伙伴"></button>
+            <button type="button" data-orbit-dot="1" aria-label="查看第2个合作伙伴"></button>
+            <button type="button" data-orbit-dot="2" aria-label="查看第3个合作伙伴"></button>
+            <button type="button" data-orbit-dot="3" aria-label="查看第4个合作伙伴"></button>
+            <button type="button" data-orbit-dot="4" aria-label="查看第5个合作伙伴"></button>
+            <button type="button" data-orbit-dot="5" aria-label="查看第6个合作伙伴"></button>
+            <button type="button" data-orbit-dot="6" aria-label="查看第7个合作伙伴"></button>
+            <button type="button" data-orbit-dot="7" aria-label="查看第8个合作伙伴"></button>
+            <button type="button" data-orbit-dot="8" aria-label="查看第9个合作伙伴"></button>
+            <button type="button" data-orbit-dot="9" aria-label="查看第10个合作伙伴"></button>
+            <button type="button" data-orbit-dot="10" aria-label="查看第11个合作伙伴"></button>
+            <button type="button" data-orbit-dot="11" aria-label="查看第12个合作伙伴"></button>
+            <button type="button" data-orbit-dot="12" aria-label="查看第13个合作伙伴"></button>
+            <button type="button" data-orbit-dot="13" aria-label="查看第14个合作伙伴"></button>
+            <button type="button" data-orbit-dot="14" aria-label="查看第15个合作伙伴"></button>
           </div>
-          <span>真实项目影像 · 可拖动浏览</span>
-          <a href="dingji-cases.html">查看业务案例</a>
+          <span>连锁餐饮 · 商业零售 · 综合工程</span>
+          <a href="dingji-cases.html#partners">查看合作伙伴</a>
         </div>
       </div>
     </div>
@@ -3691,7 +3790,6 @@
     const signalStats = [...document.querySelectorAll('.signal-stat')];
     const aboutScene = document.querySelector('.about-hero');
     const aboutVideo = document.querySelector('.about-video-main');
-    const partnersHero = document.querySelector('.partners-hero');
     const partnersBoard = document.querySelector('.partners-board');
     const orbitStage = document.querySelector('[data-orbit-stage]');
     const orbitTrack = document.querySelector('[data-orbit-track]');
@@ -3699,6 +3797,7 @@
     const partnerArrows = [...document.querySelectorAll('.partner-arrow')];
     const orbitDots = [...document.querySelectorAll('[data-orbit-dot]')];
     const orbitCurrent = document.querySelector('[data-orbit-current]');
+    const orbitTotal = document.querySelector('[data-orbit-total]');
     const contactHero = document.querySelector('.contact-hero');
 
     const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -4775,23 +4874,6 @@
       signalCard.style.setProperty('--card-x', '26%');
       signalCard.style.setProperty('--card-y', '20%');
     });
-    partnersHero?.addEventListener('pointermove', (event) => {
-      const rect = partnersHero.getBoundingClientRect();
-      const mx = ((event.clientX - rect.left) / rect.width - .5) * 2;
-      const my = ((event.clientY - rect.top) / rect.height - .5) * 2;
-      partnersHero.style.setProperty('--mx', mx.toFixed(3));
-      partnersHero.style.setProperty('--my', my.toFixed(3));
-      if (partnersBoard) {
-        partnersBoard.style.setProperty('--partners-x', `${50 + mx * 12}%`);
-        partnersBoard.style.setProperty('--partners-y', `${44 + my * 9}%`);
-      }
-    });
-    partnersHero?.addEventListener('pointerleave', () => {
-      partnersHero.style.setProperty('--mx', '0');
-      partnersHero.style.setProperty('--my', '0');
-      partnersBoard?.style.setProperty('--partners-x', '52%');
-      partnersBoard?.style.setProperty('--partners-y', '45%');
-    });
     contactHero?.addEventListener('pointermove', (event) => {
       const rect = contactHero.getBoundingClientRect();
       const mx = ((event.clientX - rect.left) / rect.width - .5) * 2;
@@ -4843,29 +4925,32 @@
         card.setAttribute('aria-current', isActive ? 'true' : 'false');
 
         if (mobile) {
+          card.removeAttribute('aria-hidden');
+          card.style.pointerEvents = '';
           card.tabIndex = 0;
-          ['--orbit-x', '--orbit-y', '--orbit-scale', '--orbit-opacity', '--orbit-z', '--orbit-tilt', '--orbit-saturation', '--orbit-brightness']
+          ['--orbit-x', '--orbit-y', '--orbit-scale', '--orbit-opacity', '--orbit-z', '--orbit-tilt']
             .forEach((property) => card.style.removeProperty(property));
           return;
         }
 
         let offset = (cardIndex - orbitIndex + partnerCards.length) % partnerCards.length;
         if (offset > partnerCards.length / 2) offset -= partnerCards.length;
-        const angle = offset * (Math.PI * 2 / partnerCards.length);
+        const visible = Math.abs(offset) <= 3;
+        const angle = offset * .48;
         const depth = (Math.cos(angle) + 1) / 2;
         const scale = .45 + .55 * Math.pow(depth, 1.72);
-        const opacity = .12 + .88 * Math.pow(depth, .82);
+        const opacity = visible ? .14 + .86 * Math.pow(depth, .82) : 0;
         const x = Math.sin(angle) * radiusX;
         const y = -42 + Math.cos(angle) * radiusY;
 
+        card.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        card.style.pointerEvents = visible ? 'auto' : 'none';
         card.style.setProperty('--orbit-x', `${x.toFixed(2)}px`);
         card.style.setProperty('--orbit-y', `${y.toFixed(2)}px`);
         card.style.setProperty('--orbit-scale', scale.toFixed(3));
         card.style.setProperty('--orbit-opacity', opacity.toFixed(3));
         card.style.setProperty('--orbit-z', String(Math.round(depth * 100)));
         card.style.setProperty('--orbit-tilt', `${(-Math.sin(angle) * 7).toFixed(2)}deg`);
-        card.style.setProperty('--orbit-saturation', (.5 + depth * .5).toFixed(2));
-        card.style.setProperty('--orbit-brightness', (.64 + depth * .36).toFixed(2));
         card.tabIndex = isActive ? 0 : -1;
       });
 
@@ -4875,6 +4960,7 @@
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
       if (orbitCurrent) orbitCurrent.textContent = String(orbitIndex + 1).padStart(2, '0');
+      if (orbitTotal) orbitTotal.textContent = String(partnerCards.length).padStart(2, '0');
 
       if (mobile && options.scrollMobile) {
         const activeCard = partnerCards[orbitIndex];
@@ -4901,7 +4987,7 @@
       if (reducedMotionQuery.matches || orbitMobileQuery.matches || !partnerCards.length) return;
       orbitAutoTimer = window.setInterval(() => {
         if (orbitInView && !document.hidden && !orbitDragging) changeOrbit(1);
-      }, 5200);
+      }, 6500);
     }
 
     partnerCards.forEach((card, cardIndex) => {

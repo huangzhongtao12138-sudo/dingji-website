@@ -448,8 +448,8 @@ button {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, #11110f 0%, rgba(17, 17, 15, 0.7) 18%, transparent 43%),
-    linear-gradient(0deg, #11110f 0%, rgba(17, 17, 15, 0.7) 14%, transparent 36%);
+    linear-gradient(90deg, #11110f 0%, #11110f 25%, rgba(17, 17, 15, 0.92) 34%, transparent 54%),
+    linear-gradient(0deg, #11110f 0%, #11110f 27%, rgba(17, 17, 15, 0.88) 38%, transparent 59%);
 }
 
 .scene-fallback {

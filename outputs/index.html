@@ -2995,13 +2995,18 @@
       background: var(--partner-color, var(--orbit-red));
     }
     .partner-orbit-card::after {
-      content: attr(data-partner-index);
+      content: attr(data-partner-mark);
       position: absolute;
-      right: 14px;
-      bottom: -19px;
-      color: color-mix(in srgb, var(--partner-ink, #fff) 10%, transparent);
-      font: 900 clamp(4.8rem, 7vw, 7.6rem)/1 Arial, sans-serif;
-      letter-spacing: -.08em;
+      right: -.08em;
+      bottom: -.16em;
+      max-width: 112%;
+      overflow: hidden;
+      color: color-mix(in srgb, var(--partner-ink, #fff) 11%, transparent);
+      font: 900 clamp(2.8rem, 5.2vw, 6.2rem)/.86 Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      letter-spacing: -.065em;
+      white-space: nowrap;
+      transform: rotate(-7deg);
+      transform-origin: 100% 100%;
       pointer-events: none;
     }
     .partner-card-top,
@@ -3736,9 +3741,9 @@
       <div class="partners-header">
         <div>
           <p class="partners-kicker">COOPERATION NETWORK · 合作伙伴</p>
-          <h2 class="partners-title">与值得信赖的品牌，<span>长期并肩。</span></h2>
+          <h2 class="partners-title">与值得信赖的品牌<span>长期并肩</span></h2>
         </div>
-        <p class="orbit-intro">从连锁餐饮到商业零售与综合工程，稳定协同来自长期理解、标准共识与持续交付。拖动轨道，认识与鼎基并肩前行的合作伙伴。</p>
+        <p class="orbit-intro">从连锁餐饮到商业零售与综合工程，稳定协同来自长期理解、标准共识与持续交付。拖动轨道，认识与鼎基并肩前行的合作伙伴</p>
       </div>
 
       <div class="partners-board case-board orbit-board" aria-label="可拖动的合作伙伴轨道">
@@ -3752,77 +3757,77 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <div class="orbit-track" data-orbit-track>
-            <a class="orbit-card partner-orbit-card is-active" data-orbit-card data-partner-index="01" href="dingji-cases.html#partners" aria-current="true" style="--partner-color:#007144;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card is-active" data-orbit-card data-partner-mark="STARBUCKS" href="dingji-cases.html#partners" aria-current="true" style="--partner-color:#007144;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 01</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Starbucks<em>星巴克</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="02" href="dingji-cases.html#partners" style="--partner-color:#079c96;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="watsons" href="dingji-cases.html#partners" style="--partner-color:#079c96;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 02</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Watsons<em>屈臣氏</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">商业零售</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="03" href="dingji-cases.html#partners" style="--partner-color:#bd1f2d;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="KFC" href="dingji-cases.html#partners" style="--partner-color:#bd1f2d;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 03</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">KFC<em>肯德基</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="04" href="dingji-cases.html#partners" style="--partner-color:#df2026;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="PIZZA HUT" href="dingji-cases.html#partners" style="--partner-color:#df2026;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 04</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Pizza Hut<em>必胜客</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="05" href="dingji-cases.html#partners" style="--partner-color:#ff7600;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="BURGER KING" href="dingji-cases.html#partners" style="--partner-color:#ff7600;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 05</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Burger King<em>汉堡王</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="06" href="dingji-cases.html#partners" style="--partner-color:#656d76;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="LEXUS" href="dingji-cases.html#partners" style="--partner-color:#656d76;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 06</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">LEXUS<em>雷克萨斯</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">商业空间</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="07" href="dingji-cases.html#partners" style="--partner-color:#d01822;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="CRCC" href="dingji-cases.html#partners" style="--partner-color:#d01822;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 07</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">CRCC<em>中国铁建</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">综合工程</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="08" href="dingji-cases.html#partners" style="--partner-color:#078ec8;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="盒马" href="dingji-cases.html#partners" style="--partner-color:#078ec8;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 08</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">盒马鲜生<em>FRESHIPPO</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">商业零售</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="09" href="dingji-cases.html#partners" style="--partner-color:#07843f;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="老乡鸡" href="dingji-cases.html#partners" style="--partner-color:#07843f;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 09</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">老乡鸡<em>HOME ORIGINAL CHICKEN</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="10" href="dingji-cases.html#partners" style="--partner-color:#bb1026;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="回味" href="dingji-cases.html#partners" style="--partner-color:#bb1026;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 10</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">回味<em>鸭血粉丝汤</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="11" href="dingji-cases.html#partners" style="--partner-color:#9b1b14;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="必香居" href="dingji-cases.html#partners" style="--partner-color:#9b1b14;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 11</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">必香居<em>BIXIANGJU</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="12" href="dingji-cases.html#partners" style="--partner-color:#4d6f42;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="石鼎香" href="dingji-cases.html#partners" style="--partner-color:#4d6f42;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 12</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">石鼎香<em>SHIDINGXIANG</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="13" href="dingji-cases.html#partners" style="--partner-color:#6f4d31;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="香园" href="dingji-cases.html#partners" style="--partner-color:#6f4d31;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 13</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">香园<em>XIANGYUAN</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="14" href="dingji-cases.html#partners" style="--partner-color:#111;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="HUNJUICE" href="dingji-cases.html#partners" style="--partner-color:#111;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 14</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">HUNJUICE<em>混果汁</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="15" href="dingji-cases.html#partners" style="--partner-color:#ee7b1c;--partner-ink:#fff">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-mark="新橙源味" href="dingji-cases.html#partners" style="--partner-color:#ee7b1c;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 15</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">新橙源味<em>FRESH ORANGE</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
@@ -3862,7 +3867,7 @@
       <div class="search-portals-head">
         <p>Service Directory · 服务导航</p>
         <h2 id="search-portals-title">快速找到所需服务</h2>
-        <div class="search-portals-intro">选择与你当前阶段最接近的入口，了解合作流程、连锁门店交付、售后支持与常见问题。</div>
+        <div class="search-portals-intro">选择与你当前阶段最接近的入口，了解合作流程、连锁门店交付、售后支持与常见问题</div>
       </div>
       <div class="search-portals-grid">
         <a class="search-portal" href="dingji-contact.html"><small>01</small><h3>联系我们</h3><span>公司电话、邮箱与办公地址</span><i class="search-portal-arrow" aria-hidden="true">↗</i></a>

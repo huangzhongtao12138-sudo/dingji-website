@@ -65,6 +65,7 @@
 ## 四、技术与目录
 
 - 网站类型：纯静态 HTML/CSS/JavaScript
+- 全站纵向滚动：本地托管 Lenis 1.3.25，由 `outputs/site-assets/lenis-init.js` 统一初始化；手机触控与“减少动态效果”保留原生行为
 - 生产目录：`outputs/`
 - 生产首页：`outputs/index.html`
 - Vercel Framework Preset：Other
@@ -88,6 +89,7 @@
 - `outputs/dingji-faq.html`：常见问题
 - `outputs/cases/`：案例详情页面
 - `outputs/site-assets/`：Logo、工厂、资质与共享样式等资源
+- `outputs/site-assets/lenis.min.js`、`lenis.css`、`lenis-init.js`：全站平滑滚动依赖与统一配置
 - `outputs/public/assets/cases/`：案例图片
 - `outputs/sitemap.xml`：站点地图
 - `outputs/robots.txt`：搜索引擎抓取规则

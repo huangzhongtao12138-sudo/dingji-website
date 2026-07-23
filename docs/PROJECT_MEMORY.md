@@ -69,7 +69,7 @@
 
 - 网站类型：纯静态 HTML/CSS/JavaScript
 - 全站纵向滚动：本地托管 Lenis 1.3.25，由 `outputs/site-assets/lenis-init.js` 统一初始化；手机触控与“减少动态效果”保留原生行为
-- 关于页 3D 场景：桌面端按需加载 Spline Viewer 与本地 `scene.splinecode`，仅作为无边框、无场景文字的首屏背景动效；移动端、省流量模式和“减少动态效果”使用轻量 CSS 视觉回退
+- 关于页 3D 场景：桌面端按需加载 Spline Viewer 与本地 `scene.splinecode`，仅作为无边框、无场景文字的首屏背景动效；加载前保持低对比深色背景，不显示红球等抢眼占位动画；移动端、省流量模式和“减少动态效果”使用轻量 CSS 视觉回退
 - 生产目录：`outputs/`
 - 生产首页：`outputs/index.html`
 - Vercel Framework Preset：Other

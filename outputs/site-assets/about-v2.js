@@ -9,26 +9,57 @@
   const navTrail = nav?.querySelector(".liquid-trail");
   const navLinks = nav ? [...nav.querySelectorAll("a")] : [];
   const currentNav = navLinks.find((link) => link.classList.contains("active"));
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const liquid = {
+    x: 6, y: 6, w: 72, h: 42,
+    tx: 6, ty: 6, tw: 72, th: 42,
+    vx: 0, vy: 0, active: false
+  };
+
+  const renderNavLiquid = () => {
+    if (!navThumb || !navTrail) return;
+    const speed = Math.min(42, Math.hypot(liquid.vx, liquid.vy));
+    const thumbValues = {
+      "--liquid-x": `${liquid.x}px`,
+      "--liquid-y": `${liquid.y}px`,
+      "--liquid-w": `${liquid.w}px`,
+      "--liquid-h": `${liquid.h}px`,
+      "--liquid-sx": (1 + speed * 0.018).toFixed(3),
+      "--liquid-sy": Math.max(0.86, 1 - speed * 0.007).toFixed(3)
+    };
+    Object.entries(thumbValues).forEach(([key, value]) => {
+      navThumb.style.setProperty(key, value);
+    });
+    navTrail.style.setProperty("--liquid-x", `${liquid.x - liquid.vx * 2.3}px`);
+    navTrail.style.setProperty("--liquid-y", `${liquid.y - liquid.vy * 1.5}px`);
+    navTrail.style.setProperty("--liquid-w", `${liquid.w + speed * 4}px`);
+    navTrail.style.setProperty("--liquid-h", `${liquid.h}px`);
+    navTrail.style.setProperty("--liquid-sx", (1 + speed * 0.022).toFixed(3));
+    navTrail.style.setProperty("--liquid-sy", Math.max(0.82, 1 - speed * 0.009).toFixed(3));
+  };
 
   const positionNavLiquid = (link, immediate = false) => {
     if (!nav || !navThumb || !navTrail || !link || !desktop.matches) return;
     const navRect = nav.getBoundingClientRect();
     const rect = link.getBoundingClientRect();
-    const x = rect.left - navRect.left;
-    const y = rect.top - navRect.top;
-
-    [navThumb, navTrail].forEach((element) => {
-      element.style.setProperty("--x", `${x}px`);
-      element.style.setProperty("--y", `${y}px`);
-      element.style.setProperty("--w", `${rect.width}px`);
-      element.style.setProperty("--h", `${rect.height}px`);
-      if (immediate) {
-        element.style.transitionDuration = "0ms";
-        requestAnimationFrame(() => {
-          element.style.transitionDuration = "";
-        });
-      }
-    });
+    const padX = 14;
+    const padY = 8;
+    liquid.tx = rect.left - navRect.left - padX;
+    liquid.ty = rect.top - navRect.top - padY;
+    liquid.tw = rect.width + padX * 2;
+    liquid.th = rect.height + padY * 2;
+    liquid.active = true;
+    const center = liquid.tx + liquid.tw / 2;
+    nav.style.setProperty("--thumb-light-x", `${Math.max(18, Math.min(82, (center / navRect.width) * 100))}%`);
+    if (immediate || reducedMotion.matches) {
+      liquid.x = liquid.tx;
+      liquid.y = liquid.ty;
+      liquid.w = liquid.tw;
+      liquid.h = liquid.th;
+      liquid.vx = 0;
+      liquid.vy = 0;
+      renderNavLiquid();
+    }
   };
 
   const resetNavLiquid = (immediate = false) => positionNavLiquid(currentNav, immediate);
@@ -38,9 +69,36 @@
   });
   nav?.addEventListener("pointerleave", () => resetNavLiquid());
   window.addEventListener("resize", () => resetNavLiquid(true), { passive: true });
-  requestAnimationFrame(() => resetNavLiquid(true));
+  window.addEventListener("pointermove", (event) => {
+    if (!finePointer.matches || !nav) return;
+    const rect = nav.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    nav.style.setProperty("--nav-x", `${Math.max(0, Math.min(100, x))}%`);
+  }, { passive: true });
+
+  const animateNavLiquid = () => {
+    if (liquid.active && !reducedMotion.matches) {
+      const ax = (liquid.tx - liquid.x) * 0.2;
+      const ay = (liquid.ty - liquid.y) * 0.2;
+      liquid.vx = (liquid.vx + ax) * 0.6;
+      liquid.vy = (liquid.vy + ay) * 0.6;
+      liquid.x += liquid.vx;
+      liquid.y += liquid.vy;
+      liquid.w += (liquid.tw - liquid.w) * 0.26;
+      liquid.h += (liquid.th - liquid.h) * 0.26;
+      renderNavLiquid();
+    }
+    requestAnimationFrame(animateNavLiquid);
+  };
+
+  requestAnimationFrame(() => {
+    resetNavLiquid(true);
+    nav?.classList.add("is-ready");
+    if (!reducedMotion.matches) animateNavLiquid();
+  });
 
   const revealItems = document.querySelectorAll("[data-reveal]");
+  const heroMetrics = document.querySelectorAll(".metric-band [data-reveal]");
   if (reducedMotion.matches || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   } else {
@@ -55,6 +113,9 @@
       rootMargin: "0px 0px -7% 0px"
     });
     revealItems.forEach((item) => revealObserver.observe(item));
+    window.setTimeout(() => {
+      heroMetrics.forEach((item) => item.classList.add("is-visible"));
+    }, 240);
   }
 
   const words = [...document.querySelectorAll(".hero-word")];

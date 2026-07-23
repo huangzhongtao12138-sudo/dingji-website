@@ -6,7 +6,9 @@
 
   function markNativeScrollAreas() {
     document
-      .querySelectorAll('.partner-track, .case-gallery, .lightbox')
+      .querySelectorAll(
+        '.nav-links, .partner-track, .case-gallery, .brand-rail, .logo-strip, .project-strip, .lightbox'
+      )
       .forEach((element) => element.setAttribute('data-lenis-prevent', ''));
   }
 

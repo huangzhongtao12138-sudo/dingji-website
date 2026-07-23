@@ -2815,16 +2815,16 @@
       margin: 0 auto;
       padding: clamp(16px, 1.7vw, 26px);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.76);
       border-radius: clamp(28px, 2.6vw, 44px);
-      color: #f5f2e9;
+      color: #272823;
       background:
-        radial-gradient(circle at 52% 45%, rgba(243,7,0,.12), transparent 27%),
-        radial-gradient(circle at 50% 116%, rgba(243,7,0,.16), transparent 35%),
-        linear-gradient(145deg, #171815, #0a0b09 62%, #141511);
+        radial-gradient(circle at 52% 44%, rgba(255,255,255,.88), transparent 30%),
+        radial-gradient(circle at 88% 112%, rgba(243,7,0,.11), transparent 34%),
+        linear-gradient(145deg, #c9c8c0, #eceae1 58%, #d8d4ca);
       box-shadow:
-        0 46px 100px rgba(32,33,29,.23),
-        inset 0 1px 0 rgba(255,255,255,.1);
+        0 38px 88px rgba(32,33,29,.16),
+        inset 0 1px 0 rgba(255,255,255,.92);
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
     }
@@ -2833,9 +2833,9 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(circle, rgba(255,255,255,.12) .65px, transparent .75px);
+      background-image: radial-gradient(circle, rgba(32,33,29,.18) .65px, transparent .75px);
       background-size: 6px 6px;
-      opacity: .12;
+      opacity: .11;
       mask-image: radial-gradient(circle at 50% 52%, #000, transparent 78%);
       -webkit-mask-image: radial-gradient(circle at 50% 52%, #000, transparent 78%);
     }
@@ -2844,7 +2844,7 @@
       position: absolute;
       inset: 1px;
       pointer-events: none;
-      border: 1px solid rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.5);
       border-radius: inherit;
     }
     .case-showcase .partners-board-head {
@@ -2856,21 +2856,21 @@
       gap: clamp(18px, 3vw, 44px);
       margin: 0;
       padding: 0 8px clamp(12px, 1.4vh, 18px);
-      color: rgba(245,242,233,.46);
+      color: rgba(32,33,29,.52);
       font: 700 11px/1.2 Arial, sans-serif;
       letter-spacing: .12em;
       text-transform: uppercase;
     }
     .case-showcase .partners-board-head b {
-      color: rgba(245,242,233,.9);
+      color: rgba(32,33,29,.9);
       font-size: 12px;
       letter-spacing: .16em;
     }
     .case-showcase .partners-board-head > span {
-      color: rgba(245,242,233,.46);
+      color: rgba(32,33,29,.5);
     }
     .case-showcase .partners-board-head .orbit-counter {
-      color: rgba(245,242,233,.5);
+      color: rgba(32,33,29,.48);
       white-space: nowrap;
     }
     .case-showcase .partners-board-head .orbit-counter strong {
@@ -2881,7 +2881,7 @@
       position: relative;
       min-height: clamp(250px, 39vh, 460px);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.07);
+      border: 1px solid rgba(32,33,29,.12);
       border-radius: clamp(22px, 2vw, 34px);
       outline: 0;
       cursor: grab;
@@ -2889,8 +2889,8 @@
       user-select: none;
       contain: layout paint;
       background:
-        radial-gradient(ellipse at 50% 72%, rgba(243,7,0,.16), transparent 30%),
-        radial-gradient(ellipse at 50% 47%, rgba(255,255,255,.045), transparent 48%);
+        radial-gradient(ellipse at 50% 72%, rgba(243,7,0,.1), transparent 31%),
+        radial-gradient(ellipse at 50% 47%, rgba(255,255,255,.8), transparent 50%);
     }
     .case-showcase .orbit-stage:focus-visible {
       box-shadow: inset 0 0 0 2px rgba(243,7,0,.72);
@@ -2907,7 +2907,7 @@
       top: 54%;
       width: 92%;
       height: 58%;
-      border: 1px solid rgba(255,255,255,.1);
+      border: 1px solid rgba(32,33,29,.14);
       border-radius: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%) rotate(-3deg);
@@ -2915,7 +2915,7 @@
     .case-showcase .orbit-stage::after {
       width: 66%;
       height: 40%;
-      border-color: rgba(243,7,0,.18);
+      border-color: rgba(243,7,0,.2);
       transform: translate(-50%, -50%) rotate(8deg);
     }
     .orbit-track {
@@ -2977,11 +2977,14 @@
       flex-direction: column;
       justify-content: space-between;
       padding: clamp(20px, 2vw, 30px);
-      color: #171815;
+      color: var(--partner-ink, #fff);
       background:
-        linear-gradient(145deg, rgba(255,255,255,.96), rgba(226,224,216,.94));
-      border-color: rgba(255,255,255,.5);
-      box-shadow: 0 24px 54px rgba(0,0,0,.28);
+        radial-gradient(circle at 86% 12%, rgba(255,255,255,.26), transparent 29%),
+        linear-gradient(145deg,
+          color-mix(in srgb, var(--partner-color) 88%, #fff),
+          color-mix(in srgb, var(--partner-color) 74%, #4d463d));
+      border-color: rgba(255,255,255,.45);
+      box-shadow: 0 22px 48px rgba(52,48,41,.2);
       text-decoration: none;
     }
     .partner-orbit-card::before {
@@ -2996,7 +2999,7 @@
       position: absolute;
       right: 14px;
       bottom: -19px;
-      color: rgba(23,24,21,.055);
+      color: color-mix(in srgb, var(--partner-ink, #fff) 10%, transparent);
       font: 900 clamp(4.8rem, 7vw, 7.6rem)/1 Arial, sans-serif;
       letter-spacing: -.08em;
       pointer-events: none;
@@ -3011,7 +3014,7 @@
       gap: 14px;
     }
     .partner-sequence {
-      color: rgba(23,24,21,.48);
+      color: color-mix(in srgb, var(--partner-ink, #fff) 68%, transparent);
       font: 750 10px/1 Arial, sans-serif;
       letter-spacing: .15em;
     }
@@ -3020,14 +3023,14 @@
       height: 8px;
       flex: 0 0 auto;
       border-radius: 50%;
-      background: var(--partner-color, var(--orbit-red));
-      box-shadow: 0 0 0 5px color-mix(in srgb, var(--partner-color, var(--orbit-red)) 14%, transparent);
+      background: var(--partner-ink, #fff);
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--partner-ink, #fff) 18%, transparent);
     }
     .partner-wordmark {
       position: relative;
       z-index: 2;
       margin: auto 0;
-      color: #171815;
+      color: var(--partner-ink, #fff);
       font-size: clamp(1.55rem, 2.1vw, 2.45rem);
       font-weight: 880;
       line-height: 1;
@@ -3037,19 +3040,19 @@
     .partner-wordmark em {
       display: block;
       margin-top: .38em;
-      color: rgba(23,24,21,.46);
+      color: color-mix(in srgb, var(--partner-ink, #fff) 66%, transparent);
       font: 700 11px/1.2 Arial, sans-serif;
       letter-spacing: .09em;
       text-transform: uppercase;
     }
     .partner-category {
-      color: rgba(23,24,21,.56);
+      color: color-mix(in srgb, var(--partner-ink, #fff) 72%, transparent);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .03em;
     }
     .partner-arrow-mark {
-      color: var(--partner-color, var(--orbit-red));
+      color: var(--partner-ink, #fff);
       font-size: 17px;
       font-weight: 800;
     }
@@ -3096,6 +3099,11 @@
       background:
         linear-gradient(to bottom, rgba(5,6,4,.03) 28%, rgba(5,6,4,.9) 100%),
         linear-gradient(120deg, rgba(255,255,255,.09), transparent 28%);
+    }
+    .orbit-card.partner-orbit-card::before {
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: color-mix(in srgb, var(--partner-ink, #fff) 72%, transparent);
     }
     .orbit-card .case-card-foot {
       position: absolute;
@@ -3170,11 +3178,11 @@
       height: clamp(44px, 3.8vw, 58px);
       display: grid;
       place-items: center;
-      border: 1px solid rgba(255,255,255,.17);
+      border: 1px solid rgba(255,255,255,.82);
       border-radius: 50%;
-      color: rgba(255,255,255,.8);
-      background: rgba(10,11,9,.86);
-      box-shadow: 0 16px 34px rgba(0,0,0,.22);
+      color: #fff;
+      background: rgba(243,7,0,.9);
+      box-shadow: 0 16px 34px rgba(133,25,18,.2);
       transform: translateY(-50%);
     }
     .case-showcase .orbit-stage .partner-arrow[data-dir="-1"] {
@@ -3210,7 +3218,7 @@
       padding: 0;
       border: 0;
       border-radius: 999px;
-      background: rgba(255,255,255,.18);
+      background: rgba(32,33,29,.18);
       cursor: pointer;
       transition: width .35s var(--ease), background .35s ease;
     }
@@ -3219,7 +3227,7 @@
       background: var(--orbit-red);
     }
     .case-showcase .partner-note > span {
-      color: rgba(245,242,233,.45);
+      color: rgba(32,33,29,.52);
       font-size: 12px;
       font-weight: 650;
       letter-spacing: .04em;
@@ -3461,41 +3469,170 @@
     /* End project orbit redesign */
 
     .search-portals {
-      min-height: 78vh;
+      position: relative;
+      min-height: 86svh;
       display: grid;
       align-content: center;
-      padding: clamp(100px, 12vh, 150px) clamp(18px, 5vw, 88px);
+      overflow: hidden;
+      padding: clamp(104px, 13vh, 154px) clamp(18px, 5vw, 88px) clamp(56px, 8vh, 92px);
+      color: #252620;
       background:
-        radial-gradient(circle at 82% 18%, rgba(243,7,0,.09), transparent 28%),
-        linear-gradient(135deg, #ecebe1, #f7f6ee 48%, #dedbcc);
+        radial-gradient(circle at 8% 96%, rgba(243,7,0,.1), transparent 27%),
+        linear-gradient(132deg, #e2e0d6, #f7f5ed 55%, #d9d6cb);
     }
-    .search-portals-shell { width: min(100%, 1500px); margin: 0 auto; }
-    .search-portals-head { display: grid; grid-template-columns: minmax(260px, .7fr) 1fr; gap: 30px; align-items: end; margin-bottom: clamp(28px, 5vh, 54px); }
-    .search-portals-head p { margin: 0; color: var(--red); font-size: 14px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
-    .search-portals-head h2 { margin: 0; font-size: clamp(52px, 7vw, 122px); line-height: .92; letter-spacing: -.07em; }
-    .search-portals-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .search-portal {
-      min-height: 250px;
+    .search-portals::before {
+      content: "04";
+      position: absolute;
+      right: -2vw;
+      bottom: -8vw;
+      color: rgba(32,33,29,.035);
+      font: 900 clamp(14rem, 31vw, 38rem)/.75 Arial, sans-serif;
+      letter-spacing: -.11em;
+      pointer-events: none;
+    }
+    .search-portals-shell {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1460px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(300px, .72fr) minmax(560px, 1.28fr);
+      gap: clamp(52px, 8vw, 140px);
+      align-items: start;
+    }
+    .search-portals-head {
+      position: sticky;
+      top: 116px;
+      display: block;
+      margin: 0;
+    }
+    .search-portals-head p {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,.78);
-      border-radius: 34px;
-      background: linear-gradient(145deg, rgba(255,255,255,.68), rgba(255,255,255,.28));
-      box-shadow: 0 28px 76px rgba(32,33,29,.08), inset 0 1px 0 rgba(255,255,255,.92);
-      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 22px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .17em;
+      text-transform: uppercase;
     }
-    .search-portal:hover { transform: translateY(-7px); box-shadow: 0 36px 86px rgba(32,33,29,.13), inset 0 1px 0 rgba(255,255,255,.95); }
-    .search-portal small { color: var(--red); font-weight: 900; letter-spacing: .12em; }
-    .search-portal h3 { margin: 38px 0 12px; font-size: clamp(29px, 2.5vw, 46px); line-height: 1; letter-spacing: -.055em; }
-    .search-portal span { color: rgba(32,33,29,.58); font-size: 15px; line-height: 1.7; font-weight: 700; }
-    @media (max-width: 980px) { .search-portals-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .search-portals-head p::before {
+      content: "";
+      width: 42px;
+      height: 3px;
+      background: var(--red);
+    }
+    .search-portals-head h2 {
+      max-width: 6em;
+      margin: 0;
+      font-size: clamp(4rem, 6.8vw, 7.8rem);
+      line-height: .9;
+      letter-spacing: -.075em;
+      text-wrap: balance;
+    }
+    .search-portals-head .search-portals-intro {
+      max-width: 32em;
+      margin: 28px 0 0;
+      color: rgba(32,33,29,.58);
+      font-size: clamp(14px, 1vw, 17px);
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .search-portals-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid rgba(32,33,29,.2);
+    }
+    .search-portal {
+      position: relative;
+      min-height: 118px;
+      display: grid;
+      grid-template-columns: 58px minmax(190px, .72fr) minmax(220px, 1fr) 48px;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 10px;
+      border: 0;
+      border-bottom: 1px solid rgba(32,33,29,.2);
+      border-radius: 0;
+      color: #252620;
+      background: transparent;
+      box-shadow: none;
+      transition: color .34s ease, padding .42s var(--ease), background .34s ease;
+    }
+    .search-portal::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #252620;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform .42s var(--ease);
+    }
+    .search-portal:hover {
+      padding-inline: 24px;
+      color: #fff;
+      transform: none;
+      box-shadow: none;
+    }
+    .search-portal:hover::before { transform: scaleY(1); }
+    .search-portal small {
+      color: var(--red);
+      font: 900 11px/1 Arial, sans-serif;
+      letter-spacing: .12em;
+    }
+    .search-portal h3 {
+      margin: 0;
+      font-size: clamp(1.7rem, 2.3vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+    .search-portal span {
+      color: rgba(32,33,29,.58);
+      font-size: clamp(13px, .95vw, 15px);
+      line-height: 1.6;
+      font-weight: 680;
+      transition: color .34s ease;
+    }
+    .search-portal:hover span { color: rgba(255,255,255,.68); }
+    .search-portal-arrow {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      justify-self: end;
+      border: 1px solid rgba(32,33,29,.22);
+      border-radius: 50%;
+      font-size: 18px;
+      transition: transform .35s var(--ease), border-color .35s ease, background .35s ease;
+    }
+    .search-portal:hover .search-portal-arrow {
+      border-color: var(--red);
+      background: var(--red);
+      transform: rotate(-42deg);
+    }
+    @media (max-width: 980px) {
+      .search-portals-shell { grid-template-columns: 1fr; gap: 46px; }
+      .search-portals-head { position: static; }
+      .search-portals-head h2 { max-width: none; }
+    }
     @media (max-width: 780px) {
-      .search-portals { min-height: auto; padding: 96px 14px 54px; }
-      .search-portals-head, .search-portals-grid { grid-template-columns: 1fr; }
-      .search-portals-head h2 { font-size: clamp(46px, 14vw, 72px); }
-      .search-portal { min-height: 190px; border-radius: 26px; }
+      .search-portals { min-height: auto; padding: 96px 16px 58px; }
+      .search-portals-shell { gap: 36px; }
+      .search-portals-head h2 { max-width: 5.8em; font-size: clamp(3.45rem, 15vw, 5.2rem); }
+      .search-portals-head .search-portals-intro { margin-top: 20px; font-size: 14px; }
+      .search-portal {
+        min-height: 112px;
+        grid-template-columns: 42px 1fr 42px;
+        gap: 12px;
+        padding: 16px 4px;
+      }
+      .search-portal small { grid-column: 1; grid-row: 1 / 3; align-self: start; padding-top: 5px; }
+      .search-portal h3 { grid-column: 2; grid-row: 1; min-width: 0; }
+      .search-portal span { grid-column: 2; grid-row: 2; display: block; }
+      .search-portal-arrow { grid-column: 3; grid-row: 1 / 3; }
+      .search-portal:hover { padding-inline: 12px; }
     }
 
   </style>
@@ -3615,77 +3752,77 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <div class="orbit-track" data-orbit-track>
-            <a class="orbit-card partner-orbit-card is-active" data-orbit-card data-partner-index="01" href="dingji-cases.html#partners" aria-current="true" style="--partner-color:#00754a">
+            <a class="orbit-card partner-orbit-card is-active" data-orbit-card data-partner-index="01" href="dingji-cases.html#partners" aria-current="true" style="--partner-color:#00754a;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 01</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Starbucks<em>星巴克</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="02" href="dingji-cases.html#partners" style="--partner-color:#00a79d">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="02" href="dingji-cases.html#partners" style="--partner-color:#00a79d;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 02</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Watsons<em>屈臣氏</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">商业零售</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="03" href="dingji-cases.html#partners" style="--partner-color:#e4002b">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="03" href="dingji-cases.html#partners" style="--partner-color:#e4002b;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 03</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">KFC<em>肯德基</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="04" href="dingji-cases.html#partners" style="--partner-color:#d40b1e">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="04" href="dingji-cases.html#partners" style="--partner-color:#d40b1e;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 04</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Pizza Hut<em>必胜客</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="05" href="dingji-cases.html#partners" style="--partner-color:#ec1c24">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="05" href="dingji-cases.html#partners" style="--partner-color:#ec1c24;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 05</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">Burger King<em>汉堡王</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="06" href="dingji-cases.html#partners" style="--partner-color:#111111">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="06" href="dingji-cases.html#partners" style="--partner-color:#111111;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 06</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">LEXUS<em>雷克萨斯</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">商业空间</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="07" href="dingji-cases.html#partners" style="--partner-color:#005baa">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="07" href="dingji-cases.html#partners" style="--partner-color:#005baa;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 07</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">CRCC<em>中国铁建</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">综合工程</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="08" href="dingji-cases.html#partners" style="--partner-color:#009b77">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="08" href="dingji-cases.html#partners" style="--partner-color:#009b77;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 08</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">盒马鲜生<em>FRESHIPPO</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">商业零售</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="09" href="dingji-cases.html#partners" style="--partner-color:#f6a800">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="09" href="dingji-cases.html#partners" style="--partner-color:#f6a800;--partner-ink:#272116">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 09</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">老乡鸡<em>HOME ORIGINAL CHICKEN</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="10" href="dingji-cases.html#partners" style="--partner-color:#c60012">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="10" href="dingji-cases.html#partners" style="--partner-color:#c60012;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 10</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">回味<em>鸭血粉丝汤</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">连锁餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="11" href="dingji-cases.html#partners" style="--partner-color:#e43b24">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="11" href="dingji-cases.html#partners" style="--partner-color:#e43b24;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 11</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">必香居<em>BIXIANGJU</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="12" href="dingji-cases.html#partners" style="--partner-color:#b4262a">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="12" href="dingji-cases.html#partners" style="--partner-color:#b4262a;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 12</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">石鼎香<em>SHIDINGXIANG</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="13" href="dingji-cases.html#partners" style="--partner-color:#a65a36">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="13" href="dingji-cases.html#partners" style="--partner-color:#a65a36;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 13</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">香园<em>XIANGYUAN</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="14" href="dingji-cases.html#partners" style="--partner-color:#ff6138">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="14" href="dingji-cases.html#partners" style="--partner-color:#ff6138;--partner-ink:#fff">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 14</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">HUNJUICE<em>混果汁</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
             </a>
-            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="15" href="dingji-cases.html#partners" style="--partner-color:#f28c28">
+            <a class="orbit-card partner-orbit-card" data-orbit-card data-partner-index="15" href="dingji-cases.html#partners" style="--partner-color:#f28c28;--partner-ink:#2b2117">
               <span class="partner-card-top"><span class="partner-sequence">PARTNER 15</span><i class="partner-signal"></i></span>
               <strong class="partner-wordmark">新橙源味<em>FRESH ORANGE</em></strong>
               <span class="partner-card-bottom"><span class="partner-category">品牌餐饮</span><span class="partner-arrow-mark">↗</span></span>
@@ -3723,56 +3860,16 @@
   <section class="search-portals" aria-labelledby="search-portals-title">
     <div class="search-portals-shell">
       <div class="search-portals-head">
-        <p>Website Quick Links</p>
-        <h2 id="search-portals-title">快速找到<br>所需服务</h2>
+        <p>Service Directory · 服务导航</p>
+        <h2 id="search-portals-title">快速找到所需服务</h2>
+        <div class="search-portals-intro">选择与你当前阶段最接近的入口，了解合作流程、连锁门店交付、售后支持与常见问题。</div>
       </div>
       <div class="search-portals-grid">
-        <a class="search-portal" href="dingji-contact.html"><small>01 / CONTACT</small><div><h3>联系我们</h3><span>项目电话、公司邮箱与办公地址</span></div></a>
-        <a class="search-portal" href="dingji-consulting.html"><small>02 / CONSULTING</small><div><h3>咨询服务</h3><span>项目对接流程与前期资料清单</span></div></a>
-        <a class="search-portal" href="dingji-chain-store.html"><small>03 / CHAIN STORE</small><div><h3>连锁店装修</h3><span>餐饮及连锁品牌标准化工程交付</span></div></a>
-        <a class="search-portal" href="dingji-faq.html"><small>04 / FAQ</small><div><h3>常见问题</h3><span>服务范围、工期、资料与售后说明</span></div></a>
+        <a class="search-portal" href="dingji-contact.html"><small>01</small><h3>联系我们</h3><span>公司电话、邮箱与办公地址</span><i class="search-portal-arrow" aria-hidden="true">↗</i></a>
+        <a class="search-portal" href="dingji-consulting.html"><small>02</small><h3>咨询服务</h3><span>项目对接流程与前期资料清单</span><i class="search-portal-arrow" aria-hidden="true">↗</i></a>
+        <a class="search-portal" href="dingji-chain-store.html"><small>03</small><h3>连锁店装修</h3><span>餐饮及连锁品牌标准化工程交付</span><i class="search-portal-arrow" aria-hidden="true">↗</i></a>
+        <a class="search-portal" href="dingji-faq.html"><small>04</small><h3>常见问题</h3><span>服务范围、资料准备与售后说明</span><i class="search-portal-arrow" aria-hidden="true">↗</i></a>
       </div>
-    </div>
-  </section>
-
-  <section class="contact-hero" id="contact" data-nav="#contact" aria-label="联系我们">
-    <div class="retro-beams" aria-hidden="true"><span></span><span></span></div>
-    <div class="retro-planes" aria-hidden="true"><span></span><span></span></div>
-    <div class="contact-shell">
-      <div class="contact-copy">
-        <p class="contact-kicker">联系我们</p>
-        <h2>项目沟通<span>从这里开始</span></h2>
-        <p>连锁商业空间、餐饮门店、办公与综合工程合作咨询，欢迎与鼎基团队取得联系。</p>
-      </div>
-      <aside class="contact-panel" aria-label="鼎基装饰联系方式">
-        <h3>Dingji Contact</h3>
-        <div class="contact-list">
-          <div class="contact-item">
-            <span>Mobile</span>
-            <a href="tel:13505151512">13505151512</a>
-          </div>
-          <div class="contact-item">
-            <span>Tel</span>
-            <a href="tel:02583247705">025-83247705 / 09</a>
-          </div>
-          <div class="contact-item">
-            <span>Address</span>
-            <b>南京市鼓楼区中山路99号913-915室</b>
-          </div>
-          <div class="contact-item">
-            <span>Email</span>
-            <a href="mailto:njdj_top@126.com">njdj_top@126.com</a>
-          </div>
-          <div class="contact-item">
-            <span>Website</span>
-            <a href="https://www.djzhuangshi.com/">www.djzhuangshi.com</a>
-          </div>
-        </div>
-        <div class="contact-actions">
-          <a href="tel:13505151512">拨打电话</a>
-          <a href="mailto:njdj_top@126.com">发送邮件</a>
-        </div>
-      </aside>
     </div>
   </section>
 
@@ -3798,7 +3895,6 @@
     const orbitDots = [...document.querySelectorAll('[data-orbit-dot]')];
     const orbitCurrent = document.querySelector('[data-orbit-current]');
     const orbitTotal = document.querySelector('[data-orbit-total]');
-    const contactHero = document.querySelector('.contact-hero');
 
     const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
     const mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999, active: false, down: false };
@@ -4874,18 +4970,6 @@
       signalCard.style.setProperty('--card-x', '26%');
       signalCard.style.setProperty('--card-y', '20%');
     });
-    contactHero?.addEventListener('pointermove', (event) => {
-      const rect = contactHero.getBoundingClientRect();
-      const mx = ((event.clientX - rect.left) / rect.width - .5) * 2;
-      const my = ((event.clientY - rect.top) / rect.height - .5) * 2;
-      contactHero.style.setProperty('--contact-x', mx.toFixed(3));
-      contactHero.style.setProperty('--contact-y', my.toFixed(3));
-    });
-    contactHero?.addEventListener('pointerleave', () => {
-      contactHero.style.setProperty('--contact-x', '0');
-      contactHero.style.setProperty('--contact-y', '0');
-    });
-
     const orbitMobileQuery = window.matchMedia('(max-width: 780px)');
     let orbitIndex = 0;
     let orbitDragStart = 0;
@@ -4987,7 +5071,7 @@
       if (reducedMotionQuery.matches || orbitMobileQuery.matches || !partnerCards.length) return;
       orbitAutoTimer = window.setInterval(() => {
         if (orbitInView && !document.hidden && !orbitDragging) changeOrbit(1);
-      }, 6500);
+      }, 4200);
     }
 
     partnerCards.forEach((card, cardIndex) => {
@@ -5007,14 +5091,21 @@
     });
 
     partnerArrows.forEach((button) => {
-      button.addEventListener('click', () => {
+      button.addEventListener('pointerdown', (event) => {
+        event.stopPropagation();
+      });
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         changeOrbit(Number(button.dataset.dir || 1));
+        startOrbitAuto();
       });
     });
 
     orbitDots.forEach((dot) => {
       dot.addEventListener('click', () => {
         updateOrbit(Number(dot.dataset.orbitDot || 0), { scrollMobile: orbitMobileQuery.matches });
+        startOrbitAuto();
       });
     });
 
@@ -5025,7 +5116,7 @@
     });
 
     orbitStage?.addEventListener('pointerdown', (event) => {
-      if (orbitMobileQuery.matches || event.button !== 0) return;
+      if (orbitMobileQuery.matches || event.button !== 0 || event.target.closest('button')) return;
       orbitDragging = true;
       orbitDragStart = event.clientX;
       orbitDragDelta = 0;
@@ -5057,11 +5148,6 @@
 
     orbitStage?.addEventListener('pointerup', finishOrbitDrag);
     orbitStage?.addEventListener('pointercancel', finishOrbitDrag);
-    orbitStage?.addEventListener('pointerenter', stopOrbitAuto);
-    orbitStage?.addEventListener('pointerleave', () => {
-      if (orbitDragging) return;
-      startOrbitAuto();
-    });
     orbitStage?.addEventListener('focusin', stopOrbitAuto);
     orbitStage?.addEventListener('focusout', startOrbitAuto);
 

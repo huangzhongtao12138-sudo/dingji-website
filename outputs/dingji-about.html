@@ -2,833 +2,352 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/site-assets/lenis.css">
-  <script src="/site-assets/lenis.min.js" defer></script>
-  <script src="/site-assets/lenis-init.js?v=20260722b" defer></script>
-  <title>关于鼎基装饰｜工厂体系与空间工程能力</title>
-  <meta name="description" content="了解南京鼎基装饰工程有限公司的发展历程、现代化生产基地、工厂体系、荣誉资质与连锁商业空间一体化交付能力。">
-  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>关于鼎基装饰｜从设计深化到稳定交付</title>
+  <meta name="description" content="南京鼎基装饰工程有限公司始建于1998年，以设计深化、装饰施工、机电消防与成品制造的一体化能力，服务商业空间和连锁品牌的稳定交付。">
   <link rel="canonical" href="https://www.djzhuangshi.com/dingji-about.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="鼎基装饰">
-  <meta property="og:title" content="关于鼎基装饰｜工厂体系与空间工程能力">
-  <meta property="og:description" content="鼎基装饰始建于1998年，长期服务连锁商业空间与品牌门店建设。">
-  <meta property="og:url" content="https://www.djzhuangshi.com/dingji-about.html">
-  <meta name="theme-color" content="#f30700">
-  <style>
-    :root {
-      --red: #f30700;
-      --red-deep: #b80000;
-      --ink: #171815;
-      --muted: rgba(23,24,21,.58);
-      --paper: #f4f3ea;
-      --ease: cubic-bezier(.16, 1, .3, 1);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: auto; }
-    body {
-      margin: 0;
-      min-width: 320px;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 82% 12%, rgba(243,7,0,.08), transparent 30%),
-        radial-gradient(circle at 12% 18%, rgba(255,255,255,.92), transparent 34%),
-        linear-gradient(135deg, #eeede4 0%, #fbfaf4 48%, #e6e3d6 100%);
-      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
-      opacity: .18;
-      background-image:
-        radial-gradient(circle, rgba(23,24,21,.28) 0 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,.8) 0 1px, transparent 1px);
-      background-size: 6px 6px, 13px 13px;
-      mix-blend-mode: multiply;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    .nav {
-      position: fixed;
-      z-index: 50;
-      top: 24px;
-      left: clamp(16px, 3vw, 44px);
-      right: clamp(16px, 3vw, 44px);
-      display: grid;
-      grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
-      align-items: center;
-      gap: 20px;
-      pointer-events: none;
-    }
-    .brand,
-    .nav-links,
-    .nav-pill {
-      pointer-events: auto;
-      backdrop-filter: blur(22px) saturate(1.2);
-      -webkit-backdrop-filter: blur(22px) saturate(1.2);
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      width: fit-content;
-      min-width: 0;
-      padding: 6px 14px 6px 6px;
-      border: 1px solid rgba(255,255,255,.82);
-      border-radius: 999px;
-      background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(255,255,255,.42));
-      box-shadow: 0 20px 60px rgba(32,33,29,.12), inset 0 1px 0 rgba(255,255,255,.92);
-    }
-    .brand-mark {
-      width: 58px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.42));
-      border: 1px solid rgba(255,255,255,.74);
-    }
-    .brand-mark img {
-      width: 64px;
-      transform: translateX(-1px);
-    }
-    .brand-name strong {
-      display: block;
-      font-size: 17px;
-      line-height: 1;
-      font-weight: 860;
-      letter-spacing: -.035em;
-    }
-    .brand-name span {
-      display: block;
-      margin-top: 3px;
-      color: rgba(23,24,21,.56);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      position: relative;
-      justify-self: center;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 10px;
-      border: 1px solid rgba(255,255,255,.72);
-      border-radius: 999px;
-      background: linear-gradient(145deg, rgba(255,255,255,.74), rgba(255,255,255,.36));
-      box-shadow: 0 22px 64px rgba(32,33,29,.11), inset 0 1px 0 rgba(255,255,255,.9);
-      overflow: hidden;
-    }
-    .liquid-thumb,
-    .liquid-trail {
-      position: absolute;
-      z-index: 0;
-      left: 0;
-      top: 0;
-      border-radius: 999px;
-      pointer-events: none;
-      transform: translate3d(var(--x, 7px), var(--y, 7px), 0);
-    }
-    .liquid-thumb {
-      width: var(--w, 84px);
-      height: var(--h, 42px);
-      background:
-        radial-gradient(circle at 22% 18%, rgba(255,255,255,.98), transparent 35%),
-        linear-gradient(145deg, rgba(255,255,255,.94), rgba(255,255,255,.4));
-      box-shadow: 0 12px 32px rgba(32,33,29,.11), inset 0 0 0 1px rgba(255,255,255,.8);
-      transition: transform .52s var(--ease), width .52s var(--ease), height .52s var(--ease);
-    }
-    .liquid-trail {
-      width: calc(var(--w, 84px) * 1.18);
-      height: calc(var(--h, 42px) * 1.08);
-      opacity: .44;
-      background: rgba(255,255,255,.4);
-      filter: blur(12px);
-      transition: transform .68s var(--ease), width .68s var(--ease), height .68s var(--ease);
-    }
-    .nav-links a {
-      position: relative;
-      z-index: 1;
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 17px;
-      border-radius: 999px;
-      color: rgba(20,22,18,.72);
-      font-size: 14px;
-      font-weight: 650;
-      white-space: nowrap;
-      transition: color .28s var(--ease), transform .28s var(--ease);
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--red-deep);
-      transform: translateY(-1px);
-    }
-    .nav-pill {
-      justify-self: end;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      min-height: 48px;
-      padding: 0 20px;
-      border: 1px solid rgba(255,255,255,.74);
-      border-radius: 999px;
-      background: linear-gradient(145deg, rgba(255,255,255,.74), rgba(255,255,255,.36));
-      color: rgba(23,24,21,.62);
-      font-size: 14px;
-      font-weight: 760;
-      white-space: nowrap;
-      box-shadow: 0 18px 48px rgba(32,33,29,.1), inset 0 1px 0 rgba(255,255,255,.9);
-    }
-    .nav-pill i {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 18px rgba(243,7,0,.5);
-    }
-    main {
-      position: relative;
-      isolation: isolate;
-    }
-    .shape {
-      position: fixed;
-      z-index: -1;
-      pointer-events: none;
-      border: 1px solid rgba(255,255,255,.72);
-      background: linear-gradient(145deg, rgba(255,255,255,.5), rgba(255,255,255,.12));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.82);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      transform:
-        translate3d(calc(var(--mx, 0) * var(--dx, 40px)), calc(var(--my, 0) * var(--dy, 30px)), 0)
-        rotate(var(--r, -10deg));
-      transition: transform .16s linear;
-    }
-    .shape.one {
-      width: clamp(220px, 20vw, 390px);
-      height: clamp(104px, 9vw, 176px);
-      right: 8%;
-      top: 15%;
-      border-radius: 999px;
-      --dx: -70px;
-      --dy: 32px;
-      --r: -11deg;
-    }
-    .shape.two {
-      width: clamp(130px, 12vw, 230px);
-      height: clamp(130px, 12vw, 230px);
-      left: 7%;
-      bottom: 10%;
-      border-radius: 36px;
-      --dx: 46px;
-      --dy: -46px;
-      --r: 16deg;
-    }
-    .hero {
-      min-height: 100svh;
-      display: grid;
-      grid-template-columns: minmax(500px, .92fr) minmax(520px, 1.08fr);
-      align-items: end;
-      gap: clamp(34px, 6vw, 118px);
-      padding: clamp(138px, 18vh, 190px) clamp(24px, 5vw, 82px) clamp(54px, 8vh, 86px);
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: clamp(14px, 1.7vw, 28px);
-      color: rgba(23,24,21,.58);
-      font-size: clamp(14px, 1vw, 17px);
-      font-weight: 860;
-      letter-spacing: .02em;
-      white-space: nowrap;
-    }
-    .eyebrow::before {
-      content: "";
-      width: clamp(48px, 5vw, 96px);
-      height: 4px;
-      border-radius: 999px;
-      background: var(--red);
-    }
-    h1 {
-      margin: clamp(20px, 2.6vh, 34px) 0 0;
-      color: rgba(19,20,17,.96);
-      font-size: clamp(4.2rem, 7.8vw, 10.4rem);
-      line-height: .86;
-      letter-spacing: -.055em;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-    h1 span {
-      display: block;
-      color: transparent;
-      -webkit-text-stroke: 1.15px rgba(23,24,21,.24);
-      text-stroke: 1.15px rgba(23,24,21,.24);
-      white-space: nowrap;
-    }
-    .hero-text {
-      max-width: 780px;
-      color: rgba(23,24,21,.68);
-      font-size: clamp(1rem, 1.16vw, 1.42rem);
-      line-height: 1.68;
-      font-weight: 680;
-    }
-    .hero-text strong {
-      display: block;
-      margin-bottom: 18px;
-      color: rgba(23,24,21,.94);
-      font-size: clamp(1.2rem, 1.55vw, 2rem);
-      line-height: 1.3;
-      letter-spacing: -.025em;
-    }
-    .hero-text span {
-      display: block;
-      white-space: nowrap;
-    }
-    .hero-text span + span {
-      margin-top: .22em;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-    .btn {
-      min-height: 54px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 0 24px;
-      border-radius: 999px;
-      border: 1px solid rgba(23,24,21,.1);
-      background: rgba(255,255,255,.72);
-      color: rgba(23,24,21,.86);
-      font-size: 15px;
-      font-weight: 860;
-      white-space: nowrap;
-      box-shadow: 0 18px 48px rgba(32,33,29,.08), inset 0 1px 0 rgba(255,255,255,.86);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      transition: transform .28s var(--ease), color .28s var(--ease), background .28s var(--ease);
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      color: var(--red-deep);
-      background: rgba(255,255,255,.9);
-    }
-    .btn.primary {
-      color: #fff;
-      border-color: rgba(243,7,0,.2);
-      background: linear-gradient(135deg, var(--red), var(--red-deep));
-      box-shadow: 0 24px 58px rgba(243,7,0,.2);
-    }
-    .btn.primary:hover { color: #fff; }
-    .overview-card {
-      position: relative;
-      padding: clamp(24px, 2.7vw, 46px);
-      border: 1px solid rgba(255,255,255,.78);
-      border-radius: clamp(36px, 3.5vw, 66px);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.68), rgba(255,255,255,.3)),
-        radial-gradient(circle at var(--card-x, 54%) var(--card-y, 36%), rgba(255,255,255,.82), transparent 32%),
-        radial-gradient(circle at 88% 100%, rgba(243,7,0,.08), transparent 36%);
-      box-shadow:
-        0 44px 130px rgba(32,33,29,.13),
-        inset 0 1px 0 rgba(255,255,255,.92),
-        inset 0 -42px 84px rgba(32,33,29,.055);
-      backdrop-filter: blur(30px) saturate(1.22);
-      -webkit-backdrop-filter: blur(30px) saturate(1.22);
-      transform:
-        perspective(1200px)
-        rotateX(calc(var(--my, 0) * -2.4deg))
-        rotateY(calc(var(--mx, 0) * 3deg));
-      transition: transform .16s linear;
-    }
-    .overview-card h2 {
-      margin: 0;
-      color: rgba(23,24,21,.92);
-      font-size: clamp(1.4rem, 1.8vw, 2.3rem);
-      letter-spacing: -.035em;
-    }
-    .metric-grid {
-      display: grid;
-      gap: clamp(12px, 1vw, 18px);
-      margin-top: clamp(18px, 2vw, 28px);
-    }
-    .metric {
-      min-height: clamp(74px, 5.8vw, 104px);
-      display: grid;
-      grid-template-columns: minmax(140px, .42fr) 1fr;
-      align-items: center;
-      gap: clamp(16px, 2vw, 28px);
-      padding: clamp(14px, 1.5vw, 22px) clamp(18px, 1.8vw, 28px);
-      border-radius: clamp(22px, 2vw, 34px);
-      border: 1px solid rgba(23,24,21,.08);
-      background: rgba(255,255,255,.54);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.84);
-    }
-    .metric b {
-      color: rgba(23,24,21,.9);
-      font-size: clamp(2.2rem, 3.5vw, 4.5rem);
-      line-height: .9;
-      letter-spacing: -.055em;
-      white-space: nowrap;
-    }
-    .metric span {
-      color: rgba(23,24,21,.62);
-      font-size: clamp(.9rem, 1vw, 1.12rem);
-      line-height: 1.55;
-      font-weight: 720;
-    }
-    .section {
-      width: min(1680px, 100%);
-      margin: 0 auto;
-      padding: clamp(68px, 10vh, 120px) clamp(24px, 5vw, 82px);
-    }
-    .section-title {
-      display: grid;
-      grid-template-columns: minmax(360px, .66fr) minmax(420px, 1fr);
-      gap: clamp(26px, 5vw, 90px);
-      align-items: end;
-      margin-bottom: clamp(30px, 5vh, 60px);
-    }
-    .section-title h2 {
-      margin: 0;
-      color: rgba(23,24,21,.95);
-      font-size: clamp(3.2rem, 6vw, 8rem);
-      line-height: .86;
-      letter-spacing: -.06em;
-      white-space: nowrap;
-    }
-    .section-title h2 span {
-      display: block;
-      color: transparent;
-      -webkit-text-stroke: 1.05px rgba(23,24,21,.24);
-      text-stroke: 1.05px rgba(23,24,21,.24);
-    }
-    .section-title p {
-      margin: 0;
-      color: rgba(23,24,21,.62);
-      font-size: clamp(1rem, 1.18vw, 1.42rem);
-      line-height: 1.7;
-      font-weight: 680;
-    }
-    .section-title p span {
-      display: block;
-      white-space: nowrap;
-    }
-    .factory-board,
-    .honor-board {
-      position: relative;
-      border: 1px solid rgba(255,255,255,.76);
-      border-radius: clamp(34px, 3vw, 58px);
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.34)),
-        radial-gradient(circle at 85% 100%, rgba(243,7,0,.08), transparent 38%);
-      box-shadow: 0 38px 110px rgba(32,33,29,.11), inset 0 1px 0 rgba(255,255,255,.92);
-      overflow: hidden;
-    }
-    .factory-board {
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: clamp(20px, 2.4vw, 40px);
-      padding: clamp(22px, 2.5vw, 42px);
-    }
-    .factory-visual {
-      min-height: clamp(340px, 32vw, 560px);
-      position: relative;
-      border-radius: clamp(26px, 2.4vw, 44px);
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, #dac18d, #f4e6b9 42%, #6a4630 43% 48%, #f2dc9a 49% 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -34px 80px rgba(23,24,21,.18);
-    }
-    .factory-visual::before {
-      content: "";
-      position: absolute;
-      inset: 12% 8%;
-      background:
-        repeating-linear-gradient(90deg, rgba(23,24,21,.22) 0 10px, transparent 10px 48px),
-        repeating-linear-gradient(0deg, transparent 0 56px, rgba(255,255,255,.48) 56px 60px);
-      border: 1px solid rgba(255,255,255,.62);
-      border-radius: 24px;
-    }
-    .factory-visual::after {
-      content: "FACTORY SYSTEM";
-      position: absolute;
-      left: clamp(20px, 2vw, 34px);
-      bottom: clamp(20px, 2vw, 34px);
-      color: rgba(255,255,255,.92);
-      font-size: clamp(1.35rem, 2.5vw, 3.2rem);
-      font-weight: 900;
-      letter-spacing: -.045em;
-      text-shadow: 0 18px 44px rgba(0,0,0,.28);
-    }
-    .factory-copy {
-      align-self: center;
-      display: grid;
-      gap: clamp(14px, 1.2vw, 20px);
-    }
-    .capability {
-      min-height: 92px;
-      padding: clamp(18px, 1.7vw, 26px);
-      border-radius: clamp(22px, 2vw, 34px);
-      border: 1px solid rgba(23,24,21,.08);
-      background: rgba(255,255,255,.52);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.82);
-    }
-    .capability b {
-      display: block;
-      color: rgba(23,24,21,.92);
-      font-size: clamp(1.05rem, 1.25vw, 1.45rem);
-      line-height: 1.2;
-      letter-spacing: -.03em;
-    }
-    .capability span {
-      display: block;
-      margin-top: 8px;
-      color: rgba(23,24,21,.58);
-      font-size: clamp(.88rem, .98vw, 1.04rem);
-      line-height: 1.55;
-      font-weight: 680;
-    }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: clamp(14px, 1.3vw, 22px);
-    }
-    .service-card {
-      min-height: clamp(170px, 14vw, 240px);
-      padding: clamp(18px, 1.7vw, 26px);
-      border-radius: clamp(24px, 2vw, 36px);
-      border: 1px solid rgba(255,255,255,.72);
-      background: linear-gradient(145deg, rgba(255,255,255,.7), rgba(255,255,255,.34));
-      box-shadow: 0 26px 70px rgba(32,33,29,.09), inset 0 1px 0 rgba(255,255,255,.9);
-    }
-    .service-card b {
-      color: var(--red);
-      font-size: 13px;
-      letter-spacing: .12em;
-    }
-    .service-card h3 {
-      margin: clamp(28px, 3vw, 50px) 0 0;
-      color: rgba(23,24,21,.92);
-      font-size: clamp(1.2rem, 1.55vw, 2rem);
-      line-height: 1.1;
-      letter-spacing: -.045em;
-      white-space: nowrap;
-    }
-    .service-card p {
-      margin: 12px 0 0;
-      color: rgba(23,24,21,.56);
-      font-size: 13px;
-      line-height: 1.6;
-      font-weight: 660;
-    }
-    .honor-board {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 28px;
-      padding: clamp(32px, 4vw, 68px);
-    }
-    .honor-board h2 {
-      margin: 0;
-      color: rgba(23,24,21,.96);
-      font-size: clamp(3.2rem, 6.5vw, 9rem);
-      line-height: .86;
-      letter-spacing: -.06em;
-      white-space: nowrap;
-    }
-    .honor-board h2 span {
-      display: block;
-      color: transparent;
-      -webkit-text-stroke: 1.1px rgba(23,24,21,.24);
-      text-stroke: 1.1px rgba(23,24,21,.24);
-    }
-    .honor-board p {
-      max-width: 760px;
-      margin: 24px 0 0;
-      color: rgba(23,24,21,.62);
-      font-size: clamp(1rem, 1.15vw, 1.36rem);
-      line-height: 1.7;
-      font-weight: 680;
-    }
-    footer {
-      padding: 38px clamp(24px, 5vw, 80px) 54px;
-      color: rgba(23,24,21,.48);
-      font-size: 13px;
-      font-weight: 680;
-      text-align: center;
-    }
-    @media (max-width: 1180px) {
-      .nav { grid-template-columns: auto 1fr; }
-      .nav-pill { display: none; }
-      .hero,
-      .section-title,
-      .factory-board,
-      .honor-board {
-        grid-template-columns: 1fr;
+  <link rel="stylesheet" href="/site-assets/lenis.css">
+  <link rel="stylesheet" href="/site-assets/about-v2.css?v=20260722a">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.djzhuangshi.com/dingji-about.html#about",
+        "url": "https://www.djzhuangshi.com/dingji-about.html",
+        "name": "关于鼎基装饰",
+        "description": "南京鼎基装饰工程有限公司始建于1998年，以设计深化、装饰施工、机电消防与成品制造的一体化能力，服务商业空间和连锁品牌的稳定交付。",
+        "isPartOf": {
+          "@id": "https://www.djzhuangshi.com/#website"
+        },
+        "about": {
+          "@id": "https://www.djzhuangshi.com/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://www.djzhuangshi.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "关于我们",
+            "item": "https://www.djzhuangshi.com/dingji-about.html"
+          }
+        ]
       }
-      .service-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    @media (max-width: 760px) {
-      .nav {
-        left: 14px;
-        right: 14px;
-        top: 12px;
-        display: flex;
-        justify-content: space-between;
-      }
-      .brand { min-height: 54px; padding-right: 14px; }
-      .brand-mark { width: 44px; height: 44px; }
-      .brand-name strong { font-size: 15px; }
-      .brand-name span { font-size: 9px; }
-      .nav-links {
-        max-width: 54vw;
-        overflow-x: auto;
-      }
-      .nav-links a {
-        min-height: 36px;
-        padding-inline: 12px;
-        font-size: 12px;
-      }
-      .hero {
-        padding: 96px 16px 38px;
-        gap: 24px;
-      }
-      h1 {
-        font-size: clamp(3.2rem, 13.5vw, 5.6rem);
-      }
-      .hero-text span,
-      .section-title p span {
-        white-space: normal;
-      }
-      .section {
-        padding: 54px 16px;
-      }
-      .section-title h2,
-      .honor-board h2 {
-        white-space: normal;
-      }
-      .metric {
-        grid-template-columns: 1fr;
-      }
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  
-    /* Mobile layout polish 2026-07-06 */
-    @media (max-width: 780px) {
-      html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-      .nav { top: max(8px, env(safe-area-inset-top)) !important; left: 10px !important; right: 10px !important; display: grid !important; grid-template-columns: auto minmax(0, 1fr) !important; align-items: start !important; gap: 8px !important; z-index: 90 !important; }
-      .brand { display: flex !important; min-height: 38px !important; max-width: 43vw !important; padding: 4px 8px 4px 4px !important; gap: 6px !important; border-radius: 999px !important; overflow: hidden !important; backdrop-filter: blur(16px) saturate(1.15) !important; -webkit-backdrop-filter: blur(16px) saturate(1.15) !important; }
-      .brand-mark { width: 34px !important; height: 30px !important; min-width: 34px !important; }
-      .brand-mark img { width: 40px !important; height: auto !important; }
-      .brand-name { min-width: 0 !important; }
-      .brand-name strong { display: block !important; font-size: 12px !important; line-height: 1 !important; white-space: nowrap !important; }
-      .brand-name span { display: block !important; margin-top: 3px !important; font-size: 7px !important; line-height: 1 !important; letter-spacing: .08em !important; white-space: nowrap !important; }
-      .nav-links { display: flex !important; justify-self: end !important; max-width: 54vw !important; min-width: 0 !important; min-height: 38px !important; padding: 5px !important; gap: 2px !important; overflow-x: auto !important; overflow-y: hidden !important; border-radius: 999px !important; scrollbar-width: none !important; backdrop-filter: blur(18px) saturate(1.18) !important; -webkit-backdrop-filter: blur(18px) saturate(1.18) !important; }
-      .nav-links::-webkit-scrollbar { display: none !important; }
-      .nav-links a { flex: 0 0 auto !important; min-height: 28px !important; padding: 0 10px !important; font-size: 11px !important; line-height: 28px !important; white-space: nowrap !important; }
-      .nav-pill { display: none !important; }
-      .liquid-cursor, .cursor-dot { display: none !important; }
-      .hero-actions, .about-actions, .contact-actions, .actions { display: flex !important; gap: 10px !important; flex-wrap: wrap !important; }
-      .hero-btn, .about-btn, .contact-actions a, .btn, .pill-btn { min-height: 46px !important; padding: 0 15px !important; font-size: 13px !important; white-space: nowrap !important; }
-      h1, h2, h3, p, a, button, span, strong, b { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
-    }
-    @media (max-width: 430px) {
-      .brand { max-width: 39vw !important; padding-right: 7px !important; }
-      .brand-mark { width: 30px !important; height: 27px !important; min-width: 30px !important; }
-      .brand-mark img { width: 36px !important; }
-      .brand-name strong { font-size: 11px !important; }
-      .brand-name span { font-size: 6.5px !important; }
-      .nav-links { max-width: 57vw !important; padding: 4px !important; }
-      .nav-links a { min-height: 27px !important; line-height: 27px !important; padding: 0 9px !important; font-size: 10.5px !important; }
-    }
-    /* End mobile layout polish */
-
-    /* Subpage mobile composition 2026-07-06 */
-    @media (max-width: 780px) {
-      main, .page, .site-main { padding-top: 88px !important; padding-left: 16px !important; padding-right: 16px !important; }
-      .hero, .hero-copy, .case-hero, .service-hero, .career-hero, .honors-hero, .section-title, .factory-board, .honor-board, .archive-shell, .contact-shell { grid-template-columns: 1fr !important; gap: 22px !important; }
-      h1, .hero h1, .case-title, .service-title, .career-title, .honors-title { font-size: clamp(3rem, 14.5vw, 5rem) !important; line-height: .9 !important; letter-spacing: 0 !important; white-space: normal !important; }
-      .section-title h2, .split-title, .panel-title { font-size: clamp(2.25rem, 11vw, 4.2rem) !important; line-height: .95 !important; white-space: normal !important; }
-      .hero-text span, .hero-copy span, .section-title p span, .lede span, .summary span { display: inline !important; white-space: normal !important; }
-      .hero, .section, .content-section, .archive-section { padding-top: 40px !important; padding-bottom: 44px !important; }
-      .service-grid, .scope-grid, .case-grid, .brand-rail, .case-detail-grid, .system-panel, .honor-grid, .credential-grid, .contact-grid { grid-template-columns: 1fr !important; }
-      .brand-rail, .logo-strip, .project-strip { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
-      .glass-panel, .board, .archive, .form-panel, .contact-panel, .honor-card, .credential-card { border-radius: 26px !important; padding: 16px !important; }
-      .doc-image, .credential-card img, .honor-card img { max-height: 70svh !important; width: 100% !important; object-fit: contain !important; }
-      footer { padding-left: 16px !important; padding-right: 16px !important; }
-    }
-    @media (max-width: 430px) {
-      main, .page, .site-main { padding-left: 12px !important; padding-right: 12px !important; }
-      h1, .hero h1, .case-title, .service-title, .career-title, .honors-title { font-size: clamp(2.55rem, 14vw, 4.2rem) !important; }
-      .section-title h2, .split-title, .panel-title { font-size: clamp(2rem, 10.5vw, 3.4rem) !important; }
-    }
-    /* End subpage mobile composition */
-
-  </style>
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header class="nav">
-    <a class="brand" href="/#home" aria-label="鼎基装饰官网首页">
-      <span class="brand-mark"><img src="site-assets/dingji-logo-final-06.svg" alt=""></span>
-      <span class="brand-name"><strong>鼎基装饰</strong><span>Top Decoration</span></span>
-    </a>
-    <nav class="nav-links" aria-label="主导航">
-      <span class="liquid-trail" aria-hidden="true"></span>
-      <span class="liquid-thumb" aria-hidden="true"></span>
-      <a href="/#home">首页</a>
-      <a class="active" href="dingji-about.html">关于我们</a>
-      <a href="dingji-cases.html">业务案例</a>
-      <a href="dingji-chain-store.html">连锁店装修</a>
-      <a href="dingji-service.html">客户服务</a>
-      <a href="dingji-contact.html">联系我们</a>
-    </nav>
-    <span class="nav-pill"><i></i> 连锁商业空间一体化交付</span>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="鼎基装饰首页">
+        <span class="brand-mark"><img src="/site-assets/dingji-logo-final-06.svg" alt=""></span>
+        <span class="brand-name"><strong>鼎基装饰</strong><small>Top Decoration</small></span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/">首页</a>
+        <a href="/dingji-cases.html">业务案例</a>
+        <a href="/dingji-chain-store.html">连锁店装修</a>
+        <a href="/dingji-service.html">服务能力</a>
+        <a href="/dingji-about.html" aria-current="page">关于我们</a>
+        <a href="/dingji-contact.html">联系我们</a>
+      </nav>
+      <a class="nav-cta" href="/dingji-contact.html">项目咨询</a>
+    </div>
   </header>
 
-  <main>
-    <span class="shape one" aria-hidden="true"></span>
-    <span class="shape two" aria-hidden="true"></span>
+  <main id="main">
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow"><span></span> ABOUT DINGJI · SINCE 1998</p>
+          <h1 id="about-title">
+            <span>把复杂工程，</span>
+            <span class="hero-result">
+              做成
+              <span class="word-window" aria-live="polite">
+                <span class="hero-word is-active">稳定交付</span>
+                <span class="hero-word">标准复制</span>
+                <span class="hero-word">长期价值</span>
+              </span>
+            </span>
+          </h1>
+          <p class="hero-lead">鼎基装饰始建于1998年。我们把设计深化、装饰施工、机电消防与成品制造放进同一套交付体系，让品牌空间从一张图纸，可靠地走向每一个现场。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#capabilities">
+              查看我们的能力
+              <span aria-hidden="true">↘</span>
+            </a>
+            <a class="button button-ghost" href="/dingji-honors.html">了解企业荣誉</a>
+          </div>
+          <ul class="hero-tags" aria-label="鼎基装饰核心能力">
+            <li>设计深化</li>
+            <li>装饰施工</li>
+            <li>机电消防</li>
+            <li>成品制造</li>
+          </ul>
+        </div>
 
-    <section class="hero" aria-label="关于鼎基">
-      <div>
-        <p class="eyebrow">About Dingji</p>
-        <h1>关于鼎基<span>工厂体系</span></h1>
-      </div>
-      <div class="hero-text">
-        <strong><span>把复杂工程做成稳定、可复制、可持续的交付系统</span></strong>
-        <span>南京鼎基装饰工程有限公司始建于 1998 年</span>
-        <span>长期服务连锁餐饮、商业零售、办公、酒店与医疗空间</span>
-        <span>以设计深化、装饰施工、机电消防和成品制造支撑项目落地</span>
-        <div class="hero-actions">
-          <a class="btn primary" href="#factory">查看工厂体系</a>
-          <a class="btn" href="dingji-honors.html">荣誉资质入口</a>
+        <div class="hero-scene" data-scene data-reveal>
+          <div class="scene-shell">
+            <div class="scene-fallback" aria-hidden="true">
+              <div class="scene-grid"></div>
+              <div class="scene-orb scene-orb-a"></div>
+              <div class="scene-orb scene-orb-b"></div>
+              <div class="scene-ribbon"></div>
+            </div>
+            <spline-viewer
+              class="spline-stage"
+              url="/site-assets/about/scene.splinecode"
+              loading="eager"
+              events-target="local"
+              aria-hidden="true">
+            </spline-viewer>
+            <div class="scene-corner scene-corner-top" aria-hidden="true">
+              <span>Integrated Delivery System</span>
+              <b>01</b>
+            </div>
+            <div class="scene-corner scene-corner-bottom" aria-hidden="true">
+              <span>南京 · 中国</span>
+              <span>32°03′N 118°47′E</span>
+            </div>
+          </div>
+          <p class="scene-caption"><span></span> 一个团队统筹设计、施工、系统与制造</p>
         </div>
       </div>
+
+      <div class="metric-band" aria-label="企业数据">
+        <article data-reveal>
+          <strong>1998</strong>
+          <span>始建年份</span>
+        </article>
+        <article data-reveal>
+          <strong>26,000<small>㎡</small></strong>
+          <span>现代化生产基地</span>
+        </article>
+        <article data-reveal>
+          <strong>3,000<small>+</small></strong>
+          <span>累计项目实践</span>
+        </article>
+        <article data-reveal>
+          <strong>80<small>+</small></strong>
+          <span>服务城市与合作伙伴</span>
+        </article>
+      </div>
     </section>
 
-    <section class="section" aria-label="公司概览">
-      <div class="overview-card">
-        <h2>Dingji Capability</h2>
-        <div class="metric-grid">
-          <div class="metric"><b>1998</b><span>公司始建，持续深耕商业空间装饰工程服务</span></div>
-          <div class="metric"><b>26000㎡</b><span>现代化生产基地，支持成品制造与标准化交付</span></div>
-          <div class="metric"><b>3000+</b><span>精品工程落地，覆盖餐饮、办公、酒店、医疗等场景</span></div>
-          <div class="metric"><b>80+</b><span>服务城市与合作伙伴，形成跨区域项目协同能力</span></div>
+    <section class="manifesto section">
+      <div class="section-label" data-reveal>
+        <span>01</span>
+        <p>我们的理解</p>
+      </div>
+      <div class="manifesto-copy" data-reveal>
+        <p>空间工程不只是“把现场做完”。</p>
+        <h2>我们把<span>品牌标准</span>、现场条件、材料工艺、专业协同与<span>成品制造</span>，整理成一套能落地、能复盘、也能再次复制的工程方法。</h2>
+      </div>
+      <div class="manifesto-aside" data-reveal>
+        <p>从单店落地到多城市复制，鼎基用完整的工程链路降低沟通损耗，让设计效果、项目进度与最终品质保持一致。</p>
+        <a href="/dingji-service.html">查看完整服务体系 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="capabilities section" id="capabilities" aria-labelledby="capabilities-title">
+      <div class="section-heading" data-reveal>
+        <div class="section-label">
+          <span>02</span>
+          <p>一体化能力</p>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="factory" aria-label="工厂体系">
-      <div class="section-title">
-        <h2>工厂实力<span>工程底盘</span></h2>
-        <p>
-          <span>鼎基以生产基地承接项目后端制造能力</span>
-          <span>把现场施工、成品配套和标准化构件纳入同一套交付逻辑</span>
-        </p>
-      </div>
-      <div class="factory-board">
-        <div class="factory-visual" aria-hidden="true"></div>
-        <div class="factory-copy">
-          <div class="capability"><b>设计深化</b><span>承接品牌标准、空间图纸与现场条件，把设计意图转化为可执行工程方案。</span></div>
-          <div class="capability"><b>装饰施工</b><span>围绕工期、工艺、材料和现场管理，保障连锁门店批量落地的一致性。</span></div>
-          <div class="capability"><b>机电消防</b><span>统筹餐饮、零售、办公医疗空间的核心系统施工，减少后期运营风险。</span></div>
-          <div class="capability"><b>成品制造</b><span>以现代化生产基地支撑成品配套、标准构件和项目复制交付。</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="服务体系">
-      <div class="section-title">
-        <h2>服务体系<span>一体化交付</span></h2>
-        <p>
-          <span>从首店标准到多城复制</span>
-          <span>鼎基把每个节点拆成可管理、可复盘、可持续优化的工程流程</span>
-        </p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card"><b>01</b><h3>品牌标准导入</h3><p>梳理品牌视觉、空间规范和施工节点。</p></article>
-        <article class="service-card"><b>02</b><h3>图纸深化</h3><p>把方案转为现场可执行的工程语言。</p></article>
-        <article class="service-card"><b>03</b><h3>施工统筹</h3><p>管理材料、工艺、进度与多专业协作。</p></article>
-        <article class="service-card"><b>04</b><h3>成品配套</h3><p>工厂端完成标准构件与空间配套。</p></article>
-        <article class="service-card"><b>05</b><h3>交付复盘</h3><p>沉淀样板、清单和复制经验。</p></article>
-      </div>
-    </section>
-
-    <section class="section" aria-label="荣誉资质">
-      <div class="honor-board">
         <div>
-          <h2>荣誉资质<span>影像档案</span></h2>
-          <p>以合规资质承接工程，以标准体系保障交付。这里集中展示营业执照、建筑业企业资质证书、安全生产许可证等企业能力资料。</p>
+          <p class="heading-kicker">ONE SYSTEM · FOUR CAPABILITIES</p>
+          <h2 id="capabilities-title">不是四项孤立的服务，<br>而是一条连续的交付链。</h2>
         </div>
-        <a class="btn primary" href="dingji-honors.html">进入荣誉资质</a>
+      </div>
+
+      <div class="capability-tabs" data-tabs data-reveal>
+        <div class="tab-list" role="tablist" aria-label="鼎基装饰四项核心能力">
+          <button type="button" role="tab" id="tab-design" aria-controls="panel-design" aria-selected="true" tabindex="0">
+            <span>01</span> 设计深化
+          </button>
+          <button type="button" role="tab" id="tab-build" aria-controls="panel-build" aria-selected="false" tabindex="-1">
+            <span>02</span> 装饰施工
+          </button>
+          <button type="button" role="tab" id="tab-systems" aria-controls="panel-systems" aria-selected="false" tabindex="-1">
+            <span>03</span> 机电消防
+          </button>
+          <button type="button" role="tab" id="tab-making" aria-controls="panel-making" aria-selected="false" tabindex="-1">
+            <span>04</span> 成品制造
+          </button>
+        </div>
+
+        <div class="tab-panels">
+          <article class="capability-panel" role="tabpanel" id="panel-design" aria-labelledby="tab-design">
+            <div class="panel-copy">
+              <p class="panel-index">CAPABILITY 01 / 04</p>
+              <h3>先把设计意图，<br>翻译成工程语言。</h3>
+              <p>从品牌标准、空间方案到材料节点和现场条件，前置识别冲突，把“视觉效果”拆解成可以采购、制造与施工的执行依据。</p>
+              <ul>
+                <li>品牌标准导入</li>
+                <li>材料与工艺节点</li>
+                <li>图纸与现场校核</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="/site-assets/factory/factory-aerial.jpg" alt="鼎基装饰生产基地规划呈现" width="1600" height="900" loading="lazy">
+              <figcaption>生产基地规划呈现 / 南京</figcaption>
+            </figure>
+          </article>
+
+          <article class="capability-panel" role="tabpanel" id="panel-build" aria-labelledby="tab-build" hidden>
+            <div class="panel-copy">
+              <p class="panel-index">CAPABILITY 02 / 04</p>
+              <h3>让进度、工艺与现场协同，<br>始终在同一条线上。</h3>
+              <p>以施工组织和关键节点管理为核心，统筹人员、材料与多专业界面，把方案要求落实到每一道工序和每一次验收。</p>
+              <ul>
+                <li>施工组织统筹</li>
+                <li>关键质量节点</li>
+                <li>进度与交付控制</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="/site-assets/factory/factory-workshop.jpg" alt="鼎基装饰生产基地厂房规划呈现" width="1600" height="900" loading="lazy">
+              <figcaption>制造与工程协同 / 南京</figcaption>
+            </figure>
+          </article>
+
+          <article class="capability-panel" role="tabpanel" id="panel-systems" aria-labelledby="tab-systems" hidden>
+            <div class="panel-copy">
+              <p class="panel-index">CAPABILITY 03 / 04</p>
+              <h3>把关键系统界面，<br>前置到开工之前。</h3>
+              <p>机电、消防与装饰并非各自为战。我们把设备条件、专业接口和运营需求提前纳入统筹，减少返工与后期风险。</p>
+              <ul>
+                <li>设备条件梳理</li>
+                <li>多专业界面协同</li>
+                <li>运营风险前置</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="/site-assets/factory/factory-detail.jpg" alt="鼎基装饰生产基地厂房细节规划呈现" width="1600" height="900" loading="lazy">
+              <figcaption>系统化生产空间 / 南京</figcaption>
+            </figure>
+          </article>
+
+          <article class="capability-panel" role="tabpanel" id="panel-making" aria-labelledby="tab-making" hidden>
+            <div class="panel-copy">
+              <p class="panel-index">CAPABILITY 04 / 04</p>
+              <h3>用制造能力，<br>守住复制落地的标准。</h3>
+              <p>依托现代化生产基地，为标准构件、门店配套与批量项目提供制造支持，让可复用的部分在进场前就获得稳定品质。</p>
+              <ul>
+                <li>成品配套制造</li>
+                <li>标准构件管理</li>
+                <li>多门店批量落地</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="/site-assets/factory/factory-workshop.jpg" alt="鼎基装饰生产基地厂房规划呈现" width="1600" height="900" loading="lazy">
+              <figcaption>标准构件制造支持 / 南京</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section" aria-labelledby="process-title">
+      <div class="process-intro" data-reveal>
+        <div class="section-label">
+          <span>03</span>
+          <p>稳定交付路径</p>
+        </div>
+        <div>
+          <p class="heading-kicker">FROM STANDARD TO REALITY</p>
+          <h2 id="process-title">每一步都为下一步，<br>提前解决问题。</h2>
+        </div>
+        <p>项目真正的确定性，来自信息在各环节之间连续传递。鼎基用五个阶段，把标准、设计、现场与制造组织在同一条路径上。</p>
+      </div>
+
+      <ol class="process-list">
+        <li data-reveal>
+          <span>01</span>
+          <div>
+            <h3>品牌标准导入</h3>
+            <p>理解品牌目标、空间标准与运营要求，建立项目共同语言。</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span>02</span>
+          <div>
+            <h3>图纸深化</h3>
+            <p>校核材料、结构与专业界面，把设计变成可执行依据。</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span>03</span>
+          <div>
+            <h3>施工统筹</h3>
+            <p>管理现场节奏和质量节点，让多专业协同有序推进。</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span>04</span>
+          <div>
+            <h3>成品配套</h3>
+            <p>以基地制造支持标准构件和项目配套，稳定批量品质。</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span>05</span>
+          <div>
+            <h3>交付复盘</h3>
+            <p>沉淀问题、成本与工艺经验，为下一次复制持续优化。</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="about-cta section" data-reveal>
+      <div>
+        <p class="eyebrow"><span></span> NEXT PROJECT</p>
+        <h2>让下一处空间，<br>从一开始就更确定。</h2>
+      </div>
+      <div>
+        <p>告诉我们项目所在城市、空间类型与计划时间，鼎基团队将从落地条件出发，为你梳理更合适的协同方式。</p>
+        <a class="button button-light" href="/dingji-contact.html">开始项目沟通 <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
-  <footer>南京鼎基装饰工程有限公司 · TOP DECORATION</footer>
 
-  <script>
-    const root = document.documentElement;
-    const nav = document.querySelector('.nav-links');
-    const links = [...document.querySelectorAll('.nav-links a')];
-    const thumb = document.querySelector('.liquid-thumb');
-    const trail = document.querySelector('.liquid-trail');
-    const overview = document.querySelector('.overview-card');
-    function setLiquidTarget(target, immediate = false) {
-      if (!target || !nav || !thumb || !trail) return;
-      const navRect = nav.getBoundingClientRect();
-      const rect = target.getBoundingClientRect();
-      const x = rect.left - navRect.left;
-      const y = rect.top - navRect.top;
-      [thumb, trail].forEach((el) => {
-        el.style.setProperty('--x', `${x}px`);
-        el.style.setProperty('--y', `${y}px`);
-        el.style.setProperty('--w', `${rect.width}px`);
-        el.style.setProperty('--h', `${rect.height}px`);
-        if (immediate) {
-          el.style.transitionDuration = '0ms';
-          requestAnimationFrame(() => { el.style.transitionDuration = ''; });
-        }
-      });
-    }
-    function updatePointer(event) {
-      const mx = (event.clientX / innerWidth - .5) * 2;
-      const my = (event.clientY / innerHeight - .5) * 2;
-      root.style.setProperty('--mx', mx.toFixed(3));
-      root.style.setProperty('--my', my.toFixed(3));
-      if (overview) {
-        const rect = overview.getBoundingClientRect();
-        overview.style.setProperty('--card-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
-        overview.style.setProperty('--card-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
-      }
-    }
-    links.forEach((link) => {
-      link.addEventListener('pointerenter', () => setLiquidTarget(link));
-      link.addEventListener('focus', () => setLiquidTarget(link));
-    });
-    nav?.addEventListener('pointerleave', () => setLiquidTarget(document.querySelector('.nav-links a.active')));
-    window.addEventListener('resize', () => setLiquidTarget(document.querySelector('.nav-links a.active'), true));
-    window.addEventListener('pointermove', updatePointer, { passive: true });
-    setLiquidTarget(document.querySelector('.nav-links a.active'), true);
-  </script>
+  <footer class="site-footer">
+    <div>
+      <a class="brand footer-brand" href="/" aria-label="返回鼎基装饰首页">
+        <span class="brand-mark"><img src="/site-assets/dingji-logo-final-06.svg" alt=""></span>
+        <span class="brand-name"><strong>鼎基装饰</strong><small>Top Decoration</small></span>
+      </a>
+      <p>南京鼎基装饰工程有限公司<br>始建于1998年</p>
+    </div>
+    <nav aria-label="页脚导航">
+      <a href="/dingji-cases.html">业务案例</a>
+      <a href="/dingji-chain-store.html">连锁店装修</a>
+      <a href="/dingji-service.html">服务能力</a>
+      <a href="/dingji-honors.html">企业荣誉</a>
+      <a href="/dingji-contact.html">联系我们</a>
+    </nav>
+    <p class="copyright">© 2026 南京鼎基装饰工程有限公司</p>
+  </footer>
+
+  <script src="/site-assets/lenis.min.js"></script>
+  <script src="/site-assets/lenis-init.js?v=20260722b"></script>
+  <script src="/site-assets/about-v2.js?v=20260722a"></script>
 </body>
 </html>

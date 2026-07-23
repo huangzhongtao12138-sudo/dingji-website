@@ -21,6 +21,9 @@
 以下资料来自当前正式官网页面与结构化数据。修改前需获得用户确认。
 
 - 公司始建年份：1998 年
+- 现代化生产基地：26,000㎡
+- 累计项目实践：3,000+
+- 服务城市与合作伙伴：80+
 - 项目咨询手机：`13505151512`
 - 办公电话：`025-83247705 / 09`
 - 电子邮箱：`njdj_top@126.com`
@@ -66,6 +69,7 @@
 
 - 网站类型：纯静态 HTML/CSS/JavaScript
 - 全站纵向滚动：本地托管 Lenis 1.3.25，由 `outputs/site-assets/lenis-init.js` 统一初始化；手机触控与“减少动态效果”保留原生行为
+- 关于页 3D 场景：桌面端按需加载 Spline Viewer 与本地 `scene.splinecode`，移动端、省流量模式和“减少动态效果”使用轻量 CSS 视觉回退
 - 生产目录：`outputs/`
 - 生产首页：`outputs/index.html`
 - Vercel Framework Preset：Other
@@ -90,6 +94,7 @@
 - `outputs/cases/`：案例详情页面
 - `outputs/site-assets/`：Logo、工厂、资质与共享样式等资源
 - `outputs/site-assets/lenis.min.js`、`lenis.css`、`lenis-init.js`：全站平滑滚动依赖与统一配置
+- `outputs/site-assets/about-v2.css`、`about-v2.js`、`about/scene.splinecode`：关于页视觉、交互与 3D 场景资源
 - `outputs/public/assets/cases/`：案例图片
 - `outputs/sitemap.xml`：站点地图
 - `outputs/robots.txt`：搜索引擎抓取规则

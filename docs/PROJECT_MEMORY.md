@@ -107,9 +107,10 @@
 - `outputs/cases/`：案例详情页面
 - `outputs/site-assets/`：Logo、工厂、资质与共享样式等资源
 - `outputs/site-assets/lenis.min.js`、`lenis.css`、`lenis-init.js`：全站平滑滚动依赖与统一配置
+- `outputs/site-assets/site-nav.css`、`site-nav.js`：首页及五个主导航页面共用的桌面/平板导航基准，统一品牌标、导航胶囊、字体、间距、活动态与右侧业务胶囊，避免跨页面切换时产生位置或字体跳动
 - `outputs/site-assets/phone.css`：全站生产页面共用的手机端导航、按钮与重点页面排版规则（仅在不超过 640px 时生效）
 - `outputs/site-assets/about-v2.css`、`about-v2.js`、`about/scene.splinecode`：关于页视觉、交互与 3D 场景资源
-- 关于页企业体系区：采用紧凑的三家公司协同总览，不再使用大图切换式四能力面板；普通桌面高度应能快速看到公司分工和体系优势。
+- 关于页企业体系区：采用“一套完整交付”的三家公司极简总览；桌面与平板保持三栏同屏，分别突出鼎基新店开发、润发改造维护、金昇定制制造与粉末喷涂，去除大段说明和标签堆叠；从页内入口跳转后导航不得遮挡标题或公司信息。
 - `outputs/public/assets/cases/`：案例图片
 - `outputs/sitemap.xml`：站点地图
 - `outputs/robots.txt`：搜索引擎抓取规则

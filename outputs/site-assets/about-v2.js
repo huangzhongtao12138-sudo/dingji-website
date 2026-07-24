@@ -135,46 +135,6 @@
     }, 2600);
   }
 
-  const tabsRoot = document.querySelector("[data-tabs]");
-  if (tabsRoot) {
-    const tabs = [...tabsRoot.querySelectorAll('[role="tab"]')];
-    const panels = [...tabsRoot.querySelectorAll('[role="tabpanel"]')];
-
-    const activateTab = (tab, moveFocus = false) => {
-      tabs.forEach((item) => {
-        const selected = item === tab;
-        item.setAttribute("aria-selected", String(selected));
-        item.tabIndex = selected ? 0 : -1;
-      });
-
-      panels.forEach((panel) => {
-        panel.hidden = panel.id !== tab.getAttribute("aria-controls");
-      });
-
-      if (moveFocus) tab.focus();
-    };
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => activateTab(tab));
-      tab.addEventListener("keydown", (event) => {
-        let nextIndex = index;
-        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-          nextIndex = (index + 1) % tabs.length;
-        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-          nextIndex = (index - 1 + tabs.length) % tabs.length;
-        } else if (event.key === "Home") {
-          nextIndex = 0;
-        } else if (event.key === "End") {
-          nextIndex = tabs.length - 1;
-        } else {
-          return;
-        }
-        event.preventDefault();
-        activateTab(tabs[nextIndex], true);
-      });
-    });
-  }
-
   const sceneRoot = document.querySelector("[data-scene]");
   const sceneShell = sceneRoot?.querySelector(".scene-shell");
   const splineViewer = sceneRoot?.querySelector("spline-viewer");

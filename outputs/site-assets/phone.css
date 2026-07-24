@@ -407,6 +407,79 @@
     line-height: 1.35 !important;
   }
 
+  .about-page .capabilities {
+    padding: 58px 14px !important;
+  }
+
+  .about-page .capabilities .section-heading {
+    gap: 24px !important;
+    margin-bottom: 28px !important;
+  }
+
+  .about-page .system-heading-copy {
+    gap: 16px !important;
+  }
+
+  .about-page .system-heading-copy .heading-kicker {
+    margin-bottom: 0 !important;
+    font-size: 10px !important;
+  }
+
+  .about-page .capabilities .section-heading h2 {
+    font-size: 34px !important;
+    line-height: 1.18 !important;
+  }
+
+  .about-page .capabilities-title-line {
+    display: block !important;
+  }
+
+  .about-page .system-heading-copy > p:last-child {
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+  }
+
+  .about-page .company-system {
+    border-radius: 20px !important;
+  }
+
+  .about-page .system-core {
+    min-height: 0 !important;
+    padding: 20px !important;
+  }
+
+  .about-page .system-core strong {
+    font-size: 20px !important;
+  }
+
+  .about-page .system-core > p {
+    font-size: 13px !important;
+  }
+
+  .about-page .company-card {
+    padding: 24px 20px 26px !important;
+  }
+
+  .about-page .company-name h3 {
+    font-size: 29px !important;
+  }
+
+  .about-page .company-card h4 {
+    font-size: 20px !important;
+  }
+
+  .about-page .company-summary {
+    font-size: 13px !important;
+    line-height: 1.68 !important;
+  }
+
+  .about-page .system-results span {
+    min-height: 58px !important;
+    justify-content: flex-start !important;
+    padding: 12px !important;
+    font-size: 11px !important;
+  }
+
   /* Business cases: control intentional line breaks and remove orphan text. */
   .cases-page main.page {
     padding: 80px 14px 42px !important;

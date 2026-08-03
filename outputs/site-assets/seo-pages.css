@@ -9,7 +9,11 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: auto; }
+html {
+  scroll-behavior: auto;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 body {
   margin: 0;
   color: var(--ink);
@@ -122,7 +126,7 @@ img { display: block; max-width: 100%; }
 .eyebrow { display: flex; align-items: center; gap: 16px; margin: 0 0 22px; color: var(--muted); font-size: 18px; font-weight: 850; }
 .eyebrow::before { content: ""; width: 74px; height: 4px; border-radius: 99px; background: var(--red); }
 h1 { margin: 0; font-size: clamp(62px, 8vw, 150px); line-height: .93; font-weight: 940; letter-spacing: -.075em; }
-h1 span { display: block; color: transparent; -webkit-text-stroke: 1.25px rgba(23, 24, 21, .28); }
+h1 > span { display: block; color: transparent; -webkit-text-stroke: 1.25px rgba(23, 24, 21, .28); }
 .lede { margin: 28px 0 0; max-width: 900px; color: var(--muted); font-size: clamp(20px, 1.6vw, 30px); line-height: 1.6; font-weight: 760; }
 .hero-panel, .card, .contact-item, details, .related a {
   border: 1px solid rgba(255, 255, 255, .78);
@@ -164,6 +168,50 @@ details p { margin: 0; padding: 0 0 24px; color: var(--muted); font-size: 16px; 
 .related a span { color: var(--muted); font-size: 13px; font-weight: 650; }
 .page-foot { margin-top: 58px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 
+/* Chain-store hero: keep every display line semantic and deterministic. */
+.chain-store-page .hero-title {
+  font-size: clamp(62px, 7.35vw, 140px);
+  line-height: .93;
+  letter-spacing: -.065em;
+  text-wrap: nowrap;
+}
+.chain-store-page .hero-title > .hero-title-main {
+  width: max-content;
+  max-width: 100%;
+  color: var(--ink);
+  -webkit-text-stroke: 0;
+  white-space: nowrap;
+}
+.chain-store-page .hero-title > .hero-title-outline {
+  width: max-content;
+  max-width: 100%;
+  font-size: .92em;
+  letter-spacing: -.085em;
+  line-height: .96;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+.chain-store-page .hero-title-outline-part {
+  display: inline;
+  color: inherit;
+  white-space: nowrap;
+}
+.chain-store-page .lede {
+  max-width: 34em;
+  text-wrap: pretty;
+}
+.chain-store-page .hero-panel h2,
+.chain-store-page .btn,
+.chain-store-page .nav-pill,
+.chain-store-page .nav-links a {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+.chain-store-page .btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
 @media (max-width: 1180px) {
   .nav { grid-template-columns: 1fr; }
   .brand, .nav-pill { display: none; }
@@ -180,4 +228,31 @@ details p { margin: 0; padding: 0 0 24px; color: var(--muted); font-size: 16px; 
   h1 { font-size: clamp(52px, 16vw, 82px); letter-spacing: -.055em; }
   .section-head, .grid, .grid.two, .contact-grid, .related-grid { grid-template-columns: 1fr; }
   .hero-panel, .card, .contact-item { border-radius: 24px; }
+}
+
+@media (max-width: 640px) {
+  .chain-store-page .hero-title {
+    font-size: clamp(52px, 15.4vw, 62px);
+    line-height: .92;
+    letter-spacing: -.065em;
+  }
+  .chain-store-page .hero-title > .hero-title-outline {
+    margin-top: .08em;
+    font-size: .92em;
+    line-height: .94;
+    white-space: normal;
+    text-wrap: nowrap;
+  }
+  .chain-store-page .hero-title-outline-part {
+    display: block;
+    width: max-content;
+    white-space: nowrap;
+  }
+  .chain-store-page .hero-title-outline-part + .hero-title-outline-part {
+    margin-top: .04em;
+  }
+  .chain-store-page .lede {
+    font-size: 16px;
+    line-height: 1.72;
+  }
 }

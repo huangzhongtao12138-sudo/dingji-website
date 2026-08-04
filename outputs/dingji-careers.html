@@ -289,9 +289,21 @@
       font-weight: 940;
       letter-spacing: -.08em;
     }
-    h1 span {
+    .career-title-main {
       display: block;
+      width: max-content;
+      max-width: 100%;
+      white-space: nowrap;
+    }
+    h1 .career-title-outline {
+      display: block;
+      width: max-content;
+      max-width: 100%;
       color: transparent;
+      font-size: .42em;
+      line-height: 1.06;
+      letter-spacing: -.045em;
+      white-space: nowrap;
       -webkit-text-stroke: 1.35px rgba(23,24,21,.25);
       text-stroke: 1.35px rgba(23,24,21,.25);
     }
@@ -559,8 +571,12 @@
     }
     /* End subpage mobile composition */
 
+    @media (max-width: 780px) {
+      h1 .career-title-outline { font-size: .56em; }
+    }
+
   </style>
-  <link rel="stylesheet" href="/site-assets/phone.css?v=20260723b">
+  <link rel="stylesheet" href="/site-assets/phone.css?v=20260803a">
 </head>
 <body class="careers-page">
   <header class="nav">
@@ -589,7 +605,7 @@
     <section class="career-hero" aria-label="加入我们">
       <div>
         <p class="eyebrow" data-reveal>Join Dingji</p>
-        <h1 data-reveal style="--reveal-index:1">加入我们<span>成为空间工程的一部分</span></h1>
+        <h1 data-reveal style="--reveal-index:1"><span class="career-title-main">加入我们</span><span class="career-title-outline">成为空间工程的一部分</span></h1>
         <p class="career-copy" data-reveal style="--reveal-index:2">
           <span>和鼎基一起把复杂项目做成稳定交付</span>
           <span>欢迎设计深化、项目管理、施工管理、商务拓展、工厂制造等方向的人才</span>

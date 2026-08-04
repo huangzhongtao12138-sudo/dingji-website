@@ -126,7 +126,20 @@ img { display: block; max-width: 100%; }
 .eyebrow { display: flex; align-items: center; gap: 16px; margin: 0 0 22px; color: var(--muted); font-size: 18px; font-weight: 850; }
 .eyebrow::before { content: ""; width: 74px; height: 4px; border-radius: 99px; background: var(--red); }
 h1 { margin: 0; font-size: clamp(62px, 8vw, 150px); line-height: .93; font-weight: 940; letter-spacing: -.075em; }
-h1 > span { display: block; color: transparent; -webkit-text-stroke: 1.25px rgba(23, 24, 21, .28); }
+h1 > span {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  color: transparent;
+  font-size: .72em;
+  line-height: 1.04;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  -webkit-text-stroke: 1.25px rgba(23, 24, 21, .28);
+}
 .lede { margin: 28px 0 0; max-width: 900px; color: var(--muted); font-size: clamp(20px, 1.6vw, 30px); line-height: 1.6; font-weight: 760; }
 .hero-panel, .card, .contact-item, details, .related a {
   border: 1px solid rgba(255, 255, 255, .78);
@@ -140,7 +153,7 @@ h1 > span { display: block; color: transparent; -webkit-text-stroke: 1.25px rgba
 .hero-panel h2 { margin: 18px 0 12px; font-size: clamp(30px, 3vw, 54px); line-height: 1.05; letter-spacing: -.055em; }
 .hero-panel p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.8; font-weight: 680; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-.btn { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .78); background: rgba(255, 255, 255, .52); font-weight: 850; }
+.btn { min-height: 52px; display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .78); background: rgba(255, 255, 255, .52); font-weight: 850; white-space: nowrap; word-break: keep-all; }
 .btn.primary { color: #fff; border-color: transparent; background: linear-gradient(145deg, #ff1710, #d90000); box-shadow: 0 20px 48px rgba(243, 7, 0, .24); }
 .content { padding-block: clamp(30px, 5vh, 64px); border-top: 1px solid var(--line); }
 .section-head { display: grid; grid-template-columns: minmax(220px, .5fr) 1fr; gap: 24px; align-items: start; margin-bottom: 28px; }
@@ -179,6 +192,7 @@ details p { margin: 0; padding: 0 0 24px; color: var(--muted); font-size: 16px; 
   width: max-content;
   max-width: 100%;
   color: var(--ink);
+  font-size: 1em;
   -webkit-text-stroke: 0;
   white-space: nowrap;
 }

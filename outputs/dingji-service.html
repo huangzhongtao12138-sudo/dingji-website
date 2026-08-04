@@ -293,9 +293,21 @@
       font-weight: 940;
       letter-spacing: -.08em;
     }
-    h1 span {
+    .service-title-main {
       display: block;
+      width: max-content;
+      max-width: 100%;
+      white-space: nowrap;
+    }
+    h1 .service-title-outline {
+      display: block;
+      width: max-content;
+      max-width: 100%;
       color: transparent;
+      font-size: .58em;
+      line-height: 1.04;
+      letter-spacing: -.055em;
+      white-space: nowrap;
       -webkit-text-stroke: 1.35px rgba(23,24,21,.26);
       text-stroke: 1.35px rgba(23,24,21,.26);
     }
@@ -607,7 +619,7 @@
   </style>
   <link rel="stylesheet" href="/site-assets/site-nav.css?v=20260724a">
   <script src="/site-assets/site-nav.js?v=20260724a" defer></script>
-  <link rel="stylesheet" href="/site-assets/phone.css?v=20260724a">
+  <link rel="stylesheet" href="/site-assets/phone.css?v=20260803a">
 </head>
 <body class="service-page">
   <header class="nav">
@@ -635,7 +647,7 @@
     <section class="service-hero" aria-label="客户服务">
       <div>
         <p class="eyebrow" data-reveal>Customer Service</p>
-        <h1 data-reveal style="--reveal-index:1">客户服务<span>售后与项目支持</span></h1>
+        <h1 data-reveal style="--reveal-index:1"><span class="service-title-main">客户服务</span><span class="service-title-outline">售后与项目支持</span></h1>
         <p class="service-copy" data-reveal style="--reveal-index:2">
           <span>从项目咨询到售后维护</span>
           <span>让每一次响应都有清晰路径</span>

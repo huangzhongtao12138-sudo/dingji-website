@@ -577,7 +577,14 @@
     letter-spacing: -.065em !important;
   }
 
-  .service-page .service-hero h1 > span {
+  .service-page .service-hero h1 > .service-title-main {
+    display: block !important;
+    margin-top: 0 !important;
+    font-size: 1em !important;
+    white-space: nowrap !important;
+  }
+
+  .service-page .service-hero h1 > .service-title-outline {
     display: block !important;
     margin-top: .06em !important;
     white-space: nowrap !important;
@@ -589,7 +596,16 @@
     letter-spacing: -.06em !important;
   }
 
-  .careers-page .career-hero h1 > span {
+  .careers-page .career-hero h1 > .career-title-main {
+    display: block !important;
+    margin-top: 0 !important;
+    font-size: 1em !important;
+    line-height: 1 !important;
+    letter-spacing: inherit !important;
+    white-space: nowrap !important;
+  }
+
+  .careers-page .career-hero h1 > .career-title-outline {
     display: block !important;
     margin-top: .18em !important;
     font-size: .68em !important;

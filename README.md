@@ -7,6 +7,7 @@
 - 项目维护规则：`AGENTS.md`
 - 公司、页面、技术与 SEO 资料：`docs/PROJECT_MEMORY.md`
 - 长期决策记录：`docs/DECISIONS.md`
+- 跨电脑携带与 AI 接手：`docs/PORTABLE.md`
 
 开始修改官网前，先读取以上文件和相关实际页面。确认新的公司资料或重要决策后，应同步更新项目资料库。
 

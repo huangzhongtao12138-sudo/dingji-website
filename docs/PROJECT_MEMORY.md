@@ -78,6 +78,7 @@
 - 网站类型：纯静态 HTML/CSS/JavaScript
 - 全站纵向滚动：本地托管 Lenis 1.3.25，由 `outputs/site-assets/lenis-init.js` 统一初始化；手机触控与“减少动态效果”保留原生行为
 - 首页合作伙伴：使用仓库内已确认的合作伙伴名称组成轻量环形轨道，不在该区加载项目大图；品牌色必须与 `dingji-cases.html#partners` 的合作伙伴色值一致；卡片底印使用品牌字标而非大号序号；桌面端每 2.5 秒自动轮转，并支持箭头、拖拽和键盘切换，手机端使用原生横向滑动
+- Grid Coffee：用户确认是鼎基近期完成的品牌门店项目；官网使用用户提供的 9 张门店实景图，首页与案例页合作伙伴色统一为偏褐色卡其 `#8c7656`，详情页为 `/cases/grid-coffee`。公开资料仅用于核实其单一产地咖啡品牌定位，不据此扩写鼎基未确认的项目范围。
 - 首页尾部：首页不重复展示完整联系方式与“项目沟通”大版块；联系方式集中在独立联系页，首页仅以服务导航列表保留明确入口
 - 手机端布局：宽度不超过 640px 时统一加载 `outputs/site-assets/phone.css`，使用手机专属导航、双列操作按钮和防孤字排版；平板与桌面继续使用各页面原有布局
 - 手机端导航：品牌标与横向滚动导航在同一行，导航内容从首项开始排列，禁止使用居中溢出导致首页或当前页前方入口被裁切
@@ -104,7 +105,7 @@
 - `outputs/dingji-consulting.html`：咨询服务
 - `outputs/dingji-chain-store.html`：连锁店装修
 - `outputs/dingji-faq.html`：常见问题
-- `outputs/cases/`：案例详情页面
+- `outputs/cases/`：案例详情页面，包含必香居、石鼎香、香园与 Grid Coffee 等已提供实景资料的项目
 - `outputs/site-assets/`：Logo、工厂、资质与共享样式等资源
 - `outputs/site-assets/lenis.min.js`、`lenis.css`、`lenis-init.js`：全站平滑滚动依赖与统一配置
 - `outputs/site-assets/site-nav.css`、`site-nav.js`：首页及五个主导航页面共用的桌面/平板导航基准，统一品牌标、导航胶囊、字体、间距、活动态与右侧业务胶囊，避免跨页面切换时产生位置或字体跳动
@@ -236,5 +237,5 @@ Google 站点子链接由搜索引擎自动生成。网站结构只能提高出�
 - 首页标题与 Open Graph 标题优先显示品牌及公司全称，业务范围保留在 description 和页面正文中；结构化数据的别名仅保留真实品牌称呼，不将“南京装修公司”等泛业务词当作别名。
 - 业务案例页、客户服务页标题补齐品牌标识；可见页面布局不变。
 - `vercel.json` 配置裸域名到 `www` 的保路径 301，以及 `/index.html`、历史首页预览地址到正式首页的 301，避免重复首页入口。
-- sitemap 仅更新实际修改页面的 lastmod；`docs/baidu-urls.txt` 为当前 13 个正式页面的待提交列表。
+- sitemap 仅更新实际修改页面的 lastmod；`docs/baidu-urls.txt` 为当前 14 个正式页面的待提交列表。
 - 网站端修复不等于百度收录成功。百度账号验证、实际提交回执、抓取诊断和索引量需从搜索资源平台核实；未取得回执前不得标注为已提交或已收录。流程与检查记录见 `docs/BAIDU_SEARCH.md`。

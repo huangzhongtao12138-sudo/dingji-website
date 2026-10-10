@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/site-assets/lenis.css">
+  <script src="/site-assets/lenis.min.js" defer></script>
+  <script src="/site-assets/lenis-init.js?v=20260722b" defer></script>
+  <title>Grid Coffee 咖啡空间案例｜鼎基装饰</title>
+  <meta name="description" content="鼎基装饰 Grid Coffee 咖啡空间工程案例，展示门头、入口、吧台、就坐区与实景细节。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.djzhuangshi.com/cases/grid-coffee">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="鼎基装饰">
+  <meta property="og:title" content="Grid Coffee 咖啡空间案例｜鼎基装饰">
+  <meta property="og:description" content="Grid Coffee 咖啡门店空间工程案例与现场实景展示。">
+  <meta property="og:url" content="https://www.djzhuangshi.com/cases/grid-coffee">
+  <meta property="og:image" content="https://www.djzhuangshi.com/public/assets/cases/grid-coffee-01.jpg">
+  <meta name="theme-color" content="#8c7656">
+  <style>
+    :root {
+      --red: #8c7656;
+      --red-deep: #665139;
+      --ink: #211b16;
+      --muted: rgba(33,27,22,.64);
+      --line: rgba(74,57,42,.14);
+      --paper: #efe8da;
+      --paper-strong: #fffaf0;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: auto; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 12%, rgba(140,118,86,.18), transparent 30%),
+        linear-gradient(135deg, #e3d7c3 0%, #fffaf0 48%, #d4c2a7 100%);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .nav {
+      position: fixed;
+      z-index: 30;
+      top: 22px;
+      left: clamp(16px, 3vw, 44px);
+      right: clamp(16px, 3vw, 44px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      pointer-events: none;
+    }
+    .brand,
+    .nav-links {
+      pointer-events: auto;
+      border: 1px solid rgba(255,255,255,.72);
+      background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(255,255,255,.48));
+      box-shadow: 0 18px 52px rgba(32,33,29,.12), inset 0 1px 0 rgba(255,255,255,.88);
+      backdrop-filter: blur(20px) saturate(1.15);
+      -webkit-backdrop-filter: blur(20px) saturate(1.15);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 14px 6px 6px;
+      border-radius: 999px;
+      min-width: 0;
+    }
+    .brand-mark {
+      width: 56px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.72);
+    }
+    .brand-mark img { width: 62px; transform: translateX(-1px); }
+    .brand strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1;
+      font-weight: 860;
+    }
+    .brand span {
+      display: block;
+      margin-top: 3px;
+      color: rgba(23,24,21,.56);
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px;
+      border-radius: 999px;
+    }
+    .nav-links a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 15px;
+      border-radius: 999px;
+      color: rgba(20,22,18,.72);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--red-deep);
+      background: rgba(255,255,255,.62);
+    }
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: clamp(110px, 14vh, 160px) clamp(18px, 4vw, 64px) clamp(24px, 4vw, 56px);
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      min-height: 100svh;
+      z-index: -1;
+      overflow: hidden;
+      background: #2d271f;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.96) contrast(1.02);
+    }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(35,27,19,.2), rgba(35,27,19,.08) 38%, rgba(35,27,19,.78)),
+        linear-gradient(90deg, rgba(48,36,25,.58), transparent 56%);
+    }
+    .hero-copy {
+      width: min(980px, 100%);
+      color: #fff;
+      text-shadow: 0 14px 42px rgba(0,0,0,.36);
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.76);
+      font-size: 13px;
+      font-weight: 820;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(3.6rem, 10vw, 10rem);
+      line-height: .9;
+      font-weight: 920;
+      letter-spacing: 0;
+    }
+    .hero-copy p:last-child {
+      width: min(720px, 100%);
+      margin: 22px 0 0;
+      color: rgba(255,255,255,.84);
+      font-size: clamp(1rem, 1.45vw, 1.45rem);
+      line-height: 1.75;
+      font-weight: 650;
+    }
+    .page {
+      padding: clamp(56px, 8vw, 110px) clamp(18px, 4vw, 64px) clamp(72px, 8vw, 120px);
+    }
+    .section {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(280px, .72fr) minmax(320px, 1fr);
+      gap: clamp(26px, 5vw, 76px);
+      align-items: start;
+      margin-bottom: clamp(46px, 7vw, 90px);
+    }
+    .intro h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6.2vw, 7.2rem);
+      line-height: .92;
+      font-weight: 900;
+    }
+    .intro-copy {
+      display: grid;
+      gap: 18px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.25vw, 1.22rem);
+      line-height: 1.82;
+      font-weight: 650;
+    }
+    .intro-copy p,
+    .story-copy p {
+      margin: 0;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .meta {
+      min-height: 102px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      padding: 18px;
+      border: 1px solid rgba(23,24,21,.1);
+      border-radius: 8px;
+      background: rgba(255,255,255,.58);
+    }
+    .meta small {
+      color: rgba(23,24,21,.48);
+      font-size: 12px;
+      font-weight: 820;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .meta b {
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: clamp(12px, 1.4vw, 22px);
+      margin-bottom: clamp(46px, 7vw, 90px);
+    }
+    .gallery figure {
+      position: relative;
+      min-height: 260px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.78);
+      background: rgba(255,255,255,.5);
+      box-shadow: 0 26px 70px rgba(32,33,29,.1);
+      cursor: zoom-in;
+    }
+    .gallery figure:nth-child(1),
+    .gallery figure:nth-child(4) {
+      grid-column: span 3;
+      min-height: clamp(330px, 38vw, 520px);
+    }
+    .gallery figure:nth-child(2),
+    .gallery figure:nth-child(3),
+    .gallery figure:nth-child(5),
+    .gallery figure:nth-child(6) {
+      grid-column: span 3;
+    }
+    .gallery figure:nth-child(7),
+    .gallery figure:nth-child(8),
+    .gallery figure:nth-child(9) {
+      grid-column: span 2;
+      min-height: clamp(300px, 31vw, 460px);
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+    .gallery figure:hover img { transform: scale(1.035); }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      place-items: center;
+      padding: clamp(18px, 3vw, 56px);
+      background: rgba(12,12,10,.76);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+    .lightbox.is-open { display: grid; }
+    .lightbox img {
+      max-width: min(94vw, 1480px);
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 36px 120px rgba(0,0,0,.42);
+    }
+    .lightbox button {
+      position: fixed;
+      top: clamp(18px, 3vw, 42px);
+      right: clamp(18px, 3vw, 42px);
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(255,255,255,.34);
+      border-radius: 50%;
+      background: rgba(255,255,255,.16);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .story {
+      display: grid;
+      grid-template-columns: minmax(260px, .56fr) minmax(320px, 1fr);
+      gap: clamp(26px, 5vw, 76px);
+      align-items: start;
+      padding-top: clamp(28px, 5vw, 60px);
+      border-top: 1px solid var(--line);
+    }
+    .story h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4.6vw, 5.8rem);
+      line-height: .95;
+      font-weight: 900;
+    }
+    .story-copy {
+      display: grid;
+      gap: clamp(22px, 3vw, 36px);
+      color: var(--muted);
+      font-size: clamp(1rem, 1.18vw, 1.16rem);
+      line-height: 1.86;
+      font-weight: 650;
+      max-width: 920px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 46px;
+      margin-top: 14px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--red);
+      font-size: 14px;
+      font-weight: 820;
+      box-shadow: 0 18px 44px rgba(102,81,57,.24);
+    }
+    @media (max-width: 860px) {
+      .nav {
+        top: 14px;
+        left: 12px;
+        right: 12px;
+        align-items: flex-start;
+      }
+      .brand { padding-right: 10px; }
+      .brand span { display: none; }
+      .nav-links {
+        max-width: calc(100vw - 150px);
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+      .nav-links a { min-height: 36px; padding: 0 12px; font-size: 13px; }
+      .hero { padding: 112px 16px 28px; }
+      .intro,
+      .story {
+        grid-template-columns: 1fr;
+      }
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .gallery figure,
+      .gallery figure:nth-child(1),
+      .gallery figure:nth-child(2),
+      .gallery figure:nth-child(3),
+      .gallery figure:nth-child(4),
+      .gallery figure:nth-child(5),
+      .gallery figure:nth-child(6),
+      .gallery figure:nth-child(7),
+      .gallery figure:nth-child(8),
+      .gallery figure:nth-child(9) {
+        grid-column: auto;
+        min-height: 260px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/site-assets/phone.css?v=20260723b">
+  <style>
+    @media (max-width: 640px) {
+      .hero-copy h1 {
+        max-width: 100%;
+        font-size: clamp(2.75rem, 12vw, 3.1rem);
+        line-height: .94;
+        letter-spacing: -.035em;
+      }
+      .hero-copy p:last-child {
+        max-width: 100%;
+        font-size: .98rem;
+        line-height: 1.68;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" aria-label="主导航">
+    <a class="brand" href="/">
+      <span class="brand-mark"><img src="/site-assets/dingji-logo-final-06.svg" alt="鼎基装饰"></span>
+      <span><strong>鼎基装饰</strong><span>Top Decoration</span></span>
+    </a>
+    <nav class="nav-links" aria-label="页面导航">
+      <a href="/">首页</a>
+      <a class="active" href="/dingji-cases.html">业务案例</a>
+      <a href="/dingji-contact.html">联系我们</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Grid Coffee 案例顶部">
+      <div class="hero-media" aria-hidden="true">
+        <img src="/public/assets/cases/grid-coffee-01.jpg" alt="">
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Coffee Space</p>
+        <h1>Grid Coffee</h1>
+        <p>围绕单一产地咖啡品牌的清晰识别，以咖啡棕、卡其、木色与深绿形成克制而温暖的门店气质，在专业感与日常体验之间建立平衡。</p>
+      </div>
+    </section>
+
+    <div class="page">
+      <section class="section intro" aria-label="案例简介">
+        <h2>咖啡空间案例</h2>
+        <div class="intro-copy">
+          <p>项目围绕门头识别、入口界面、点单吧台、设备整合、顾客动线与就坐体验展开，使品牌形象、咖啡制作与日常运营形成连贯的空间秩序。</p>
+          <p>暖木饰面、卡其与咖啡棕建立空间基调，深绿色釉面砖、门头与绿植形成层次；金属、玻璃和线性灯光收紧细节，让门店保持利落、安静而有温度。</p>
+          <div class="meta-grid" aria-label="项目信息">
+            <div class="meta"><small>Project</small><b>Grid Coffee 咖啡空间</b></div>
+            <div class="meta"><small>Category</small><b>咖啡门店装修</b></div>
+            <div class="meta"><small>Scope</small><b>品牌门店工程</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery" aria-label="Grid Coffee 案例图片展示">
+        <figure><img src="/public/assets/cases/grid-coffee-01.jpg" alt="Grid Coffee 咖啡门店外立面与品牌门头"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-02.jpg" alt="Grid Coffee 咖啡门店外摆区与入口界面"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-03.jpg" alt="Grid Coffee 咖啡门店入口与品牌标识"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-04.jpg" alt="Grid Coffee 咖啡空间暖木饰面与绿植陈设"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-05.jpg" alt="Grid Coffee 咖啡空间就坐区与自然采光"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-06.jpg" alt="Grid Coffee 咖啡门店吧台与设备区"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-07.jpg" alt="Grid Coffee 咖啡吧台侧景与木色顶面"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-08.jpg" alt="Grid Coffee 咖啡门店正立面实景"></figure>
+        <figure><img src="/public/assets/cases/grid-coffee-09.jpg" alt="Grid Coffee 咖啡空间卡座与深绿釉面砖"></figure>
+      </section>
+
+      <section class="section story" aria-label="案例文字说明">
+        <h2>项目说明</h2>
+        <div class="story-copy">
+          <p>Grid Coffee 以单一产地咖啡为鲜明品牌线索。空间没有堆叠过多装饰语言，而是通过清晰门头、规整界面和克制配色，让品牌方格标识与咖啡制作场景成为视觉重点。</p>
+          <p>工程落地重点处理门头尺度、吧台设备、照明层次、材料分缝和细部收口。暖木色承担空间温度，咖啡棕与卡其色连接座椅、台面和软装，深绿则用于门头及局部墙面，建立稳定的品牌辨识度。</p>
+          <p>完成后的门店在开放外摆、快速点单与停留体验之间保持清楚关系。实景中的入口、吧台、卡座和绿植区域各自独立又彼此连贯，适合咖啡门店的高频运营，也为品牌后续门店表达提供可延续的空间基础。</p>
+          <a class="back-link" href="/dingji-cases.html#grid-coffee">返回业务案例</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div class="lightbox" aria-hidden="true">
+    <button type="button" aria-label="关闭放大预览">×</button>
+    <img src="" alt="">
+  </div>
+  <script>
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImage = document.querySelector('.lightbox img');
+
+    function closeLightbox() {
+      lightbox?.classList.remove('is-open');
+      lightbox?.setAttribute('aria-hidden', 'true');
+      if (lightboxImage) lightboxImage.src = '';
+    }
+
+    document.querySelectorAll('.gallery figure').forEach((figure) => {
+      figure.addEventListener('click', () => {
+        const image = figure.querySelector('img');
+        if (!image || !lightbox || !lightboxImage) return;
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt || '案例图片预览';
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target === lightbox || event.target.tagName === 'BUTTON') closeLightbox();
+    });
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

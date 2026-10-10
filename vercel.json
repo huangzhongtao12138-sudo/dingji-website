@@ -42,6 +42,10 @@
     {
       "source": "/cases/xiangyuan",
       "destination": "/cases/xiangyuan.html"
+    },
+    {
+      "source": "/cases/grid-coffee",
+      "destination": "/cases/grid-coffee.html"
     }
   ],
   "redirects": [

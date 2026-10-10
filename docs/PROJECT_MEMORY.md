@@ -194,7 +194,7 @@ Google 站点子链接由搜索引擎自动生成。网站结构只能提高出�
 - ICP 备案号与公安备案号
 - 1200×630 的正式官网分享封面图
 - 百度统计、Google Analytics 或 Microsoft Clarity 是否启用
-- Google Search Console、百度搜索资源平台等是否已经完成验证与 sitemap 提交
+- Google Search Console 是否已经完成验证与 sitemap 提交；百度搜索资源平台已完成站点所有权验证，链接提交与索引结果见 `docs/BAIDU_SEARCH.md`
 - 更完整的公司正式简介、发展节点和已授权客户/案例资料
 - 各资质证书的正式文字说明与有效期展示规则
 

@@ -56,6 +56,17 @@
       "statusCode": 301
     },
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "djzhuangshi.com"
+        }
+      ],
+      "destination": "https://www.djzhuangshi.com/",
+      "statusCode": 301
+    },
+    {
       "source": "/:path*",
       "has": [
         {

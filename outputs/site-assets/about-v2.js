@@ -38,6 +38,7 @@
     navTrail.style.setProperty("--liquid-sy", Math.max(0.82, 1 - speed * 0.009).toFixed(3));
   };
 
+  let navRaf = 0;
   const positionNavLiquid = (link, immediate = false) => {
     if (!nav || !navThumb || !navTrail || !link || !desktop.matches) return;
     const navRect = nav.getBoundingClientRect();
@@ -59,6 +60,9 @@
       liquid.vx = 0;
       liquid.vy = 0;
       renderNavLiquid();
+      liquid.active = false;
+    } else if (!navRaf) {
+      navRaf = requestAnimationFrame(animateNavLiquid);
     }
   };
 
@@ -77,6 +81,7 @@
   }, { passive: true });
 
   const animateNavLiquid = () => {
+    navRaf = 0;
     if (liquid.active && !reducedMotion.matches) {
       const ax = (liquid.tx - liquid.x) * 0.2;
       const ay = (liquid.ty - liquid.y) * 0.2;
@@ -88,13 +93,15 @@
       liquid.h += (liquid.th - liquid.h) * 0.26;
       renderNavLiquid();
     }
-    requestAnimationFrame(animateNavLiquid);
+    if (Math.max(Math.abs(liquid.tx - liquid.x), Math.abs(liquid.ty - liquid.y),
+      Math.abs(liquid.tw - liquid.w), Math.abs(liquid.th - liquid.h),
+      Math.abs(liquid.vx), Math.abs(liquid.vy)) < .05 || reducedMotion.matches) liquid.active = false;
+    if (liquid.active) navRaf = requestAnimationFrame(animateNavLiquid);
   };
 
   requestAnimationFrame(() => {
     resetNavLiquid(true);
     nav?.classList.add("is-ready");
-    if (!reducedMotion.matches) animateNavLiquid();
   });
 
   const revealItems = document.querySelectorAll("[data-reveal]");

@@ -3,9 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/site-assets/lenis.css">
-  <script src="/site-assets/lenis.min.js" defer></script>
-  <script src="/site-assets/lenis-init.js?v=20260722b" defer></script>
   <title>鼎基装饰官网｜南京鼎基装饰工程有限公司</title>
   <meta name="description" content="鼎基装饰（南京鼎基装饰工程有限公司）官方网站。始建于1998年，专注餐饮与连锁门店、办公、酒店、医疗及商业空间设计施工，提供设计深化、装饰施工、机电消防配合与成品制造。项目咨询：13505151512。">
   <meta name="keywords" content="南京装修公司,南京装饰公司,鼎基装饰,餐饮装修,餐饮门店装修,连锁门店装修,商业空间设计,商业空间施工,办公室装修,酒店装修,医疗空间装修,机电消防,装修施工一体化">
@@ -110,9 +107,6 @@
       ]
     }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --red: #f30700;
@@ -3712,11 +3706,11 @@
   <section class="about-hero" id="about" data-nav="#home" aria-label="关于我们">
     <video
       class="about-video about-video-main is-visible"
-      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
-      autoplay
+      data-src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
       muted
       playsinline
-      preload="auto"
+      preload="none"
+      loop
     ></video>
     <div class="about-loop-fill" aria-hidden="true"></div>
     <div class="about-shade" aria-hidden="true"></div>
@@ -3923,88 +3917,24 @@
     let frame = 0;
     let lastAuto = 0;
 
-    function setupSeamlessAboutVideo() {
-      if (!aboutVideo || !aboutScene || !aboutVideo.parentElement) return;
-
-      const ghost = aboutVideo.cloneNode(false);
-      ghost.className = 'about-video about-video-ghost';
-      ghost.autoplay = false;
-      ghost.loop = false;
-      ghost.muted = true;
-      ghost.playsInline = true;
-      ghost.preload = 'auto';
-      aboutVideo.loop = false;
-      aboutVideo.removeAttribute('loop');
-      ghost.removeAttribute('loop');
-      aboutVideo.parentElement.insertBefore(ghost, aboutVideo.nextSibling);
-
-      let active = aboutVideo;
-      let standby = ghost;
-      let switching = false;
-      const fadeMs = 4200;
-      const overlapSeconds = 4.8;
-      const startOffset = .18;
-
-      function playVideo(video) {
-        const playPromise = video.play();
-        if (playPromise) playPromise.catch(() => {});
-      }
-
-      function setVideoTime(video, time) {
-        try {
-          const safeEnd = Number.isFinite(video.duration) ? Math.max(startOffset, video.duration - .24) : time;
-          video.currentTime = Math.min(Math.max(time, 0), safeEnd);
-        } catch (error) {}
-      }
-
-      function prepareStandby() {
-        standby.pause();
-        standby.classList.remove('is-visible');
-        setVideoTime(standby, startOffset);
-        playVideo(standby);
-      }
-
-      function crossfadeLoop() {
-        if (switching || !Number.isFinite(active.duration) || active.duration < overlapSeconds + 1.2) return;
-        switching = true;
-        aboutScene.classList.add('loop-blending');
-        prepareStandby();
-        requestAnimationFrame(() => {
-          standby.classList.add('is-visible');
-          active.classList.remove('is-visible');
-        });
-        window.setTimeout(() => {
-          const previous = active;
-          previous.pause();
-          setVideoTime(previous, startOffset);
-          active = standby;
-          standby = previous;
-          switching = false;
-          window.setTimeout(() => aboutScene.classList.remove('loop-blending'), 900);
-        }, fadeMs + 160);
-      }
-
-      [aboutVideo, ghost].forEach((video) => {
-        video.addEventListener('timeupdate', () => {
-          if (video !== active || switching || !Number.isFinite(video.duration)) return;
-          if (video.duration - video.currentTime <= overlapSeconds) crossfadeLoop();
-        });
-        video.addEventListener('ended', () => {
-          if (video === active) crossfadeLoop();
-        });
-      });
-
-      aboutVideo.addEventListener('loadedmetadata', () => {
-        setVideoTime(aboutVideo, startOffset);
-        playVideo(aboutVideo);
-      }, { once: true });
-      if (aboutVideo.readyState >= 1) {
-        setVideoTime(aboutVideo, startOffset);
-        playVideo(aboutVideo);
-      }
-      document.addEventListener('visibilitychange', () => {
-        if (!document.hidden) playVideo(active);
-      });
+    function setupAboutVideo() {
+      if (!aboutVideo || !aboutScene) return;
+      let visible = false;
+      const update = () => {
+        if (!visible || document.hidden || reducedMotionQuery.matches || navigator.connection?.saveData) {
+          aboutVideo.pause();
+          return;
+        }
+        if (!aboutVideo.hasAttribute('src')) aboutVideo.src = aboutVideo.dataset.src;
+        aboutVideo.play()?.catch(() => {});
+      };
+      const observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting && entry.intersectionRatio >= .15;
+        update();
+      }, { threshold: [0, .15] });
+      observer.observe(aboutScene);
+      document.addEventListener('visibilitychange', update);
+      reducedMotionQuery.addEventListener('change', update);
     }
 
     const buildings = [
@@ -4721,7 +4651,20 @@
 
     }
 
+    let particleRaf = 0;
+    let particlesVisible = true;
+    let lastParticleFrame = 0;
+    function startParticles() {
+      if (!particleRaf && particlesVisible && !document.hidden) particleRaf = requestAnimationFrame(tick);
+    }
     function tick(now) {
+      particleRaf = 0;
+      if (!particlesVisible || document.hidden) return;
+      if (now - lastParticleFrame < 1000 / 30 && !reducedMotionQuery.matches) {
+        startParticles();
+        return;
+      }
+      lastParticleFrame = now;
       frame++;
       const pointerInfluence = mouse.active || mouse.down;
       if (pointerInfluence) {
@@ -4774,13 +4717,14 @@
       if (now - lastAuto > 7600 && !mouse.down) {
         setShape(shapeIndex + 1);
       }
-      requestAnimationFrame(tick);
+      if (!reducedMotionQuery.matches) startParticles();
     }
 
     function nextShape(delta = 1) {
       setShape(shapeIndex + delta);
     }
 
+    let liquidRaf = 0;
     function setLiquidTarget(link, immediate = false) {
       if (!navLinks || !link) return;
       const navRect = navLinks.getBoundingClientRect();
@@ -4794,7 +4738,7 @@
       liquid.active = true;
       const center = liquid.tx + liquid.tw / 2;
       navLinks.style.setProperty('--thumb-light-x', `${Math.max(18, Math.min(82, (center / navRect.width) * 100))}%`);
-      if (immediate) {
+      if (immediate || reducedMotionQuery.matches) {
         liquid.x = liquid.tx;
         liquid.y = liquid.ty;
         liquid.w = liquid.tw;
@@ -4802,6 +4746,9 @@
         liquid.vx = 0;
         liquid.vy = 0;
         renderLiquid();
+        liquid.active = false;
+      } else if (!liquidRaf) {
+        liquidRaf = requestAnimationFrame(animateLiquid);
       }
     }
 
@@ -4830,6 +4777,7 @@
     }
 
     function animateLiquid() {
+      liquidRaf = 0;
       if (liquid.active) {
         const ax = (liquid.tx - liquid.x) * .2;
         const ay = (liquid.ty - liquid.y) * .2;
@@ -4841,7 +4789,12 @@
         liquid.h += (liquid.th - liquid.h) * .26;
         renderLiquid();
       }
-      requestAnimationFrame(animateLiquid);
+      if (Math.max(Math.abs(liquid.tx - liquid.x), Math.abs(liquid.ty - liquid.y),
+        Math.abs(liquid.tw - liquid.w), Math.abs(liquid.th - liquid.h),
+        Math.abs(liquid.vx), Math.abs(liquid.vy)) < .05) {
+        liquid.active = false;
+      }
+      if (liquid.active) liquidRaf = requestAnimationFrame(animateLiquid);
     }
 
     window.addEventListener('resize', resize);
@@ -4939,15 +4892,7 @@
       if (visibleHash) {
         history.replaceState(null, '', visibleHash);
       }
-      if (window.dingjiLenis && !reducedMotionQuery.matches) {
-        window.dingjiLenis.scrollTo(section, {
-          immediate: Boolean(options.immediate),
-          lock: !options.immediate,
-          force: true
-        });
-      } else {
-        window.scrollTo({ top: section.offsetTop, behavior: 'auto' });
-      }
+      window.scrollTo({ top: section.offsetTop, behavior: 'auto' });
     }
 
     function sectionIndexFromHref(href) {
@@ -5197,7 +5142,7 @@
     });
 
     resize();
-    setupSeamlessAboutVideo();
+    setupAboutVideo();
     setActiveSection(activeSectionIndex, true);
     requestAnimationFrame(() => {
       const hashIndex = sectionIndexFromHref(window.location.hash);
@@ -5207,8 +5152,17 @@
         setActiveSection(closestSectionIndex(), true);
       }
     });
-    requestAnimationFrame(animateLiquid);
-    requestAnimationFrame(tick);
+    new IntersectionObserver(([entry]) => {
+      particlesVisible = entry.isIntersecting;
+      if (particlesVisible) startParticles();
+      else { cancelAnimationFrame(particleRaf); particleRaf = 0; }
+    }).observe(document.getElementById('home'));
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { cancelAnimationFrame(particleRaf); particleRaf = 0; }
+      else startParticles();
+    });
+    reducedMotionQuery.addEventListener('change', startParticles);
+    startParticles();
   </script>
 </body>
 </html>

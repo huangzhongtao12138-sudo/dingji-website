@@ -364,8 +364,8 @@
         0 44px 130px rgba(32,33,29,.13),
         inset 0 1px 0 rgba(255,255,255,.92),
         inset 0 -42px 84px rgba(32,33,29,.055);
-      backdrop-filter: blur(30px) saturate(1.22);
-      -webkit-backdrop-filter: blur(30px) saturate(1.22);
+      backdrop-filter: blur(8px) saturate(1.22);
+      -webkit-backdrop-filter: blur(8px) saturate(1.22);
       overflow: hidden;
       transform:
         perspective(1200px)
@@ -526,22 +526,6 @@
       line-height: 1.58;
       font-weight: 680;
     }
-    [data-reveal] {
-      opacity: 0;
-      filter: blur(14px);
-      transform: translate3d(0, 28px, 0);
-      transition:
-        opacity .72s var(--ease),
-        filter .72s var(--ease),
-        transform .72s var(--ease);
-      transition-delay: calc(var(--reveal-index, 0) * 70ms);
-      will-change: opacity, filter, transform;
-    }
-    [data-reveal].is-visible {
-      opacity: 1;
-      filter: blur(0);
-      transform: translate3d(0, 0, 0);
-    }
     .text-rotate {
       position: relative;
       display: inline-flex;
@@ -657,6 +641,7 @@
       font-weight: 900;
       letter-spacing: .12em;
       animation: spinText 18s linear infinite;
+      animation-play-state: paused;
     }
     .loop-ribbon i {
       width: 12px;
@@ -771,6 +756,7 @@
         linear-gradient(135deg, color-mix(in srgb, var(--brand, var(--red)) 18%, white), rgba(255,255,255,.84)),
         repeating-linear-gradient(135deg, rgba(23,24,21,.1) 0 1px, transparent 1px 18px);
     }
+    .case-photo picture { display: block; width: 100%; height: 100%; }
     .case-photo img {
       width: 100%;
       height: 100%;
@@ -834,8 +820,8 @@
       border-radius: clamp(22px, 1.7vw, 32px);
       background: linear-gradient(145deg, rgba(255,255,255,.86), rgba(255,255,255,.48));
       box-shadow: 0 18px 44px rgba(32,33,29,.12);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .case-detail-copy small {
       color: var(--brand, var(--red));
@@ -947,8 +933,8 @@
       border-radius: 24px;
       background: linear-gradient(145deg, rgba(255,255,255,.84), rgba(255,255,255,.46));
       box-shadow: 0 18px 44px rgba(32,33,29,.12);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .tile-copy small {
       color: var(--brand, var(--red));
@@ -1232,10 +1218,993 @@
     }
     /* End subpage mobile composition */
 
+    @media (prefers-reduced-motion: reduce) {
+      .loop-ribbon span, .text-rotate span { animation: none; }
+    }
   </style>
-  <link rel="stylesheet" href="/site-assets/site-nav.css?v=20260724a">
-  <script src="/site-assets/site-nav.js?v=20260724a" defer></script>
-  <link rel="stylesheet" href="/site-assets/phone.css?v=20260724a">
+  <!-- critical-style:site-nav.css -->
+  <style>
+:root {
+  --site-nav-red: #f30700;
+  --site-nav-red-dark: #a91410;
+  --site-nav-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+.nav {
+  position: fixed;
+  z-index: 100;
+  top: 24px;
+  left: clamp(16px, 3vw, 44px);
+  right: clamp(16px, 3vw, 44px);
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+  align-items: center;
+  gap: 20px;
+  color: rgba(32, 33, 29, .64);
+  font: 13px/1 "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+  pointer-events: none;
+}
+
+.nav > .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  width: fit-content;
+  padding: 6px 14px 6px 6px;
+  color: #11110f;
+  border: 1px solid rgba(255, 255, 255, .72);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .86), rgba(255, 255, 255, .56));
+  box-shadow:
+    0 22px 62px rgba(0, 0, 0, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .9),
+    inset 0 -18px 34px rgba(32, 33, 29, .06);
+  backdrop-filter: blur(22px) saturate(1.22);
+  -webkit-backdrop-filter: blur(22px) saturate(1.22);
+  pointer-events: auto;
+}
+
+.nav > .brand .brand-mark {
+  width: 58px;
+  height: 46px;
+  min-width: 58px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .74);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .42));
+  box-shadow:
+    0 18px 48px rgba(32, 33, 29, .1),
+    inset 0 1px 0 rgba(255, 255, 255, .9),
+    inset 0 -14px 26px rgba(32, 33, 29, .05);
+  overflow: visible;
+}
+
+.nav > .brand .brand-mark img {
+  width: 64px;
+  max-width: none;
+  transform: translateX(-1px);
+}
+
+.nav > .brand .brand-name {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.nav > .brand .brand-name strong {
+  display: block;
+  color: rgba(16, 17, 14, .92);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.nav > .brand .brand-name span {
+  display: block;
+  margin: 0;
+  color: rgba(16, 17, 14, .58);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav > .nav-links {
+  position: relative;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 574px;
+  min-width: 574px;
+  padding: 10px;
+  color: rgba(32, 33, 29, .66);
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .76), rgba(255, 255, 255, .44)),
+    radial-gradient(circle at 28% 0%, rgba(255, 255, 255, .96), transparent 42%),
+    radial-gradient(circle at 78% 100%, rgba(255, 255, 255, .42), transparent 44%);
+  box-shadow:
+    0 24px 76px rgba(0, 0, 0, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .92),
+    inset 0 -18px 34px rgba(32, 33, 29, .06);
+  backdrop-filter: blur(28px) saturate(1.36);
+  -webkit-backdrop-filter: blur(28px) saturate(1.36);
+  overflow: hidden;
+  isolation: isolate;
+  pointer-events: auto;
+}
+
+.nav > .nav-links::before,
+.nav > .nav-links::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nav > .nav-links::before {
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, .74), transparent 24% 72%, rgba(255, 255, 255, .4)),
+    radial-gradient(circle at var(--nav-x, 50%) 50%, rgba(255, 255, 255, .62), transparent 24%);
+  opacity: .62;
+  mix-blend-mode: screen;
+}
+
+.nav > .nav-links::after {
+  left: 18px;
+  right: 18px;
+  top: 5px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .88), transparent);
+}
+
+.nav > .nav-links a {
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: rgba(20, 22, 18, .72);
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transition: color .32s var(--site-nav-ease), transform .32s var(--site-nav-ease);
+}
+
+.nav > .nav-links a:nth-of-type(1) { width: 62px; }
+.nav > .nav-links a:nth-of-type(2) { width: 90px; }
+.nav > .nav-links a:nth-of-type(3) { width: 90px; }
+.nav > .nav-links a:nth-of-type(4) { width: 104px; }
+.nav > .nav-links a:nth-of-type(5) { width: 90px; }
+.nav > .nav-links a:nth-of-type(6) { width: 90px; }
+
+.nav > .nav-links a:hover,
+.nav > .nav-links a:focus-visible,
+.nav > .nav-links a.active {
+  color: var(--site-nav-red-dark);
+  background: transparent;
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+.nav > .nav-links .liquid-thumb,
+.nav > .nav-links .liquid-trail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--liquid-w, 72px);
+  height: var(--liquid-h, 42px);
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transform:
+    translate3d(var(--liquid-x, 6px), var(--liquid-y, 6px), 0)
+    scaleX(var(--liquid-sx, 1))
+    scaleY(var(--liquid-sy, 1));
+  transform-origin: center;
+}
+
+.nav > .nav-links .liquid-trail {
+  z-index: 1;
+  background: rgba(255, 255, 255, .35);
+  filter: blur(13px);
+  transition:
+    width .62s cubic-bezier(.2, .9, .2, 1),
+    height .62s cubic-bezier(.2, .9, .2, 1),
+    transform .78s var(--site-nav-ease),
+    opacity .28s ease;
+}
+
+.nav > .nav-links .liquid-thumb {
+  z-index: 2;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .72);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .78), rgba(255, 255, 255, .3)),
+    radial-gradient(circle at var(--thumb-light-x, 50%) 0%, rgba(255, 255, 255, .98), transparent 58%),
+    radial-gradient(circle at 82% 100%, rgba(255, 255, 255, .48), transparent 52%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .96),
+    inset 0 -22px 34px rgba(32, 33, 29, .05),
+    inset 16px 0 28px rgba(255, 255, 255, .36),
+    inset -16px 0 28px rgba(32, 33, 29, .055),
+    0 12px 30px rgba(255, 255, 255, .18),
+    0 22px 54px rgba(32, 33, 29, .12);
+  transition:
+    width .58s var(--site-nav-ease),
+    height .58s var(--site-nav-ease),
+    transform .7s var(--site-nav-ease),
+    opacity .22s ease;
+}
+
+.nav > .nav-links.is-ready .liquid-thumb { opacity: 1; }
+.nav > .nav-links.is-ready .liquid-trail { opacity: .5; }
+
+.nav > .nav-links .liquid-thumb::before,
+.nav > .nav-links .liquid-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.nav > .nav-links .liquid-thumb::before {
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, .92), transparent 24% 62%, rgba(255, 255, 255, .38)),
+    radial-gradient(circle at 24% 22%, rgba(255, 255, 255, .92), transparent 18%);
+  opacity: .66;
+  mix-blend-mode: screen;
+}
+
+.nav > .nav-links .liquid-thumb::after {
+  inset: 2px;
+  border: 1px solid rgba(255, 255, 255, .42);
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, .24), inset 0 -10px 18px rgba(32, 33, 29, .04);
+}
+
+.nav > .nav-pill {
+  justify-self: end;
+  min-height: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  color: rgba(18, 20, 17, .72);
+  border: 1px solid rgba(255, 255, 255, .86);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .86), rgba(255, 255, 255, .58)),
+    radial-gradient(circle at 22% 0%, rgba(255, 255, 255, .98), transparent 46%);
+  box-shadow:
+    0 22px 62px rgba(0, 0, 0, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .96),
+    inset 0 -16px 30px rgba(32, 33, 29, .05);
+  backdrop-filter: blur(26px) saturate(1.28);
+  -webkit-backdrop-filter: blur(26px) saturate(1.28);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.nav > .nav-pill i {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--site-nav-red);
+  box-shadow: 0 0 10px rgba(243, 7, 0, .46);
+}
+
+@media (max-width: 1180px) and (min-width: 641px) {
+  .nav {
+    top: 18px;
+    grid-template-columns: minmax(180px, 1fr) auto;
+    gap: 14px;
+  }
+
+  .nav > .nav-pill {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) and (min-width: 641px) {
+  .nav {
+    left: 18px;
+    right: 18px;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .nav > .brand {
+    width: 58px;
+    height: 58px;
+    padding: 5px;
+  }
+
+  .nav > .brand .brand-name {
+    display: none;
+  }
+
+  .nav > .brand .brand-mark {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+  }
+
+  .nav > .nav-links {
+    justify-self: end;
+  }
+}
+  </style>
+  <!-- /critical-style:site-nav.css -->
+  <script src="/site-assets/site-nav.js?v=20261015a" defer></script>
+  <!-- critical-style:phone.css -->
+  <style>
+/*
+ * Phone-only composition shared by production pages.
+ * Tablet and desktop layouts intentionally remain page-specific.
+ */
+@media (max-width: 640px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip !important;
+  }
+
+  .nav {
+    top: max(10px, env(safe-area-inset-top)) !important;
+    left: 10px !important;
+    right: 10px !important;
+    display: grid !important;
+    grid-template-columns: 112px minmax(0, 1fr) !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    gap: 8px !important;
+    z-index: 100 !important;
+    pointer-events: none !important;
+  }
+
+  .nav > .brand {
+    display: flex !important;
+    width: 112px !important;
+    max-width: 112px !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 4px 8px 4px 4px !important;
+    border-radius: 999px !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+    backdrop-filter: blur(18px) saturate(1.18) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(1.18) !important;
+  }
+
+  .nav > .brand .brand-mark {
+    display: grid !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex: 0 0 40px !important;
+  }
+
+  .nav > .brand .brand-mark img {
+    width: 46px !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+
+  .nav > .brand .brand-name,
+  .nav > .brand > span:last-child {
+    display: block !important;
+    min-width: 0 !important;
+  }
+
+  .nav > .brand .brand-name strong,
+  .nav > .brand > span:last-child > strong {
+    display: block !important;
+    overflow: hidden !important;
+    color: rgba(16, 17, 14, .92) !important;
+    font-size: 13px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.035em !important;
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+  }
+
+  .nav > .brand .brand-name > span,
+  .nav > .brand > span:last-child > span {
+    display: none !important;
+  }
+
+  .nav > .nav-links {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: 48px !important;
+    justify-self: stretch !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 2px !important;
+    padding: 5px !important;
+    border-radius: 999px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 5px;
+    scrollbar-width: none !important;
+    pointer-events: auto !important;
+    backdrop-filter: blur(20px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.2) !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav > .nav-links::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .nav > .nav-links a {
+    flex: 0 0 auto !important;
+    min-height: 38px !important;
+    padding: 0 12px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    font-weight: 720 !important;
+    line-height: 38px !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+
+  .nav > .nav-links a.active {
+    color: #a91410 !important;
+    background: rgba(255, 255, 255, .7) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+  }
+
+  .nav > .nav-links .liquid-thumb,
+  .nav > .nav-links .liquid-trail,
+  .nav > .nav-pill,
+  .liquid-cursor,
+  .cursor-dot {
+    display: none !important;
+  }
+
+  .hero-actions,
+  .actions,
+  .service-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  .hero-actions > a,
+  .actions > a,
+  .service-actions > a,
+  .hero-actions .button,
+  .hero-actions .btn,
+  .hero-actions .hero-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 50px !important;
+    justify-content: center !important;
+    padding-inline: 14px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-actions .arrow-bubble {
+    margin-left: auto;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  .lede,
+  .summary {
+    text-wrap: pretty;
+  }
+
+  /* Homepage: a dedicated editorial composition for narrow screens. */
+  .home-page #home.stage {
+    min-height: 100svh !important;
+    padding: 82px 16px 24px !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+  }
+
+  .home-page #home .copy {
+    width: 100% !important;
+    padding-top: clamp(150px, 20svh, 184px) !important;
+  }
+
+  .home-page #home .copy .eyebrow {
+    gap: 10px !important;
+    margin-bottom: 14px !important;
+    font-size: clamp(12px, 3.55vw, 14px) !important;
+    letter-spacing: .045em !important;
+  }
+
+  .home-page #home .copy .eyebrow::before {
+    width: 28px !important;
+  }
+
+  .home-page #home .copy h1 {
+    width: 100% !important;
+    max-width: none !important;
+    font-size: clamp(45px, 13vw, 52px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.075em !important;
+    white-space: nowrap !important;
+    text-wrap: nowrap !important;
+  }
+
+  .home-page #home .copy h1 > span {
+    display: block !important;
+    margin-top: .06em;
+    white-space: nowrap !important;
+  }
+
+  .home-page #home .hero-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 18px !important;
+    color: rgba(32, 33, 29, .68) !important;
+    font-size: 14px !important;
+    line-height: 1.72 !important;
+    font-weight: 650 !important;
+    text-wrap: pretty;
+  }
+
+  .home-page #home .hero-copy span {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  .home-page #home .hero-actions {
+    margin-top: 22px !important;
+  }
+
+  .home-page #home .hero-btn {
+    min-height: 52px !important;
+    padding: 6px 7px 6px 15px !important;
+    justify-content: space-between !important;
+    font-size: 13px !important;
+  }
+
+  .home-page #home .hero-btn .arrow-bubble {
+    width: 36px !important;
+    height: 36px !important;
+    flex-basis: 36px !important;
+  }
+
+  .home-page #home .signal-card {
+    margin-top: 10px !important;
+    padding: 14px !important;
+    border-radius: 24px !important;
+  }
+
+  .home-page #home .signal-card h2 {
+    margin-bottom: 11px !important;
+    padding-left: 2px;
+    font-size: 10px !important;
+    letter-spacing: .15em !important;
+  }
+
+  .home-page #home .signal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+
+  .home-page #home .signal-stat,
+  .home-page #home .signal-stat.wide-stat {
+    height: auto !important;
+    min-height: 92px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 9px !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
+    transform: none !important;
+  }
+
+  .home-page #home .signal-stat b,
+  .home-page #home .signal-stat.wide-stat b {
+    font-size: clamp(29px, 8.4vw, 36px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.04em !important;
+  }
+
+  .home-page #home .signal-stat span {
+    width: 100%;
+    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  /* About: preserve the desktop identity while using phone-scale controls. */
+  .about-page .about-hero {
+    min-height: 100svh !important;
+    padding: 76px 14px 14px !important;
+  }
+
+  .about-page .hero-inner {
+    min-height: 0 !important;
+    padding: 48px 2px 34px !important;
+  }
+
+  .about-page .hero-copy {
+    width: 100% !important;
+  }
+
+  .about-page .hero-copy .eyebrow {
+    margin-bottom: 20px !important;
+    font-size: 10px !important;
+    letter-spacing: .16em !important;
+    white-space: nowrap !important;
+  }
+
+  .about-page .hero-copy h1 {
+    font-size: clamp(43px, 12.6vw, 50px) !important;
+    line-height: .94 !important;
+    letter-spacing: -.07em !important;
+  }
+
+  .about-page .hero-result {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: .12em !important;
+    white-space: nowrap !important;
+  }
+
+  .about-page .word-window {
+    min-width: 4.1em !important;
+  }
+
+  .about-page .hero-lead {
+    max-width: 100% !important;
+    margin-top: 22px !important;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+    text-wrap: pretty;
+  }
+
+  .about-page .hero-actions {
+    margin-top: 22px !important;
+  }
+
+  .about-page .hero-actions .button {
+    min-height: 50px !important;
+    gap: 8px !important;
+    padding-inline: 10px !important;
+    font-size: 13px !important;
+  }
+
+  .about-page .button-arrow {
+    width: 15px;
+    height: 15px;
+  }
+
+  .about-page .hero-tags {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    margin-top: 18px !important;
+  }
+
+  .about-page .hero-tags li {
+    min-width: 0 !important;
+    padding: 7px 3px !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  .about-page .metric-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+    padding: 0 2px 2px !important;
+    border-top: 0 !important;
+  }
+
+  .about-page .metric-band article,
+  .about-page .metric-band article:first-child,
+  .about-page .metric-band article:nth-child(2),
+  .about-page .metric-band article:nth-child(3),
+  .about-page .metric-band article:nth-child(4) {
+    min-width: 0 !important;
+    min-height: 104px !important;
+    align-items: flex-start !important;
+    padding: 16px 14px !important;
+    border: 1px solid rgba(255, 255, 255, .13) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, .035);
+  }
+
+  .about-page .metric-band strong {
+    max-width: 100%;
+    font-size: clamp(29px, 8.2vw, 34px) !important;
+    letter-spacing: -.055em !important;
+    white-space: nowrap !important;
+  }
+
+  .about-page .metric-band span {
+    margin-top: 9px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .about-page .capabilities {
+    min-height: 0 !important;
+    display: block !important;
+    padding: 88px 14px 54px !important;
+  }
+
+  .about-page .system-intro {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-bottom: 26px !important;
+  }
+
+  .about-page .system-intro-copy {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "kicker"
+      "title"
+      "summary" !important;
+    gap: 0 !important;
+  }
+
+  .about-page .system-intro-copy .heading-kicker {
+    margin-bottom: 12px !important;
+    font-size: 10px !important;
+  }
+
+  .about-page .system-intro-copy h2 {
+    font-size: 42px !important;
+    line-height: 1 !important;
+  }
+
+  .about-page .system-intro-copy > p:last-child {
+    margin-top: 16px !important;
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .about-page .company-system {
+    border-radius: 20px !important;
+  }
+
+  .about-page .company-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-page .company-card {
+    min-height: 228px !important;
+    padding: 24px 20px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .13) !important;
+  }
+
+  .about-page .company-card:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .about-page .company-role {
+    margin: 26px 0 7px !important;
+    font-size: 12px !important;
+  }
+
+  .about-page .company-card h3 {
+    font-size: 29px !important;
+  }
+
+  .about-page .company-statement {
+    margin-top: 15px !important;
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+
+  .about-page .company-scope {
+    padding-top: 16px !important;
+    font-size: 11px !important;
+  }
+
+  .about-page .system-note {
+    min-height: 0 !important;
+    display: grid !important;
+    justify-content: stretch !important;
+    gap: 8px !important;
+    padding: 18px 20px !important;
+  }
+
+  .about-page .system-note strong {
+    font-size: 13px !important;
+  }
+
+  /* Business cases: control intentional line breaks and remove orphan text. */
+  .cases-page main.page {
+    padding: 80px 14px 42px !important;
+  }
+
+  .cases-page .hero {
+    min-height: auto !important;
+    padding: 56px 0 38px !important;
+    gap: 28px !important;
+  }
+
+  .cases-page .hero-copy {
+    gap: 30px !important;
+  }
+
+  .cases-page .hero .eyebrow {
+    gap: 14px !important;
+    font-size: 14px !important;
+  }
+
+  .cases-page .hero .eyebrow::before {
+    width: 44px !important;
+    height: 3px !important;
+  }
+
+  .cases-page .hero h1 {
+    margin-top: 22px !important;
+    font-size: clamp(54px, 15.2vw, 62px) !important;
+    line-height: .87 !important;
+    letter-spacing: -.065em !important;
+    white-space: nowrap !important;
+  }
+
+  .cases-page .hero h1 > span {
+    display: block !important;
+    margin-top: .08em !important;
+    white-space: nowrap !important;
+  }
+
+  .cases-page .hero-text {
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+  }
+
+  .cases-page .hero-text strong {
+    margin-bottom: 20px !important;
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    letter-spacing: -.02em !important;
+  }
+
+  .cases-page .hero-text strong > span {
+    display: block !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .cases-page .hero-text > span {
+    display: block !important;
+    margin-top: .22em !important;
+    white-space: normal !important;
+    text-wrap: pretty;
+  }
+
+  .cases-page .hero-actions {
+    margin-top: 24px !important;
+  }
+
+  .cases-page .stage-board {
+    min-height: auto !important;
+    padding: 16px !important;
+    border-radius: 28px !important;
+  }
+
+  /* Remaining editorial pages: keep secondary title phrases intact. */
+  .service-page .service-hero h1 {
+    font-size: clamp(50px, 14vw, 56px) !important;
+    line-height: .88 !important;
+    letter-spacing: -.065em !important;
+  }
+
+  .service-page .service-hero h1 > .service-title-main {
+    display: block !important;
+    margin-top: 0 !important;
+    font-size: 1em !important;
+    white-space: nowrap !important;
+  }
+
+  .service-page .service-hero h1 > .service-title-outline {
+    display: block !important;
+    margin-top: .06em !important;
+    white-space: nowrap !important;
+  }
+
+  .careers-page .career-hero h1 {
+    font-size: clamp(50px, 14vw, 56px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.06em !important;
+  }
+
+  .careers-page .career-hero h1 > .career-title-main {
+    display: block !important;
+    margin-top: 0 !important;
+    font-size: 1em !important;
+    line-height: 1 !important;
+    letter-spacing: inherit !important;
+    white-space: nowrap !important;
+  }
+
+  .careers-page .career-hero h1 > .career-title-outline {
+    display: block !important;
+    margin-top: .18em !important;
+    font-size: .68em !important;
+    line-height: 1.06 !important;
+    letter-spacing: -.045em !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 359px) {
+  .nav {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+  }
+
+  .nav > .brand {
+    width: 48px !important;
+    max-width: 48px !important;
+    padding: 4px !important;
+  }
+
+  .nav > .brand .brand-name,
+  .nav > .brand > span:last-child {
+    display: none !important;
+  }
+
+  .nav > .nav-links a {
+    padding-inline: 10px !important;
+    font-size: 11.5px !important;
+  }
+}
+  </style>
+  <!-- /critical-style:phone.css -->
 </head>
 <body class="cases-page">
   <header class="nav">
@@ -1263,10 +2232,10 @@
     <section class="hero" aria-label="业务案例主题">
       <div class="hero-copy">
         <div>
-          <p class="eyebrow" data-reveal>Business Case</p>
-          <h1 data-reveal style="--reveal-index:1">业务案例<span>范围与样板</span></h1>
+          <p class="eyebrow">Business Case</p>
+          <h1 style="--reveal-index:1">业务案例<span>范围与样板</span></h1>
         </div>
-        <div class="hero-text" data-reveal style="--reveal-index:2">
+        <div class="hero-text" style="--reveal-index:2">
           <strong>
             <span>从业务范围到案例样板</span>
             <span>呈现鼎基的空间工程能力</span>
@@ -1283,22 +2252,22 @@
 
       <div class="stage-board" id="business-scope" aria-label="业务范围">
         <div class="board-head">
-          <b data-reveal>Business Scope</b>
-          <span data-reveal style="--reveal-index:1">多业态空间 · 一体化工程 · 稳定交付</span>
+          <b>Business Scope</b>
+          <span style="--reveal-index:1">多业态空间 · 一体化工程 · 稳定交付</span>
         </div>
         <div class="scope-grid">
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:1">餐饮装修<b>01</b></a>
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:2">酒店装修<b>02</b></a>
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:3">办公室装修<b>03</b></a>
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:4">连锁品牌装修<b>04</b></a>
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:5">别墅装修<b>05</b></a>
-          <a class="scope-item" href="dingji-service.html" data-reveal style="--reveal-index:6">售后维修<b>06</b></a>
-          <a class="scope-item" href="dingji-service.html" data-reveal style="--reveal-index:7">设计服务<b>07</b></a>
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:8">展厅装修<b>08</b></a>
-          <a class="scope-item" href="dingji-service.html" data-reveal style="--reveal-index:9">改造升级<b>09</b></a>
-          <a class="scope-item" href="#case-details" data-reveal style="--reveal-index:10">培训机构<b>10</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:1">餐饮装修<b>01</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:2">酒店装修<b>02</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:3">办公室装修<b>03</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:4">连锁品牌装修<b>04</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:5">别墅装修<b>05</b></a>
+          <a class="scope-item" href="dingji-service.html" style="--reveal-index:6">售后维修<b>06</b></a>
+          <a class="scope-item" href="dingji-service.html" style="--reveal-index:7">设计服务<b>07</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:8">展厅装修<b>08</b></a>
+          <a class="scope-item" href="dingji-service.html" style="--reveal-index:9">改造升级<b>09</b></a>
+          <a class="scope-item" href="#case-details" style="--reveal-index:10">培训机构<b>10</b></a>
         </div>
-        <div class="scope-caption" data-reveal style="--reveal-index:6">
+        <div class="scope-caption" style="--reveal-index:6">
           <p>
             <span>以设计深化为起点，以施工组织和成品制造支撑落地</span>
             <span>让不同业态、不同城市、不同门店保持稳定的工程品质</span>
@@ -1310,10 +2279,10 @@
 
     <section class="section" id="partners" aria-label="合作伙伴">
       <div class="section-title">
-        <h2 data-reveal>合作伙伴</h2>
-        <p data-reveal style="--reveal-index:1">从连锁餐饮到商业零售，鼎基以稳定的工程协同陪伴品牌完成门店标准与多城落地</p>
+        <h2>合作伙伴</h2>
+        <p style="--reveal-index:1">从连锁餐饮到商业零售，鼎基以稳定的工程协同陪伴品牌完成门店标准与多城落地</p>
       </div>
-      <div class="partner-cloud" data-reveal style="--reveal-index:2">
+      <div class="partner-cloud" style="--reveal-index:2">
         <div class="brand-rail">
           <a class="brand-chip" href="#case-details" style="--brand:#079c96"><span>watsons<br>屈臣氏</span></a>
           <a class="brand-chip" href="#case-details" style="--brand:#bb1026"><span>回味<br>鸭血粉丝汤</span></a>
@@ -1337,55 +2306,55 @@
 
     <section class="section" id="case-details" aria-label="案例详情">
       <div class="section-title">
-        <h2 data-reveal>案例详情</h2>
-        <p data-reveal style="--reveal-index:1">围绕业态、范围、交付节点与项目成果展开，让每个案例都能清楚呈现工程能力与落地质量</p>
+        <h2>案例详情</h2>
+        <p style="--reveal-index:1">围绕业态、范围、交付节点与项目成果展开，让每个案例都能清楚呈现工程能力与落地质量</p>
       </div>
       <div class="case-detail-grid">
-        <article class="case-detail-card" id="starbucks" style="--brand:#007144" data-reveal>
+        <article class="case-detail-card" id="starbucks" style="--brand:#007144">
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>Starbucks</small><h3>星巴克门店工程</h3><p>品牌标准、施工工艺与现场协调统一落地</p></div>
         </article>
-        <article class="case-detail-card" id="kfc" style="--brand:#b61f28;--reveal-index:1" data-reveal>
+        <article class="case-detail-card" id="kfc" style="--brand:#b61f28;--reveal-index:1">
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>KFC</small><h3>KFC 标准化门店</h3><p>面向连锁复制的快速施工与工程协同</p></div>
         </article>
-        <article class="case-detail-card" id="watsons" style="--brand:#079c96;--reveal-index:2" data-reveal>
+        <article class="case-detail-card" id="watsons" style="--brand:#079c96;--reveal-index:2">
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>Watsons</small><h3>屈臣氏零售空间</h3><p>商业零售空间的形象更新与细节落地</p></div>
         </article>
-        <a class="case-detail-card case-detail-link bixiangju-entry" id="bixiangju" href="/cases/bixiangju" style="--brand:#9b1b14;--reveal-index:3" data-reveal aria-label="查看必香居餐饮空间案例详情">
+        <a class="case-detail-card case-detail-link bixiangju-entry" id="bixiangju" href="/cases/bixiangju" style="--brand:#9b1b14;--reveal-index:3" aria-label="查看必香居餐饮空间案例详情">
           <div class="case-photo has-image">
-            <img src="/public/assets/cases/web/bixiangju-xingcheng-storefront-cover-1280.webp" srcset="/public/assets/cases/web/bixiangju-xingcheng-storefront-cover-640.webp 640w, /public/assets/cases/web/bixiangju-xingcheng-storefront-cover-1280.webp 1130w" sizes="(max-width: 640px) 90vw, 720px" alt="兴城路必香居店门头封面" width="1130" height="928" decoding="async" loading="lazy">
+            <picture><source type="image/avif" srcset="/public/assets/cases/cards-v2/bixiangju-xingcheng-storefront-cover-480.avif 480w, /public/assets/cases/cards-v2/bixiangju-xingcheng-storefront-cover-960.avif 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px"><img src="/public/assets/cases/cards-v2/bixiangju-xingcheng-storefront-cover-480.webp" srcset="/public/assets/cases/cards-v2/bixiangju-xingcheng-storefront-cover-480.webp 480w, /public/assets/cases/cards-v2/bixiangju-xingcheng-storefront-cover-960.webp 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px" alt="兴城路必香居店门头封面" width="960" height="960" decoding="async" loading="lazy"></picture>
           </div>
           <div class="case-detail-copy"><small>Dining Case</small><h3>必香居餐饮空间</h3><p>市井早茶与淮扬风味门店空间案例</p></div>
         </a>
-        <a class="case-detail-card case-detail-link featured-case-entry" id="shidingxiang" href="/cases/shidingxiang" style="--brand:#4d6f42;--reveal-index:4" data-reveal aria-label="查看何园石鼎香店案例详情">
+        <a class="case-detail-card case-detail-link featured-case-entry" id="shidingxiang" href="/cases/shidingxiang" style="--brand:#4d6f42;--reveal-index:4" aria-label="查看何园石鼎香店案例详情">
           <div class="case-photo has-image">
-            <img src="/public/assets/cases/web/shidingxiang-06-1280.webp" srcset="/public/assets/cases/web/shidingxiang-06-640.webp 640w, /public/assets/cases/web/shidingxiang-06-1280.webp 1280w, /public/assets/cases/web/shidingxiang-06-1920.webp 1920w" sizes="(max-width: 640px) 90vw, 720px" alt="何园石鼎香店门头封面" width="10000" height="5625" decoding="async" loading="lazy">
+            <picture><source type="image/avif" srcset="/public/assets/cases/cards-v2/shidingxiang-06-480.avif 480w, /public/assets/cases/cards-v2/shidingxiang-06-960.avif 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px"><img src="/public/assets/cases/cards-v2/shidingxiang-06-480.webp" srcset="/public/assets/cases/cards-v2/shidingxiang-06-480.webp 480w, /public/assets/cases/cards-v2/shidingxiang-06-960.webp 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px" alt="何园石鼎香店门头封面" width="960" height="960" decoding="async" loading="lazy"></picture>
           </div>
           <div class="case-detail-copy"><small>Dining Case</small><h3>石鼎香火锅空间</h3><p>非遗淮扬火锅餐饮空间案例</p></div>
         </a>
-        <a class="case-detail-card case-detail-link featured-case-entry" id="xiangyuan" href="/cases/xiangyuan" style="--brand:#6f4d31;--reveal-index:5" data-reveal aria-label="查看邗江大润发香园店案例详情">
+        <a class="case-detail-card case-detail-link featured-case-entry" id="xiangyuan" href="/cases/xiangyuan" style="--brand:#6f4d31;--reveal-index:5" aria-label="查看邗江大润发香园店案例详情">
           <div class="case-photo has-image">
-            <img src="/public/assets/cases/web/xiangyuan-05-1280.webp" srcset="/public/assets/cases/web/xiangyuan-05-640.webp 640w, /public/assets/cases/web/xiangyuan-05-1280.webp 1280w, /public/assets/cases/web/xiangyuan-05-1920.webp 1920w" sizes="(max-width: 640px) 90vw, 720px" alt="邗江大润发香园店门头封面" width="5760" height="3655" decoding="async" loading="lazy">
+            <picture><source type="image/avif" srcset="/public/assets/cases/cards-v2/xiangyuan-05-480.avif 480w, /public/assets/cases/cards-v2/xiangyuan-05-960.avif 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px"><img src="/public/assets/cases/cards-v2/xiangyuan-05-480.webp" srcset="/public/assets/cases/cards-v2/xiangyuan-05-480.webp 480w, /public/assets/cases/cards-v2/xiangyuan-05-960.webp 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px" alt="邗江大润发香园店门头封面" width="960" height="960" decoding="async" loading="lazy"></picture>
           </div>
           <div class="case-detail-copy"><small>Dining Case</small><h3>香园餐饮空间</h3><p>扬州早茶与淮扬菜餐饮空间案例</p></div>
         </a>
-        <a class="case-detail-card case-detail-link featured-case-entry" id="grid-coffee" href="/cases/grid-coffee" style="--brand:#8c7656;--reveal-index:6" data-reveal aria-label="查看 Grid Coffee 咖啡空间案例详情">
+        <a class="case-detail-card case-detail-link featured-case-entry" id="grid-coffee" href="/cases/grid-coffee" style="--brand:#8c7656;--reveal-index:6" aria-label="查看 Grid Coffee 咖啡空间案例详情">
           <div class="case-photo has-image">
-            <img src="/public/assets/cases/web/grid-coffee-01-1280.webp" srcset="/public/assets/cases/web/grid-coffee-01-640.webp 640w, /public/assets/cases/web/grid-coffee-01-1280.webp 1280w, /public/assets/cases/web/grid-coffee-01-1920.webp 1702w" sizes="(max-width: 640px) 90vw, 720px" alt="Grid Coffee 咖啡门店外立面封面" width="1702" height="1276" decoding="async" loading="lazy">
+            <picture><source type="image/avif" srcset="/public/assets/cases/cards-v2/grid-coffee-01-480.avif 480w, /public/assets/cases/cards-v2/grid-coffee-01-960.avif 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px"><img src="/public/assets/cases/cards-v2/grid-coffee-01-480.webp" srcset="/public/assets/cases/cards-v2/grid-coffee-01-480.webp 480w, /public/assets/cases/cards-v2/grid-coffee-01-960.webp 960w" sizes="(max-width: 780px) 100vw, (max-width: 1100px) 45vw, (max-width: 1680px) 29vw, 480px" alt="Grid Coffee 咖啡门店外立面封面" width="960" height="960" decoding="async" loading="lazy"></picture>
           </div>
           <div class="case-detail-copy"><small>Coffee Space</small><h3>Grid Coffee 咖啡空间</h3><p>咖啡棕、卡其与暖木色构成的品牌门店工程案例</p></div>
         </a>
-        <article class="case-detail-card" id="laoxiangji" style="--brand:#07843f" data-reveal>
+        <article class="case-detail-card" id="laoxiangji" style="--brand:#07843f">
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>Dining</small><h3>老乡鸡餐饮空间</h3><p>前厅体验、后厨机电与成品配套协同</p></div>
         </article>
-        <article class="case-detail-card" id="hema" style="--brand:#0085c8;--reveal-index:1" data-reveal>
+        <article class="case-detail-card" id="hema" style="--brand:#0085c8;--reveal-index:1">
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>Fresh Retail</small><h3>盒马鲜生商业空间</h3><p>综合工程、材料协调与现场管理一体推进</p></div>
         </article>
-        <article class="case-detail-card" id="crcc" style="--brand:#c91c26;--reveal-index:2" data-reveal>
+        <article class="case-detail-card" id="crcc" style="--brand:#c91c26;--reveal-index:2">
           <div class="case-photo"></div>
           <div class="case-detail-copy"><small>Engineering</small><h3>中国铁建综合工程</h3><p>办公配套、综合施工与品质管控稳定协作</p></div>
         </article>
@@ -1395,8 +2364,8 @@
     <section class="section" aria-label="合作咨询">
       <div class="cta">
         <div>
-          <h2 data-reveal>让下一个空间<br>成为样板</h2>
-          <p data-reveal style="--reveal-index:1">从首店试点到多城复制，鼎基以专业工程能力服务餐饮、办公、酒店、医疗及连锁品牌空间</p>
+          <h2>让下一个空间<br>成为样板</h2>
+          <p style="--reveal-index:1">从首店试点到多城复制，鼎基以专业工程能力服务餐饮、办公、酒店、医疗及连锁品牌空间</p>
         </div>
         <a class="btn primary" href="/dingji-contact.html">联系项目合作</a>
       </div>
@@ -1405,98 +2374,13 @@
   <footer>南京鼎基装饰工程有限公司 · TOP DECORATION</footer>
 
   <script>
-    const root = document.documentElement;
-    const nav = document.querySelector('.nav-links');
-    const navLinks = [...document.querySelectorAll('.nav-links a')];
-    const thumb = document.querySelector('.liquid-thumb');
-    const trail = document.querySelector('.liquid-trail');
-    const board = document.querySelector('.stage-board');
-    const hoverCards = [...document.querySelectorAll('.project-card')];
-    const revealItems = [...document.querySelectorAll('[data-reveal]')];
-    const brandChips = [...document.querySelectorAll('.brand-chip')];
-
-    function setLiquidTarget(target, immediate = false) {
-      if (!target || !nav || !thumb || !trail) return;
-      const navRect = nav.getBoundingClientRect();
-      const rect = target.getBoundingClientRect();
-      const x = rect.left - navRect.left;
-      const y = rect.top - navRect.top;
-      [thumb, trail].forEach((el) => {
-        el.style.setProperty('--x', `${x}px`);
-        el.style.setProperty('--y', `${y}px`);
-        el.style.setProperty('--w', `${rect.width}px`);
-        el.style.setProperty('--h', `${rect.height}px`);
-        if (immediate) {
-          el.style.transitionDuration = '0ms';
-          requestAnimationFrame(() => { el.style.transitionDuration = ''; });
-        }
-      });
+    // Only decorative ribbon motion needs visibility tracking; content is visible in HTML.
+    const ribbon = document.querySelector('.loop-ribbon span');
+    if (ribbon && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        ribbon.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+      }).observe(ribbon);
     }
-
-    function syncNavState(immediate = false) {
-      navLinks.forEach((link) => {
-        link.classList.toggle('active', link.getAttribute('href') === 'dingji-cases.html');
-      });
-      setLiquidTarget(document.querySelector('.nav-links a.active'), immediate);
-    }
-
-    function updatePointer(event) {
-      const mx = (event.clientX / innerWidth - .5) * 2;
-      const my = (event.clientY / innerHeight - .5) * 2;
-      root.style.setProperty('--mx', mx.toFixed(3));
-      root.style.setProperty('--my', my.toFixed(3));
-      if (board) {
-        const rect = board.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
-        board.style.setProperty('--board-x', `${x}%`);
-        board.style.setProperty('--board-y', `${y}%`);
-      }
-    }
-
-    navLinks.forEach((link) => {
-      link.addEventListener('pointerenter', () => setLiquidTarget(link));
-      link.addEventListener('focus', () => setLiquidTarget(link));
-      link.addEventListener('click', () => requestAnimationFrame(() => syncNavState()));
-    });
-    nav?.addEventListener('pointerleave', () => setLiquidTarget(document.querySelector('.nav-links a.active')));
-    window.addEventListener('resize', () => syncNavState(true));
-    window.addEventListener('hashchange', () => syncNavState());
-    window.addEventListener('pointermove', updatePointer, { passive: true });
-
-    hoverCards.forEach((card) => {
-      card.addEventListener('pointermove', (event) => {
-        const rect = card.getBoundingClientRect();
-        const px = (event.clientX - rect.left) / rect.width;
-        const py = (event.clientY - rect.top) / rect.height;
-        card.style.setProperty('--px', `${px * 100}%`);
-        card.style.setProperty('--py', `${py * 100}%`);
-        card.style.setProperty('--rx', `${-(py - .5) * 12}deg`);
-        card.style.setProperty('--ry', `${(px - .5) * 14}deg`);
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--rx', '0deg');
-        card.style.setProperty('--ry', '0deg');
-        card.style.setProperty('--push-z', '0px');
-      });
-    });
-    brandChips.forEach((chip) => {
-      chip.addEventListener('pointermove', (event) => {
-        const rect = chip.getBoundingClientRect();
-        chip.style.setProperty('--chip-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
-        chip.style.setProperty('--chip-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
-      });
-    });
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-    revealItems.forEach((item) => revealObserver.observe(item));
-    syncNavState(true);
   </script>
 </body>
 </html>

@@ -1,6 +1,42 @@
 (() => {
   "use strict";
 
+  // Warm at most four public HTML pages on deliberate hover/focus. Never delay a click.
+  // HTML uses a short browser cache, so normal navigation can reuse these responses.
+  const connection = navigator.connection;
+  const prefetched = new Set();
+  let prefetchTimer;
+  let fetching = false;
+  const prefetchOnIntent = (event) => {
+    if (document.hidden || connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || "")) return;
+    const link = event.target.closest('a[href]');
+    if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin || url.search || url.pathname === location.pathname) return;
+    if (!/^(\/|\/dingji-[a-z-]+\.html|\/cases\/[a-z-]+(?:\.html)?)$/.test(url.pathname)) return;
+    url.hash = '';
+    clearTimeout(prefetchTimer);
+    prefetchTimer = setTimeout(async () => {
+      if (fetching || prefetched.size >= 4 || prefetched.has(url.href)) return;
+      fetching = true;
+      prefetched.add(url.href);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000);
+      try {
+        const response = await fetch(url.href, { priority: 'low', credentials: 'same-origin', signal: controller.signal });
+        await response.arrayBuffer();
+      } catch (_) {
+        // A failed speculative request must not affect normal link navigation.
+      } finally {
+        clearTimeout(timeout);
+        fetching = false;
+      }
+    }, 180);
+  };
+  document.addEventListener('pointerover', prefetchOnIntent, { passive: true });
+  document.addEventListener('focusin', prefetchOnIntent);
+  document.addEventListener('pointerout', () => clearTimeout(prefetchTimer), { passive: true });
+
   const nav = document.querySelector(".nav-links");
   if (!nav) return;
   if (document.body.classList.contains("home-page") || document.body.classList.contains("about-page")) {

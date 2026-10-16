@@ -190,6 +190,15 @@
           "value": "public, max-age=300"
         }
       ]
+    },
+    {
+      "source": "/dingji-dining.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300"
+        }
+      ]
     }
   ],
   "rewrites": [
